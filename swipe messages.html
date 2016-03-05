@@ -1,0 +1,39 @@
+<html>
+<head>
+  <title>swipe.js </title>
+  <script type="text/javascript" src="js/swipe.js"></script>
+  <style>
+     .swipe{
+       overflow: hidden;
+       visibility: hidden;
+       position: relative;
+     }
+     .swipe-wrap {
+       overflow: hidden;
+       position: relative;
+     }
+     .swipe-wrap > div {
+       float:left;
+       width:100%;
+       position: relative;
+     }
+     </style>
+   </head>
+   <body>
+     <h2> Hot Spot App</h2>
+     <div id='ourslider' class='swipe'>
+      <div class='swipe-wrap'>
+         <div><img src="css/pic2.jpg"></div>
+         <div><img src="css/pic1.png"></div>
+       </div>
+     </div>
+     <script type="text/javascript">
+        ob = new Swipe(document.getElementById('ourslider'), {
+          startSlide: 4,
+          speed: 300,
+          auto: 4000,
+          continuous: true
+        });
+        </script>
+      </body>
+      </html>
