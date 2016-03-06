@@ -24,7 +24,7 @@
 
   <body>
     <ol class="breadcrumb navbar-fixed-top">
-      <li><a href="index.php">Home</a></li>
+      <li><a href="index.php">HotSpot</a></li>
       <li class="active">About</li>
     </ol>
 
