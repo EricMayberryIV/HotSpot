@@ -9,7 +9,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
 
     <!-- CSS links go here -->
-    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/about.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <!-- End CSS links -->
@@ -23,14 +23,43 @@
   </head>
 
   <body>
+    <ol class="breadcrumb navbar-fixed-top">
+      <li><a href="index.php">Home</a></li>
+      <li class="active">About</li>
+    </ol>
+
+    <br/>
+
     <div class="container">
 
       <div class="jumbotron">
         <h1 class="text-center">HotSpot</h1>
+        <?php
+        // Tutorial found at https://youtu.be/EwuVD3Zi-GI
+
+        // Connect to the database
+        $mysqli = NEW MySQLi('localhost', 'root', '', 'HOTSPOT');
+        echo "<h2 class=\"text-center\">About</h2>";
+
+        // Query the database
+        $resultSet = $mysqli->query("SELECT ABOUT_INFO from ABOUT");
+
+        // Count the returned rows
+        if($resultSet->num_rows != 0){
+
+        // Turn the results into an array
+          while($rows = $resultSet->fetch_assoc() )
+          {
+            $about = $rows['ABOUT_INFO'];
+            echo "<p class=\"text-justify text-center\">$about</p>";
+          };
+
+        // Display the results
+        }else{
+            echo "No results.";
+        };
+        ?>
       </div>
-      <a class="btn btn-primary btn-lg btn-block" href="#" role="button">Sign In</a>
-      <a class="btn btn-success btn-lg btn-block" href="#" role="button">Register</a>
-      <a class="btn btn-info btn-lg btn-block" href="about.php" role="button">About HotSpot</a>
 
     </div>
 
