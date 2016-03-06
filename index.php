@@ -19,7 +19,7 @@
       rel='stylesheet' type='text/css'>
     <!-- End font links -->
 
-    <title>HotSpot | About</title>
+    <title>HotSpot</title>
   </head>
 
   <body>
