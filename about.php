@@ -59,6 +59,7 @@
             echo "No results.";
         };
         ?>
+        <a class="btn btn-success btn-lg btn-block" href="#" role="button">Register</a>
       </div>
 
     </div>
