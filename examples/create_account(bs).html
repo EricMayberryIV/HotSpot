@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+body {
+    
+    background-color:#EEE8AA; 
+}
+
+h1 {
+    color: green;
+    text-align: center;
+    font-style: oblique;
+    
+  }
+
+}
+p {
+    font-family: "Times New Roman";
+    font-size: 20px;
+    }
+   
+}
+    
+    input, label {
+    float:left;
+    margin:5px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Create Account</h2>
+<form class="form-horizontal" role="form" method="post" action="createlogin.php">
+     <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" class="form-control" id="username" placeholder="create a username(6-19) characters">
+    
+    </div>
+     <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" placeholder="Create a password between(6-19) characters">
+    
+    </div>
+            
+  <div class="form-group">
+  <label for="Title">Title:</label>
+  <select class="form-control" id="Title">
+    <option>Admin</option>
+    <option>Director</option>
+    <option>Parent</option>
+  </select>
+</div>
+    
+    <div class="form-group">
+      <label for="SSN">SSN:</label>
+      <input type="password" class="form-control" id="SSN" placeholder="Enter Social Security Number">
+    </div>
+    
+             <div class="form-group">
+      <label for="empid">Emp ID:</label>
+      <input type="password" class="form-control" id="empid" placeholder="Employee ID">
+        </div>
+  
+   
+       
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-offset-2">
+            <input id="submit" name="submit" type="submit" value="Submit" class="btn btn-primary">
+        </div>
+    </div>
+   
+    </div>
+</form>
+
+</div>
+
+</body>
+</html>

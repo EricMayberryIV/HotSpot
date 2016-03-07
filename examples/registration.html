@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+body {
+    
+    background-color:#EEE8AA; 
+}
+
+h1 {
+    color: green;
+    text-align: center;
+    font-style: oblique;
+    
+  }
+
+}
+p {
+    font-family: "Times New Roman";
+    font-size: 20px;
+    }
+   
+}
+    
+    input, label {
+    float:left;
+    margin:5px;
+}
+   
+</style>
+</head>
+<body>
+
+<div data-role="page">
+
+    <h1>Create An Account</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+    <form method="post" action="createlogin.php">
+      <div class="ui-field-contain">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" data-clear-btn="true" placeholder="Create a Username...">
+      <br><label for="password">Password:</label>
+      <input type="password" name="password" id="password" data-clear-btn="true" placeholder="Create a Password...">
+      <br><label for="Title">Title:</label>
+        <select name="Title" id="Title">
+          <option value="admin">Admin</option>
+          <option value="director">Director</option>
+             <option value="staff">Staff</option>
+          <option value="parent">Parent</option>
+        </select>
+      <br><label for="SSN">Last 4 SSN:</label>
+      <input type="password" name="SSN" id="SSN" data-clear-btn="true">
+      <br><label for="emp_id">Emp Id:</label>
+      <input type="password" name="emp_id" id="emp_id" data-clear-btn="true" placeholder="Last 4 of SSN..">
+</div>
+<input type="submit" data-inline="true" value="Submit">
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

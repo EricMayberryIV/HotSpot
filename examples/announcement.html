@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+body {
+    
+    background-color:#EEE8AA; 
+}
+
+h1 {
+    color: green;
+    text-align: center;
+    font-style: oblique;
+    
+  }
+
+}
+p {
+    font-family: "Times New Roman";
+    font-size: 20px;
+    }
+   
+}
+    
+    input, label {
+    float:left;
+    margin:5px;
+}
+   
+</style>
+</head>
+<body>
+
+<div data-role="page">
+
+    <h1>Create Announcement</h1>
+  </div>
+  <div data-role="main" class="ui-content">
+    <form method="post" action="create_annc.php">
+      <div class="ui-field-contain">
+      <label for="annc_date">Date:</label>
+      <input type="text" name="annc_date" id="annc_date" data-clear-btn="true">
+      <br><label for="annc_time">Time:</label> 
+      <input type="text" name="annc_time" id="annc_time" data-clear-btn="true">
+      <br><label for="sender">From:</label>
+      <input type="text" name="sender" id="sender" data-clear-btn="true">
+      <br><label for="annc_cont">Memo:</label>
+      <input type="text" name="annc_cont" id="annc_cont" data-clear-btn="true">
+</div>
+<input type="submit" data-inline="true" value="Submit">
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

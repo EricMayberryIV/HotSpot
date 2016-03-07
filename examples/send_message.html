@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+body {
+    
+    background-color:#EEE8AA; 
+}
+
+h1 {
+    color: green;
+    text-align: center;
+    font-style: oblique;
+    
+  }
+
+}
+p {
+    font-family: "Times New Roman";
+    font-size: 20px;
+    }
+   
+}
+    
+    input, label {
+    float:left;
+    margin:5px;
+}
+   
+</style>
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header">
+    <h1>FAMU New Beginnings</h1>
+    <div data-role="navbar">
+      <ul>
+        <li><a href="home1.html">Home</a></li>
+        <li><a href="announcemet.html">Announcement</a></li>
+        <li><a href="send_message.html">Messages</a></li>
+        <li><a href="incident">Incident Report</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div data-role="main" class="ui-content" >
+    <form method="post" action="createmessage.php" >
+     
+       <lable>To:</lable>
+        <input type="text" name="receiver" id="receiver" >       
+        <br /><lable>From:</lable>
+        <input type="text" name="sender" id="sender" ><br />
+        <lable>Message:</lable>
+        <input type="text" name="content" id="content" > 
+        
+        </div>
+<input type="submit" data-inline="true" value="Submit">
+    </form>
+  </div>
+</div>
+
+</body>
+</html>
