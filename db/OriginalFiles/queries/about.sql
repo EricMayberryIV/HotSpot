@@ -1,0 +1,1 @@
+select ABOUT_INFO from ABOUT;
