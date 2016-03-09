@@ -1,3 +1,7 @@
+<?php
+  session_start();
+?>
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -11,7 +15,7 @@
     <!-- CSS links go here -->
     <link rel="stylesheet" type="text/css" href="css/home.css">
       <!-- home.css copied from tiles.css -->
-    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <!-- End CSS links -->
 
     <!-- Special font links go here -->
