@@ -20,35 +20,38 @@
     <!-- Special font links go here -->
     <!-- End font links -->
 
-    <title>[TITLE GOES HERE]</title>
+    <title>HotSpot | User Table</title>
   </head>
 
   <body>
     <div class="container">
-      <table class="table table-striped">
-        <?php
-        include("connection.php");
-        // Create connection
-        $conn = new mysqli($servername, $username, $password, $db);
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
+        <h1 class="text-center">HotSpot Users</h1><br/>
+        <table class="table table-striped">
+          <tr><th>First Name</th><th>Last Name</th><th>Username</th></tr>
+          <?php
+          include("connection.php");
+          // Create connection
+          $conn = new mysqli($servername, $username, $password, $db);
+          // Check connection
+          if ($conn->connect_error) {
+              die("Connection failed: " . $conn->connect_error);
+          }
 
-        $sql = "SELECT U_F_NAME, U_L_NAME, U_USERNAME FROM USER";
-        $result = $conn->query($sql);
+          $sql = "SELECT U_F_NAME, U_L_NAME, U_USERNAME FROM USER";
+          $result = $conn->query($sql);
 
-        if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<tr><td>".$row["U_F_NAME"]."</td><td>".$row["U_L_NAME"]."</td><td>".$row["U_USERNAME"]."</td></tr>";
-            }
-        } else {
-            echo "0 results";
-        }
-        $conn->close();
-        ?>
-      </table>
+          if ($result->num_rows > 0) {
+              // output data of each row
+              while($row = $result->fetch_assoc()) {
+                  echo "<tr><td>".$row["U_F_NAME"]."</td><td>".$row["U_L_NAME"].
+                  "</td><td>".$row["U_USERNAME"]."</td></tr>";
+              }
+          } else {
+              echo "0 results";
+          }
+          $conn->close();
+          ?>
+        </table>
     </div>
 
     <div class="modal fade" id="modal-1">
