@@ -29,321 +29,34 @@
     <div class="container">
       <!-- Begin row -->
       <div class="row">
-        <div class="item">
-          <div class="well">
-            <h4>Event 1 Title</h4>
-            <p>Event description - yadda yadda yadda</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 2 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-           </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 3 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 4 Title</h4>
-            <p>blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 5 Title</h4>
-            <p>blah blah blah.</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 6 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 7 Title</h4>
-            <p>blah blah blah blah blah blah blah blah h</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 8 Title</h4>
-            <p>blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 9 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 10 Title</h4>
-            <p>blah blah blah.</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 11 Title</h4>
-            <p>Event description - yadda yadda yadda</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 12 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-           </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 13 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 14 Title</h4>
-            <p>blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 15 Title</h4>
-            <p>blah blah blah.</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 16 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 17 Title</h4>
-            <p>blah blah blah blah blah blah blah blah h</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 18 Title</h4>
-            <p>blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 19 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 20 Title</h4>
-            <p>blah blah blah.</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 21 Title</h4>
-            <p>Event description - yadda yadda yadda</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 22 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-           </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 23 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 24 Title</h4>
-            <p>blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 25 Title</h4>
-            <p>blah blah blah.</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 26 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 27 Title</h4>
-            <p>blah blah blah blah blah blah blah blah h</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 28 Title</h4>
-            <p>blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 29 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 30 Title</h4>
-            <p>blah blah blah.</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 31 Title</h4>
-            <p>Event description - yadda yadda yadda</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 32 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-           </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 33 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 34 Title</h4>
-            <p>blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 35 Title</h4>
-            <p>blah blah blah.</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 36 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 37 Title</h4>
-            <p>blah blah blah blah blah blah blah blah h</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 38 Title</h4>
-            <p>blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 39 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 40 Title</h4>
-            <p>blah blah blah.</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 41 Title</h4>
-            <p>Event description - yadda yadda yadda</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 42 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-           </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 43 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 44 Title</h4>
-            <p>blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 45 Title</h4>
-            <p>blah blah blah.</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 46 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah blah
-            blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 47 Title</h4>
-            <p>blah blah blah blah blah blah blah blah h</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 48 Title</h4>
-            <p>blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 49 Title</h4>
-            <p>blah blah blah blah blah blah blah blah blah blah blah blah</p>
-          </div>
-        </div>
-        <div class="item">
-          <div class="well">
-            <h4>Event 50 Title</h4>
-            <p>blah blah blah.</p>
-          </div>
-        </div>
+        <?php
+        include("connection.php");
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $db);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "select E_TITLE, DATE_FORMAT(E_DATE,'%c/%e/%y'),
+        TIME_FORMAT(E_TIME_START,'%h:%i %p'), E_DESC, E_PRICE
+        from EVENT group by E_DATE order by E_TIME_START;";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                echo "<div class=\"item\"><div class=\"well\"><h4>".
+                $row["E_TITLE"]."</h4><p>".$row["E_DESC"]."</p><p class=\"small\">".
+                $row["DATE_FORMAT(E_DATE,'%c/%e/%y')"]." ".
+                $row["TIME_FORMAT(E_TIME_START,'%h:%i %p')"]." &#36;".
+                $row["E_PRICE"]."</p></div></div>";
+            }
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+        ?>
       </div>
       <!-- End row -->
 
