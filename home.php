@@ -47,10 +47,16 @@
             // output data of each row
             while($row = $result->fetch_assoc()) {
                 echo "<div class=\"item\"><div class=\"well\"><h4>".
-                $row["E_TITLE"]."</h4><p>".$row["E_DESC"]."</p><p class=\"small\">".
-                $row["DATE_FORMAT(E_DATE,'%c/%e/%y')"]." ".
-                $row["TIME_FORMAT(E_TIME_START,'%h:%i %p')"]." &#36;".
-                $row["E_PRICE"]."</p></div></div>";
+                $row["E_TITLE"].
+                "</h4><p class=\"text-justify\">".
+                $row["E_DESC"].
+                "</p><p class=\"small\">".
+                $row["DATE_FORMAT(E_DATE,'%c/%e/%y')"].
+                " | ".
+                $row["TIME_FORMAT(E_TIME_START,'%h:%i %p')"].
+                " | &#36;".
+                $row["E_PRICE"].
+                "</p></div></div>";
             }
         } else {
             echo "0 results";
