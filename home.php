@@ -1,11 +1,7 @@
 <?php
-  session_start();
-?>
-
+  session_start(); ?>
 <!DOCTYPE html>
-
 <html lang="en">
-
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,
@@ -17,9 +13,6 @@
       <!-- home.css copied from tiles.css -->
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <!-- End CSS links -->
-
-    <!-- Special font links go here -->
-    <!-- End font links -->
 
     <title>Home</title>
   </head>
@@ -44,45 +37,47 @@
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<div class=\"item\"><div class=\"well\"><h4>".
-                $row["E_TITLE"].
-                "</h4><p class=\"text-justify\">".
-                $row["E_DESC"].
-                "</p><p class=\"small\">".
-                $row["DATE_FORMAT(E_DATE,'%c/%e/%y')"].
-                " | ".
-                $row["TIME_FORMAT(E_TIME_START,'%h:%i %p')"].
-                " | &#36;".
-                $row["E_PRICE"].
-                "</p></div></div>";
-            }
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+            echo "<div class=\"item\"><div class=\"well\"><h4>".
+            $row["E_TITLE"].
+            "</h4><p class=\"text-justify\">".
+            $row["E_DESC"].
+            "</p><p class=\"small\">".
+            $row["DATE_FORMAT(E_DATE,'%c/%e/%y')"].
+            " | ".
+            $row["TIME_FORMAT(E_TIME_START,'%h:%i %p')"].
+            " | &#36;".
+            $row["E_PRICE"].
+            "</p></div></div>";
+          }
         } else {
-            echo "0 results";
+          echo "0 results";
         }
         $conn->close();
         ?>
       </div>
       <!-- End row -->
 
-<div class="modal fade" id="modal-1">
-      <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;
-            </button>
-            <h3 class="modal-title">Search</h3>
-          </div>
-          <div class="modal-body">
-            <div class="input-group">
-              <input type="text" class="  search-query form-control"
-              placeholder="Search HotSpot Events" />
-              <span class="input-group-btn">
-                <button class="btn btn-info" type="button">
-                  <span class=" glyphicon glyphicon-search">
-                  </span>
-                </button>
+      <div class="modal fade" id="modal-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;
+              </button>
+              <h3 class="modal-title">Search</h3>
+            </div>
+            <div class="modal-body">
+              <div class="input-group">
+                <input type="text" class="  search-query form-control"
+                placeholder="Search HotSpot Events" />
+                <span class="input-group-btn">
+                  <button class="btn btn-info" type="button">
+                    <span class=" glyphicon glyphicon-search">
+                    </span>
+                  </button>
+                </span>
+              </div>
             </div>
             <hr/>
             <div class="form-group">
@@ -207,25 +202,21 @@
                 <option>Suit/Tie</option>
               </select>
             </div>
-
-           </div>
-
-           <div class="modal-footer">
+          </div>
+          <div class="modal-footer">
             <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
             <a href="" class="btn btn-info">Search</a>
-           </div>
+          </div>
         </div>
       </div>
-    </div>
-
-
     </div>
     <!-- End Container -->
 
     <!-- Begin Navbar -->
     <ul class="nav nav-tabs nav-justified">
       <li role="presentation" data-toggle="modal" data-target="#modal-1">
-        <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true">
+        <a href="#"><span class="glyphicon glyphicon-search"
+          aria-hidden="true">
         </span></a>
       </li>
       <li role="presentation"><a href="fire.html"><span class="glyphicon
@@ -244,7 +235,5 @@
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- End JS -->
-
   </body>
-
 </html>

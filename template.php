@@ -1,6 +1,7 @@
 <?php
   session_start();
 ?>
+<!-- required for all php files within the application -->
 
 <!DOCTYPE html>
 
@@ -28,7 +29,8 @@
       [BODY CONTENT GOES HERE]
     </div>
 
-    <div class="modal fade" id="modal-1">
+    <div class="modal fade" id="modal-1"> <!-- search modal, required for all
+                                               php files -->
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header">
@@ -178,9 +180,6 @@
                </div>
             </div>
           </div>
-        </div>
-
-
         </div>
         <!-- End Container -->
 
