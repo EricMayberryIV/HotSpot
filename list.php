@@ -9,12 +9,12 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
 
     <!-- CSS links go here -->
-    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="css/list.css">
       <!-- home.css copied from tiles.css -->
     <link rel="stylesheet" href="css/bootstrap-theme.min.css">
     <!-- End CSS links -->
 
-    <title>Home</title>
+    <title>Events List</title>
   </head>
 
   <body>
@@ -36,9 +36,9 @@
         if ($result->num_rows > 0) {
           // output data of each row
           while($row = $result->fetch_assoc()) {
-            echo "<div class=\"item\"><div class=\"well\"><h4>".
+            echo "<div class=\"item\"><div class=\"well\"><h3>".
             $row["E_TITLE"].
-            "</h4><p class=\"text-justify\">".
+            "</h3><p class=\"text-justify\">".
             $row["E_DESC"].
             "</p><p class=\"small\">".
             $row["DATE_FORMAT(E_DATE,'%c/%e/%y')"].
