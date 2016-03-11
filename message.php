@@ -183,7 +183,7 @@
           </li>
           <li role="presentation"><a href="fire.php"><span class="glyphicon
           glyphicon-fire" aria-hidden="true"></span></a></li>
-          <li role="presentation"><a href="message.php"><span class="glyphicon
+          <li role="presentation" class="active"><a href="message.php"><span class="glyphicon
           glyphicon-comment" aria-hidden="true"></span></a></li>
           <li role="presentation">
             <a href="myprofile.php">

@@ -185,7 +185,7 @@
           glyphicon-fire" aria-hidden="true"></span></a></li>
           <li role="presentation"><a href="message.php"><span class="glyphicon
           glyphicon-comment" aria-hidden="true"></span></a></li>
-          <li role="presentation">
+          <li role="presentation" class="active">
             <a href="myprofile.php">
               <span class="glyphicon glyphicon-user" aria-hidden="true">
               </span>
