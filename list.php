@@ -31,7 +31,7 @@
         }
         $sql = "select E_TITLE, DATE_FORMAT(E_DATE,'%c/%e/%y'),
         TIME_FORMAT(E_TIME_START,'%h:%i %p'), E_DESC, E_PRICE from EVENT where
-        E_DATE >= CURDATE() group by E_DATE order by E_TIME_START DESC;";
+        E_DATE >= CURDATE() order by E_DATE, E_TIME_START;";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           // output data of each row
