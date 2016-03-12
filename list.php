@@ -29,14 +29,15 @@
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
         }
-        $sql = "select E_TITLE, DATE_FORMAT(E_DATE,'%c/%e/%y'),
+        $sql = "select E_ID, E_TITLE, DATE_FORMAT(E_DATE,'%c/%e/%y'),
         TIME_FORMAT(E_TIME_START,'%h:%i %p'), E_DESC, E_PRICE from EVENT where
         E_DATE >= CURDATE() order by E_DATE, E_TIME_START;";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           // output data of each row
           while($row = $result->fetch_assoc()) {
-            echo "<a href=\"#\" class=\"item\"><div class=\"well\"><h3>".
+            $EID = $row["E_ID"];
+            echo "<a href=\"test2.php?EID=$EID\" class=\"item\"><div class=\"well\"><h3>".
             $row["E_TITLE"].
             "</h3><p class=\"text-justify\">".
             $row["E_DESC"].
