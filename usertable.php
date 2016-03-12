@@ -205,7 +205,7 @@
 
                <div class="modal-footer">
                 <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
-                <a href="" class="btn btn-info">Search</a>
+                <a href="list.php" class="btn btn-info">Search</a>
                </div>
             </div>
           </div>

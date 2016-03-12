@@ -201,7 +201,7 @@
           </div>
           <div class="modal-footer">
             <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
-            <a href="" class="btn btn-info">Search</a>
+            <a href="list.php" class="btn btn-info">Search</a>
           </div>
         </div>
       </div><!-- End Search modal -->
@@ -215,11 +215,11 @@
           aria-hidden="true">
         </span></a>
       </li>
-      <li role="presentation"><a href="fire.html"><span class="glyphicon
+      <li role="presentation"><a href="fire.php"><span class="glyphicon
       glyphicon-fire" aria-hidden="true"></span></a></li>
-      <li role="presentation"><a href="message.html"><span class="glyphicon
+      <li role="presentation"><a href="message.php"><span class="glyphicon
       glyphicon-comment" aria-hidden="true"></span></a></li>
-      <li role="presentation"><a href="myprofile.html"><span class="glyphicon
+      <li role="presentation"><a href="myprofile.php"><span class="glyphicon
       glyphicon-user" aria-hidden="true"></span></a></li>
     </ul>
     <!-- End Navbar -->
