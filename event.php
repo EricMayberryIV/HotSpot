@@ -28,32 +28,24 @@
           die("Connection failed: " . $conn->connect_error);
       }
       $EID = $_GET['EID'];
-      $sql = "select E_ID,
-       E_CREATOR,
-       E_TITLE,
-       DATE_FORMAT(E_DATE,'%c/%e/%y'),
+      $sql = "select E_ID, E_CREATOR, E_TITLE, DATE_FORMAT(E_DATE,'%c/%e/%y'),
        TIME_FORMAT(E_TIME_START,'%h:%i %p'),
-       TIME_FORMAT(E_TIME_END,'%h:%i %p'),
-       E_DESC,
-       E_AGE_GROUP,
-       E_PRICE
-from EVENT
-where E_DATE >= CURDATE()
-	  AND E_PRIVATE = 'N'
-    AND E_ID = $EID
-order by E_DATE,
-         E_TIME_START";
+       TIME_FORMAT(E_TIME_END,'%h:%i %p'), E_DESC, E_AGE_GROUP, E_PRICE
+       from EVENT
+       where E_DATE >= CURDATE()
+       AND E_PRIVATE = 'N'
+       AND E_ID = $EID
+       order by E_DATE, E_TIME_START";
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-          $EID = $row["E_ID"];// store E_ID as a variable to pass
           echo "<div class=\"item\">
-          <div class=\"well\"><h3 class=\"text-center\">".
+          <div class=\"well\"><h2 class=\"text-center\">".
           $row["E_TITLE"].
-          "</h3><p class=\"text-justify\">".
+          "</h2><p class=\"text-justify\">".
           $row["E_DESC"].
-          "</p><p class=\"small\">".
+          "</p><p class=\"small\"><br/>".
           $row["DATE_FORMAT(E_DATE,'%c/%e/%y')"].
           " | ".
           $row["TIME_FORMAT(E_TIME_START,'%h:%i %p')"].
