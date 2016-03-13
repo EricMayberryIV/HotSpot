@@ -9,74 +9,84 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
 
     <!-- CSS links go here -->
-    <link rel="stylesheet" type="text/css" href="css/list.css">
-      <!-- home.css copied from tiles.css -->
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/event.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
     <!-- End CSS links -->
 
-    <title>Events List</title>
-  </head>
+    <!-- Special font links go here -->
+    <!-- End font links -->
 
+    <title>[TITLE GOES HERE]</title>
+  </head>
   <body>
-    <!-- Begin container -->
     <div class="container">
-      <!-- Begin row -->
-      <div class="row">
-        <?php
-        // Create connection
-        include("connection.php");
-        // Check connection
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
+      <?php
+      // Create connection
+      include("connection.php");
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+      $EID = $_GET['EID'];
+      $sql = "select E_ID,
+       E_CREATOR,
+       E_TITLE,
+       DATE_FORMAT(E_DATE,'%c/%e/%y'),
+       TIME_FORMAT(E_TIME_START,'%h:%i %p'),
+       TIME_FORMAT(E_TIME_END,'%h:%i %p'),
+       E_DESC,
+       E_AGE_GROUP,
+       E_PRICE
+from EVENT
+where E_DATE >= CURDATE()
+	  AND E_PRIVATE = 'N'
+    AND E_ID = $EID
+order by E_DATE,
+         E_TIME_START";
+      $result = $conn->query($sql);
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+          $EID = $row["E_ID"];// store E_ID as a variable to pass
+          echo "<div class=\"item\">
+          <div class=\"well\"><h3 class=\"text-center\">".
+          $row["E_TITLE"].
+          "</h3><p class=\"text-justify\">".
+          $row["E_DESC"].
+          "</p><p class=\"small\">".
+          $row["DATE_FORMAT(E_DATE,'%c/%e/%y')"].
+          " | ".
+          $row["TIME_FORMAT(E_TIME_START,'%h:%i %p')"].
+          " | &#36;".
+          $row["E_PRICE"].
+          "</p></div></div>";
         }
-        $sql = "select E_ID, E_TITLE, DATE_FORMAT(E_DATE,'%c/%e/%y'),
-        TIME_FORMAT(E_TIME_START,'%h:%i %p'), E_DESC, E_PRICE from EVENT where
-        E_DATE >= CURDATE() AND E_PRIVATE = 'N' order by E_DATE, E_TIME_START;";
-        $result = $conn->query($sql);
-        if ($result->num_rows > 0) {
-          // output data of each row
-          while($row = $result->fetch_assoc()) {
-            $EID = $row["E_ID"];// store E_ID as a variable to pass
-            echo "<a href=\"event.php?EID=$EID\" class=\"item\">
-            <div class=\"well\"><h3>".
-            $row["E_TITLE"].
-            "</h3><p class=\"text-justify\">".
-            $row["E_DESC"].
-            "</p><p class=\"small\">".
-            $row["DATE_FORMAT(E_DATE,'%c/%e/%y')"].
-            " | ".
-            $row["TIME_FORMAT(E_TIME_START,'%h:%i %p')"].
-            " | &#36;".
-            $row["E_PRICE"].
-            "</p></div></a>";
-          }
-        } else {
-          echo "0 results";
-        }
-        $conn->close();
-        ?>
-      </div>
-      <!-- End row -->
-      <div class="modal fade" id="modal-1">
-        <div class="modal-dialog modal-lg">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;
-              </button>
-              <h3 class="modal-title">Search</h3>
+      } else {
+        echo "0 results";
+      }
+      $conn->close();
+      ?>
+    </div>
+    <div class="modal fade" id="modal-1">
+      <!-- search modal, required for all php files -->
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;
+            </button>
+            <h3 class="modal-title">Search</h3>
+          </div>
+          <div class="modal-body">
+            <div class="input-group">
+              <input type="text" class="  search-query form-control"
+              placeholder="Search HotSpot Events" />
+              <span class="input-group-btn">
+                <button class="btn btn-info" type="button">
+                  <span class=" glyphicon glyphicon-search">
+                  </span>
+                </button>
+              </span>
             </div>
-            <div class="modal-body"><!-- Search text input form -->
-              <div class="input-group">
-                <input type="text" class="  search-query form-control"
-                placeholder="Search HotSpot Events" />
-                <span class="input-group-btn">
-                  <button class="btn btn-info" type="button">
-                    <span class=" glyphicon glyphicon-search">
-                    </span>
-                  </button>
-                </span>
-              </div>
-            </div> <!-- End Search text input form -->
             <hr/>
             <div class="form-group">
               <select class="form-control" id="sel1">
@@ -206,25 +216,28 @@
             <a href="list.php" class="btn btn-info">Search</a>
           </div>
         </div>
-      </div><!-- End Search modal -->
+      </div>
     </div>
-    <!-- End Container -->
+        <!-- End Container -->
 
-    <!-- Begin Navbar -->
-    <ul class="nav nav-tabs nav-justified">
-      <li role="presentation" data-toggle="modal" data-target="#modal-1">
-        <a href="#"><span class="glyphicon glyphicon-search"
-          aria-hidden="true">
-        </span></a>
-      </li>
-      <li role="presentation"><a href="fire.php"><span class="glyphicon
-      glyphicon-fire" aria-hidden="true"></span></a></li>
-      <li role="presentation"><a href="message.php"><span class="glyphicon
-      glyphicon-comment" aria-hidden="true"></span></a></li>
-      <li role="presentation"><a href="myprofile.php"><span class="glyphicon
-      glyphicon-user" aria-hidden="true"></span></a></li>
-    </ul>
-    <!-- End Navbar -->
+        <!-- Begin Navbar -->
+        <ul class="nav nav-tabs nav-justified">
+          <li role="presentation" data-toggle="modal" data-target="#modal-1">
+            <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true">
+            </span></a>
+          </li>
+          <li role="presentation"><a href="fire.php"><span class="glyphicon
+          glyphicon-fire" aria-hidden="true"></span></a></li>
+          <li role="presentation"><a href="message.php"><span class="glyphicon
+          glyphicon-comment" aria-hidden="true"></span></a></li>
+          <li role="presentation">
+            <a href="myprofile.php">
+              <span class="glyphicon glyphicon-user" aria-hidden="true">
+              </span>
+            </a>
+          </li>
+        </ul>
+        <!-- End Navbar -->
 
     <!-- The body of the page goes above this line, only scripts should
          go below this line. -->

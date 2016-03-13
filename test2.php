@@ -1,6 +1,6 @@
 <?php
 session_start();
-
-echo $_GET['EID'];
+$EID = $_GET['EID'];
+echo "$EID";
 
 ?>
