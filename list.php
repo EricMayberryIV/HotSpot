@@ -30,7 +30,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
         $sql = "select E_ID, E_TITLE, DATE_FORMAT(E_DATE,'%c/%e/%y'),
-        TIME_FORMAT(E_TIME_START,'%h:%i %p'), E_DESC, E_PRICE from EVENT where
+        TIME_FORMAT(E_TIME_START,'%h:%i %p'), SUBSTRING(E_DESC, 1, 150), E_PRICE from EVENT where
         E_DATE >= CURDATE() AND E_PRIVATE = 'N' order by E_DATE, E_TIME_START;";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
@@ -41,8 +41,8 @@
             <div class=\"well\"><h3>".
             $row["E_TITLE"].
             "</h3><p class=\"text-justify\">".
-            $row["E_DESC"].
-            "</p><p class=\"small\">".
+            $row["SUBSTRING(E_DESC, 1, 150)"].
+            "</p><br/><p class=\"small\">".
             $row["DATE_FORMAT(E_DATE,'%c/%e/%y')"].
             " | ".
             $row["TIME_FORMAT(E_TIME_START,'%h:%i %p')"].
