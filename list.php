@@ -57,9 +57,11 @@
         ?>
       </div>
       <!-- End row -->
+    </div>
 
-      <?php include("nav.php"); ?>
-
+    <div>
+    <?php include("nav.php"); ?>
+    </div>
     <!-- The body of the page goes above this line, only scripts should
          go below this line. -->
 
