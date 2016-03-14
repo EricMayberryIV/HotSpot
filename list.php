@@ -20,6 +20,8 @@
   <body>
     <!-- Begin container -->
     <div class="container">
+      <?php include("header.php"); ?>
+      <br style="line-height:38px;" />
       <!-- Begin row -->
       <div class="row">
         <?php

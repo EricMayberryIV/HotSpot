@@ -158,26 +158,26 @@
         </div>
       </div>
     </div>
-        <!-- End Container -->
+    <!-- End Container -->
 
-        <!-- Begin Navbar -->
-        <ul class="nav nav-tabs nav-justified">
-          <li role="presentation" data-toggle="modal" data-target="#modal-1">
-            <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true">
-            </span></a>
-          </li>
-          <li role="presentation"><a href="fire.php"><span class="glyphicon
-          glyphicon-fire" aria-hidden="true"></span></a></li>
-          <li role="presentation"><a href="message.php"><span class="glyphicon
-          glyphicon-comment" aria-hidden="true"></span></a></li>
-          <li role="presentation">
-            <a href="myprofile.php">
-              <span class="glyphicon glyphicon-user" aria-hidden="true">
-              </span>
-            </a>
-          </li>
-        </ul>
-        <!-- End Navbar -->
+    <!-- Begin Navbar -->
+    <ul class="nav nav-tabs nav-justified">
+      <li role="presentation" data-toggle="modal" data-target="#modal-1">
+        <a href="#"><span class="glyphicon glyphicon-search" aria-hidden="true">
+        </span></a>
+      </li>
+      <li role="presentation"><a href="fire.php"><span class="glyphicon
+      glyphicon-fire" aria-hidden="true"></span></a></li>
+      <li role="presentation"><a href="message.php"><span class="glyphicon
+      glyphicon-comment" aria-hidden="true"></span></a></li>
+      <li role="presentation">
+        <a href="myprofile.php">
+          <span class="glyphicon glyphicon-user" aria-hidden="true">
+          </span>
+        </a>
+      </li>
+    </ul>
+    <!-- End Navbar -->
 
     <!-- The body of the page goes above this line, only scripts should
          go below this line. -->

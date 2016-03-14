@@ -25,6 +25,8 @@
 
   <body>
     <div class="container">
+      <?php include("header.php"); ?>
+      <br style="line-height:38px;" />
       <h1 class="text-center">HotSpot Users</h1><br/>
       <table class="table table-striped">
         <thead>

@@ -20,6 +20,8 @@
   </head>
   <body>
     <div class="container">
+      <?php include("header.php"); ?>
+      <br style="line-height:38px;" />
       <?php
       // Create connection
       include("connection.php");
