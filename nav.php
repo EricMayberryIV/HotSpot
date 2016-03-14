@@ -5,13 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,
       shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
-
-    <!-- CSS links go here -->
-    <!-- End CSS links -->
-
-    <!-- Special font links go here -->
-    <!-- End font links -->
-
   </head>
   <body>
     <div class="modal fade" id="modal-1">
@@ -160,7 +153,7 @@
           </div>
           <div class="modal-footer">
             <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
-            <a href="list.php" class="btn btn-info">Search</a>
+            <a href="results.php" class="btn btn-info">Search</a>
           </div>
         </div>
       </div>
