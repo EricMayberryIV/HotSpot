@@ -29,7 +29,12 @@
       if ($conn->connect_error) {
           die("Connection failed: " . $conn->connect_error);
       }
-      $sql = "[PUT QUERY HERE]";
+      $sql = "[PUT QUERY HERE]"; // create if then for each dropdown if selection
+                                 // is made then add to variable (one per dropdown)
+                                 // then create another if/then if data exists
+                                 // add to "where statement", which will be
+                                 // amended to the main query if any variable
+                                 // were added/dropdowns selected.
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
         // output data of each row
