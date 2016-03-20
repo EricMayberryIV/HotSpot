@@ -64,7 +64,7 @@
             echo "No results.";
         };
         ?>
-        <a class="btn btn-success btn-lg btn-block" href="#" role="button">Register</a>
+        <a class="btn btn-success btn-lg btn-block" href="register_page.php" role="button">Register</a>
       </div>
 
     </div>

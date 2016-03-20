@@ -12,9 +12,10 @@
     <title>HotSpot Login</title>
   </head>
   <body>
-	</br>
-	</br>
-	</br>
+	<div class="jumbotron">
+        <h1 class="text-center">Login</h1>
+    </div>
+	
 	<div class="container">
 
 	<h4>Sign in using your Hotspot account: </h4>
@@ -22,12 +23,7 @@
     <form action="login.php" method="post">
 	
 	<div class="form-group">
-		<label for="exampleInputEmail1">Username or Email address:</label>
-		<input type="username" name="username" class="form-control" id="exampleInputEmail1" placeholder="Username">
-	</div>
-
-	<div class="form-group">
-		<label for="exampleInputPassword1">Password:</label>
+		<input type="username" name="username" class="form-control" id="exampleInputEmail1" placeholder="Username"></br>
 		<input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 	</div>
 

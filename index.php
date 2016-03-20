@@ -32,8 +32,9 @@
       <div class="jumbotron">
         <h1 class="text-center">HotSpot</h1>
       </div>
+	  
       <a class="btn btn-primary btn-lg btn-block" href="login_page.php" role="button">Sign In</a>
-      <a class="btn btn-success btn-lg btn-block" href="#" role="button">Register</a>
+      <a class="btn btn-success btn-lg btn-block" href="register_page.php" role="button">Register</a>
       <a class="btn btn-info btn-lg btn-block" href="about.php" role="button">About HotSpot</a>
 
     </div>
