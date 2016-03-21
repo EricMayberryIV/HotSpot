@@ -22,7 +22,13 @@
     <div class="container">
       <?php include("header.php"); ?>
       <br style="line-height:38px;" />
-      [BODY CONTENT GOES HERE]
+      <h1>Welcome 
+		<?php
+			include("connection.php");
+			
+			print_r($_SESSION);
+		?>
+	  </h1>
     </div>
 
     <?php include("nav.php"); ?>

@@ -18,8 +18,8 @@
 	
 	<div class="container">
 
-	<h4>Sign in using your Hotspot account: </h4>
-
+	<h4 align="center">Sign in using your Hotspot account</h4>
+	</br>
     <form action="login.php" method="post">
 	
 	<div class="form-group">

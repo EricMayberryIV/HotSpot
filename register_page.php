@@ -18,7 +18,7 @@
 
 	<div class="container">
 
-    <form action="register.php" method="post">
+    <form target="_self" action="register.php" method="post">
 	
 	<div class="form-group">
 		<!--<input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email"></br>-->
@@ -30,7 +30,7 @@
 		<input type="date" name="date" class="form-control"></br>
 	</div>
 
-	<button type="submit" class="btn btn-primary btn-lg">Submit</button>
+	<button type="submit" target="_parent" class="btn btn-primary btn-lg">Submit</button>
 
 	</form>
 
