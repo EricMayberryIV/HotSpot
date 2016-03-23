@@ -26,7 +26,6 @@
       <div class="row">
         <?php
         // Create connection
-		print_r($_SESSION);
         include("connection.php");
 		
         // Check connection

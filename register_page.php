@@ -1,7 +1,7 @@
-<!DOCTYPE html>
 <?php
 	session_start();
 ?>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -17,8 +17,15 @@
     </div>
 
 	<div class="container">
-
-    <form target="_self" action="register.php" method="post">
+	<center><b>
+	<?php
+		if (count($_POST) > 0)
+		{
+			include("register.php");
+		}
+	?>
+	</b></center>
+    <form target="_self" action="" method="post">
 	
 	<div class="form-group">
 		<!--<input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email"></br>-->

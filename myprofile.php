@@ -1,8 +1,25 @@
 <?php
-  session_start(); ?><!-- required for all php files within the application -->
+  session_start(); 
+?><!-- required for all php files within the application -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
+	<?php
+		include("header.php");
+		
+		include("connection.php");
+			// Check connection
+			if ($conn->connect_error) {
+				die("Connection failed: " . $conn->connect_error);
+			}
+			
+			$login = $_SESSION["login_user"];
+			$query = mysqli_query($conn, "select U_F_NAME, U_L_NAME from USER where U_USERNAME = '$login'");
+			$result= mysqli_fetch_assoc($query);
+			$fname = ucfirst($result['U_F_NAME']);
+			$lname = ucfirst($result['U_L_NAME']);
+			$user = ucfirst($login);
+	?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,
       shrink-to-fit=no">
@@ -16,19 +33,25 @@
     <!-- Special font links go here -->
     <!-- End font links -->
 
-    <title>[TITLE GOES HERE]</title>
+    <title>
+		<?php 
+			echo $login." Profile";
+		?>
+	</title>
   </head>
   <body>
     <div class="container">
       <?php include("header.php"); ?>
       <br style="line-height:38px;" />
-      <h1>Welcome 
+      <center>
+	  <h1>Welcome 
+	  </br>
 		<?php
-			include("connection.php");
-			
-			print_r($_SESSION);
+			echo $fname." ".$lname;
 		?>
 	  </h1>
+	  
+	  </center>
     </div>
 
     <?php include("nav.php"); ?>

@@ -50,6 +50,9 @@
 			// adds user information to auth table
 			mysqli_query($conn, "insert into AUTH (A_ID, A_PASSWORD, USER_U_ID)
 						values ('$id','$password','$id')");
+						
+			$_SESSION["login_user"] = $username;
+			header("location: myprofile.php");
 		}
 		
 		// Alerts user that their desired username is already taken
