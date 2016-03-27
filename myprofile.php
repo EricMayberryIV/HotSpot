@@ -45,32 +45,33 @@
   </head>
   <body>
     <div class="container">
-		<?php include("header.php"); ?>
-		<br style="line-height:50px;" />
-		<center>
-		<h4>Welcome
-		<?php
-			echo " ".$login;
-		?>
-		</h4>
-		<?php
-			echo '<img src="'.$image.'" class="img-circle" alt="Cinque Terre"
-      width="200" height="200">';
-		?>
-		<p>
-		<?php
-			// Outputs Name
-			echo '<br><strong>'."NAME: ".'</strong>'.$fname." ".$lname;
-			echo '<br>';
-			// Outputs Age
-			echo '<strong>'."AGE: ".'</strong>'.date_diff(date_create($birthdate),
-      date_create('today'))->y;
-		?>
-  </p><br/>
-    <!-- Trigger the modal with a button -->
-    <?php include("dm.php"); ?>
-		</center>
-	</div>
+  		<?php include("header.php"); ?>
+  		<br style="line-height:50px;" />
+  		<center>
+    		<h4>Welcome
+      		<?php
+      			echo " ".$login;
+      		?>
+    		</h4>
+    		<?php
+    			echo '<img src="'.$image.'" class="img-circle" alt="Cinque Terre"
+          width="200" height="200">';
+    		?>
+    		<p>
+    		<?php
+    			// Outputs Name
+    			echo "<br/><strong>".$fname." ".$lname."</strong>";
+    			echo '<br>';
+    			// Outputs Age
+    			echo "<strong>You're ".date_diff(date_create($birthdate),
+          date_create('today'))->y." years old!</strong>";
+    		?>
+        </p>
+        <br/>
+        <!-- Trigger the modal with a button -->
+        <?php include("dm.php"); ?>
+		  </center>
+	  </div>
 
     <?php include("nav.php"); ?>
 

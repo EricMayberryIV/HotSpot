@@ -35,6 +35,10 @@
           echo "<h2 class=\"text-center\">".$login."'s Messages</h2>";
           ?>
         </div>
+        <div>
+          <center><?php include("dm.php"); ?></center>
+        </div>
+        <br/>
         <div class="btn-group btn-group-justified ">
           <a href="#" class="btn btn-primary data-toggle collapsed"
           data-toggle="collapse" data-target="#invite">Invitations</a>
