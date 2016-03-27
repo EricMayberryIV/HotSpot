@@ -28,7 +28,7 @@
   			}
         $login = $_SESSION["login_user"];
         ?>
-      <br style="line-height:50px;" />
+      <br style="line-height:55px;" />
       <div>
         <div class="jumbotron">
           <?php
@@ -36,12 +36,12 @@
           ?>
         </div>
         <div class="btn-group btn-group-justified ">
-          <a href="#" class="btn btn-info data-toggle collapsed"
+          <a href="#" class="btn btn-primary data-toggle collapsed"
           data-toggle="collapse" data-target="#invite">Invitations</a>
-          <a href="#" class="btn btn-info data-toggle collapsed"
+          <a href="#" class="btn btn-primary data-toggle collapsed"
           data-toggle="collapse" data-target="#message">Messages</a>
         </div>
-        <br>
+        <br style="line-height:10px">
         <div id="invite" class="panel-collapse collapse">
           <ul class="list-group">
             <li class="list-group-item">Invite One</li>
@@ -66,7 +66,6 @@
 
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
-
     </script>
         <script>window.jQuery || document.write
         ('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>

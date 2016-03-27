@@ -26,7 +26,7 @@
 	?>
 	</b></center>
     <form target="_self" action="" method="post">
-	
+
 	<div class="form-group">
 		<!--<input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email"></br>-->
 		<input type="text" name="username" class="form-control"  placeholder="Username"></br>
@@ -34,7 +34,7 @@
 		<input type="password" name="confirm" class="form-control"  placeholder="Confirm Password"></br>
 		<input type="text" name="firstname" class="form-control" placeholder="First Name"></br>
 		<input type="text" name="lastname" class="form-control"  placeholder="Last Name"></br>
-		<input type="date" name="date" class="form-control"></br>
+		<input type="date" name="date" class="form-control" placeholder="DOB (YYYY-MM-DD)"></br>
 	</div>
 
 	<center><button type="submit" class="btn btn-primary btn-lg">Submit</button></center>

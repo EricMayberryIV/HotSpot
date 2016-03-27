@@ -1,31 +1,29 @@
 <?php
-  session_start(); 
+  session_start();
 ?><!-- required for all php files within the application -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<?php
-		include("header.php");
-		
-		include("connection.php");
+  	<?php
+  		include("header.php");
+  		include("connection.php");
 			// Check connection
 			if ($conn->connect_error) {
 				die("Connection failed: " . $conn->connect_error);
 			}
-			
 			$login = $_SESSION["login_user"];
-			$query = mysqli_query($conn, "select U_IMAGE, U_SCHOOL, U_DOB, U_F_NAME, U_L_NAME from USER where U_USERNAME = '$login'");
+			$query = mysqli_query($conn, "select U_IMAGE, U_SCHOOL, U_DOB, U_F_NAME,
+      U_L_NAME from USER where U_USERNAME = '$login'");
 			$result= mysqli_fetch_assoc($query);
 			$fname = $result['U_F_NAME'];
 			$lname = $result['U_L_NAME'];
 			$birthdate = $result['U_DOB'];
 			$user = $login;
 			$image = $result['U_IMAGE'];
-			
 			// Gives user a blank profile picture if they do not already have one set
 			if ($image == NULL)
-				$image = "img/profile/blank_profile.jpg";
-	?>
+			$image = "img/profile/blank_profile.jpg";
+  	?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,
       shrink-to-fit=no">
@@ -40,35 +38,38 @@
     <!-- End font links -->
 
     <title>
-		<?php 
-			echo $login." Profile";
-		?>
-	</title>
+    	<?php
+    		echo $login."'s Profile";
+    	?>
+  	</title>
   </head>
   <body>
     <div class="container">
 		<?php include("header.php"); ?>
-		<br style="line-height:38px;" />
+		<br style="line-height:50px;" />
 		<center>
-		<h4>Welcome 
+		<h4>Welcome
 		<?php
 			echo " ".$login;
 		?>
 		</h4>
 		<?php
-			echo '<img src="'.$image.'" class="img-circle" alt="Cinque Terre" width="200" height="200">';
+			echo '<img src="'.$image.'" class="img-circle" alt="Cinque Terre"
+      width="200" height="200">';
 		?>
-		</center>
 		<p>
 		<?php
 			// Outputs Name
-			echo '<b>'."NAME: ".'</b>'.$fname." ".$lname;
+			echo '<br><strong>'."NAME: ".'</strong>'.$fname." ".$lname;
 			echo '<br>';
 			// Outputs Age
-			echo '<b>'."AGE: ".'</b>'.date_diff(date_create($birthdate), date_create('today'))->y;
-			
+			echo '<strong>'."AGE: ".'</strong>'.date_diff(date_create($birthdate),
+      date_create('today'))->y;
 		?>
-		</p>
+  </p><br/>
+    <!-- Trigger the modal with a button -->
+    <?php include("dm.php"); ?>
+		</center>
 	</div>
 
     <?php include("nav.php"); ?>
