@@ -14,11 +14,17 @@
 			}
 			
 			$login = $_SESSION["login_user"];
-			$query = mysqli_query($conn, "select U_F_NAME, U_L_NAME from USER where U_USERNAME = '$login'");
+			$query = mysqli_query($conn, "select U_IMAGE, U_SCHOOL, U_DOB, U_F_NAME, U_L_NAME from USER where U_USERNAME = '$login'");
 			$result= mysqli_fetch_assoc($query);
-			$fname = ucfirst($result['U_F_NAME']);
-			$lname = ucfirst($result['U_L_NAME']);
-			$user = ucfirst($login);
+			$fname = $result['U_F_NAME'];
+			$lname = $result['U_L_NAME'];
+			$birthdate = $result['U_DOB'];
+			$user = $login;
+			$image = $result['U_IMAGE'];
+			
+			// Gives user a blank profile picture if they do not already have one set
+			if ($image == NULL)
+				$image = "img/profile/blank_profile.jpg";
 	?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,
@@ -41,18 +47,29 @@
   </head>
   <body>
     <div class="container">
-      <?php include("header.php"); ?>
-      <br style="line-height:38px;" />
-      <center>
-	  <h1>Welcome 
-	  </br>
+		<?php include("header.php"); ?>
+		<br style="line-height:38px;" />
+		<center>
+		<h4>Welcome 
 		<?php
-			echo $fname." ".$lname;
+			echo " ".$login;
 		?>
-	  </h1>
-	  
-	  </center>
-    </div>
+		</h4>
+		<?php
+			echo '<img src="'.$image.'" class="img-circle" alt="Cinque Terre" width="200" height="200">';
+		?>
+		</center>
+		<p>
+		<?php
+			// Outputs Name
+			echo '<b>'."NAME: ".'</b>'.$fname." ".$lname;
+			echo '<br>';
+			// Outputs Age
+			echo '<b>'."AGE: ".'</b>'.date_diff(date_create($birthdate), date_create('today'))->y;
+			
+		?>
+		</p>
+	</div>
 
     <?php include("nav.php"); ?>
 

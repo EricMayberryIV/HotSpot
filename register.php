@@ -9,8 +9,8 @@
 	
 	// Stores user information in variables
 		//$email = $_POST['email'];
-		$firstname = $_POST['firstname'];
-		$lastname = $_POST['lastname'];
+		$firstname = ucfirst(strtolower($_POST['firstname']));
+		$lastname = ucfirst(strtolower($_POST['lastname']));
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		$confirm = $_POST['confirm'];

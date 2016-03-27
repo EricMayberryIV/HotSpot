@@ -37,7 +37,7 @@
 		<input type="date" name="date" class="form-control"></br>
 	</div>
 
-	<button type="submit" target="_parent" class="btn btn-primary btn-lg">Submit</button>
+	<center><button type="submit" class="btn btn-primary btn-lg">Submit</button></center>
 
 	</form>
 
