@@ -13,15 +13,13 @@
 <title>Administrator Account Modification</title>
 </head>
 <div class="container">
-<?php
-  include("admin_modify_account.php");
-?>
+
 <ol class="breadcrumb navbar-fixed-top text-center">
   <li><a href="list.php"><font size="4">HotSpot Administrator</font></a></li>
 </ol>
 <br> <br>
 <h5 align="center"><u>SociaLyte Account Modification</u></h5>
-<form>
+<form action="admin_modify_account.php">
  SociaLyte Username:<br>
  <input type="text" name="username"><br><br>
  <input type="submit" value="Submit">

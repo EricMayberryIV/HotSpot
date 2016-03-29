@@ -1,14 +1,15 @@
 <?php
-include("connection.php");
+  session_start(); ?>
+
+<?php
+  include("connection.php");
+
   // Check connection
-    if ($conn->connect_error)
-    {
+  if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
-    }
-    echo "<br>""<br>""<br>""hello";
+  }
   // Stores user information in variables
-    //$email = $_POST['email'];
-    $username = $_POST['username'];
+    $username = isset($_POST['username']) ? $_POST['username'] : '';
     // Verifies that there are no empty inputs within the form
   	if ($username == "")
   		echo "Please be sure that you have filled in the username";
@@ -20,7 +21,7 @@ include("connection.php");
 
       if ($users > 0)
       {
-        $_SESSION["login_user"] = $username;
+        //$_SESSION["login_user"] = $username;
         header("location: admin_reports.html");
       }
       // Alerts user that their desired username is already taken
