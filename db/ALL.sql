@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 27, 2016 at 01:12 AM
+-- Host: localhost
+-- Generation Time: Mar 29, 2016 at 02:38 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.3
 
@@ -84,7 +84,7 @@ CREATE TABLE `dir_mess` (
   `DM_TO_ID` int(7) NOT NULL,
   `DM_SUBJECT` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `DM_MESSAGE` longtext COLLATE utf8_bin NOT NULL,
-  `DM_DATE_TIME` datetime NOT NULL,
+  `DM_DATE_TIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `USER_U_ID1` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -93,9 +93,9 @@ CREATE TABLE `dir_mess` (
 --
 
 INSERT INTO `dir_mess` (`DM_ID`, `DM_FROM_ID`, `DM_TO_ID`, `DM_SUBJECT`, `DM_MESSAGE`, `DM_DATE_TIME`, `USER_U_ID1`) VALUES
-(0, 2, 3, 'Hello', 'Just seeing if you''re going to the party', '2012-12-22 00:00:00', 0),
-(1, 0, 2, 'ADMIN MESSAGE', 'Please update your password', '2016-02-03 05:26:30', 0),
-(2, 1, 0, 'TESTING DMS', 'Testing DM capability', '2016-02-11 04:00:22', 0);
+(1, 2, 3, 'Hello', 'Just seeing if you''re going to the party', '2016-03-29 00:37:02', 2),
+(2, 0, 2, 'ADMIN MESSAGE', 'Please update your password', '2016-03-29 00:36:53', 0),
+(3, 1, 0, 'TESTING DMS', 'Testing DM capability', '2016-03-29 00:36:44', 1);
 
 -- --------------------------------------------------------
 
@@ -218,7 +218,7 @@ CREATE TABLE `invite` (
   `IN_EVENT` int(11) NOT NULL,
   `IN_INVITEE` int(7) NOT NULL,
   `IN_GOING` char(1) COLLATE utf8_bin NOT NULL,
-  `IN_ARRIVED` datetime DEFAULT NULL,
+  `IN_ARRIVED` timestamp NULL DEFAULT NULL,
   `EVENT_E_ID` int(11) NOT NULL,
   `USER_U_ID` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -228,9 +228,9 @@ CREATE TABLE `invite` (
 --
 
 INSERT INTO `invite` (`IN_ID`, `IN_EVENT`, `IN_INVITEE`, `IN_GOING`, `IN_ARRIVED`, `EVENT_E_ID`, `USER_U_ID`) VALUES
-(0, 0, 3, 'Y', NULL, 0, 3),
-(1, 0, 4, 'Y', NULL, 0, 4),
-(2, 0, 5, 'Y', NULL, 0, 5);
+(1, 0, 3, 'Y', NULL, 0, 3),
+(2, 0, 4, 'Y', NULL, 0, 4),
+(3, 0, 5, 'Y', NULL, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -487,132 +487,28 @@ ALTER TABLE `auth`
 -- Indexes for table `dir_mess`
 --
 ALTER TABLE `dir_mess`
-  ADD PRIMARY KEY (`DM_ID`),
-  ADD KEY `fk_DIR_MESS_USER1_idx1` (`USER_U_ID1`);
-
---
--- Indexes for table `event`
---
-ALTER TABLE `event`
-  ADD PRIMARY KEY (`E_ID`),
-  ADD KEY `fk_EVENT_USER1_idx` (`USER_U_ID`),
-  ADD KEY `fk_EVENT_LT_FOOD1_idx` (`LT_FOOD_F_FOOD_TYPE`),
-  ADD KEY `fk_EVENT_LT_ATTIRE1_idx` (`LT_ATTIRE_ATT_ATTIRE_TYPE`),
-  ADD KEY `fk_EVENT_LT_DRINK1_idx` (`LT_DRINK_D_DRINK_TYPE`),
-  ADD KEY `fk_EVENT_LT_AGE1_idx` (`LT_AGE_AGE_CODE`);
-
---
--- Indexes for table `feedback`
---
-ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`FB_ID`),
-  ADD KEY `fk_FEEDBACK_USER1_idx` (`USER_U_ID`),
-  ADD KEY `fk_FEEDBACK_EVENT1_idx` (`EVENT_E_ID`);
-
---
--- Indexes for table `group`
---
-ALTER TABLE `group`
-  ADD PRIMARY KEY (`GR_ID`),
-  ADD KEY `fk_GROUP_USER1_idx` (`USER_U_ID`);
+  ADD PRIMARY KEY (`DM_ID`);
 
 --
 -- Indexes for table `invite`
 --
 ALTER TABLE `invite`
-  ADD PRIMARY KEY (`IN_ID`),
-  ADD KEY `fk_INVITE_EVENT1_idx` (`EVENT_E_ID`),
-  ADD KEY `fk_INVITE_USER1_idx` (`USER_U_ID`);
+  ADD PRIMARY KEY (`IN_ID`);
 
 --
--- Indexes for table `lt_age`
---
-ALTER TABLE `lt_age`
-  ADD PRIMARY KEY (`AGE_CODE`);
-
---
--- Indexes for table `lt_attire`
---
-ALTER TABLE `lt_attire`
-  ADD PRIMARY KEY (`ATT_ATTIRE_TYPE`);
-
---
--- Indexes for table `lt_drink`
---
-ALTER TABLE `lt_drink`
-  ADD PRIMARY KEY (`D_DRINK_TYPE`);
-
---
--- Indexes for table `lt_food`
---
-ALTER TABLE `lt_food`
-  ADD PRIMARY KEY (`F_FOOD_TYPE`);
-
---
--- Indexes for table `rt_event`
---
-ALTER TABLE `rt_event`
-  ADD PRIMARY KEY (`RT_ID`),
-  ADD KEY `fk_RT_EVENT_EVENT1_idx` (`EVENT_E_ID`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`U_ID`);
-
---
--- Constraints for dumped tables
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Constraints for table `auth`
---
-ALTER TABLE `auth`
-  ADD CONSTRAINT `fk_AUTH_USER1` FOREIGN KEY (`USER_U_ID`) REFERENCES `user` (`U_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `dir_mess`
+-- AUTO_INCREMENT for table `dir_mess`
 --
 ALTER TABLE `dir_mess`
-  ADD CONSTRAINT `fk_DIR_MESS_USER1` FOREIGN KEY (`USER_U_ID1`) REFERENCES `user` (`U_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
+  MODIFY `DM_ID` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- Constraints for table `event`
---
-ALTER TABLE `event`
-  ADD CONSTRAINT `fk_EVENT_LT_AGE1` FOREIGN KEY (`LT_AGE_AGE_CODE`) REFERENCES `lt_age` (`AGE_CODE`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_EVENT_LT_ATTIRE1` FOREIGN KEY (`LT_ATTIRE_ATT_ATTIRE_TYPE`) REFERENCES `lt_attire` (`ATT_ATTIRE_TYPE`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_EVENT_LT_DRINK1` FOREIGN KEY (`LT_DRINK_D_DRINK_TYPE`) REFERENCES `lt_drink` (`D_DRINK_TYPE`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_EVENT_LT_FOOD1` FOREIGN KEY (`LT_FOOD_F_FOOD_TYPE`) REFERENCES `lt_food` (`F_FOOD_TYPE`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_EVENT_USER1` FOREIGN KEY (`USER_U_ID`) REFERENCES `user` (`U_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `feedback`
---
-ALTER TABLE `feedback`
-  ADD CONSTRAINT `fk_FEEDBACK_EVENT1` FOREIGN KEY (`EVENT_E_ID`) REFERENCES `event` (`E_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_FEEDBACK_USER1` FOREIGN KEY (`USER_U_ID`) REFERENCES `user` (`U_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `group`
---
-ALTER TABLE `group`
-  ADD CONSTRAINT `fk_GROUP_USER1` FOREIGN KEY (`USER_U_ID`) REFERENCES `user` (`U_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `invite`
+-- AUTO_INCREMENT for table `invite`
 --
 ALTER TABLE `invite`
-  ADD CONSTRAINT `fk_INVITE_EVENT1` FOREIGN KEY (`EVENT_E_ID`) REFERENCES `event` (`E_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_INVITE_USER1` FOREIGN KEY (`USER_U_ID`) REFERENCES `user` (`U_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `rt_event`
---
-ALTER TABLE `rt_event`
-  ADD CONSTRAINT `fk_RT_EVENT_EVENT1` FOREIGN KEY (`EVENT_E_ID`) REFERENCES `event` (`E_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
+  MODIFY `IN_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

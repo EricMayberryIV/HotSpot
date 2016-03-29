@@ -69,7 +69,7 @@
         </p>
         <br/>
         <!-- Trigger the modal with a button -->
-        <?php include("dm.php"); ?>
+        <?php include("dm.html"); ?>
 		  </center>
 	  </div>
 

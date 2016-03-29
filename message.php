@@ -21,22 +21,22 @@
   <body>
     <div class="container">
       <?php include("header.php");
-      include("connection.php");
+        include("connection.php");
   			// Check connection
   			if ($conn->connect_error) {
   				die("Connection failed: " . $conn->connect_error);
   			}
-        $login = $_SESSION["login_user"];
-        ?>
+        $uName = $_SESSION["login_user"];
+      ?>
       <br style="line-height:55px;" />
       <div>
         <div class="jumbotron">
           <?php
-          echo "<h2 class=\"text-center\">".$login."'s Messages</h2>";
+          echo "<h2 class=\"text-center\">".$uName."'s Messages</h2>";
           ?>
         </div>
         <div>
-          <center><?php include("dm.php"); ?></center>
+          <center><?php include("dm.html"); ?></center>
         </div>
         <br/>
         <div class="btn-group btn-group-justified ">
