@@ -36,7 +36,7 @@
     USER_U_ID1) VALUES ($msgFrom,$msgTo,'$msgSub','$msgBody',$msgFrom)";
 
   if(mysqli_query($conn, $sql)){
-    header('Location: ' . $_SERVER['HTTP_REFERER']);
+    header('Location: msgSuccess.php');
   } else {
     header('Location: msgError.php');
   }

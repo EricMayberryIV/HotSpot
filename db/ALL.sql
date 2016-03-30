@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 30, 2016 at 04:37 AM
+-- Generation Time: Mar 30, 2016 at 06:04 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.3
 
@@ -99,7 +99,11 @@ INSERT INTO `dir_mess` (`DM_ID`, `DM_FROM_ID`, `DM_TO_ID`, `DM_SUBJECT`, `DM_MES
 (3, 1, 0, 'TESTING DMS', 'Testing DM capability', '2016-03-29 00:36:44', 1),
 (4, 0, 9872264, '[ADMIN] Welcome!', 'Welcome to HotSpot!!', '2016-03-29 00:36:53', 0),
 (5, 1, 9872264, '[ADMIN] Test', 'Testing DM capability', '2016-03-29 00:36:44', 1),
-(6, 2, 9872264, 'Hello', 'Just seeing if you''re going to the party', '2016-03-29 00:37:02', 2);
+(6, 2, 9872264, 'Hello', 'Just seeing if you''re going to the party', '2016-03-29 00:37:02', 2),
+(7, 9101344, 9872264, 'Usability Testing', 'Testing messaging system...\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ', '2016-03-30 03:35:16', 9101344),
+(8, 9101344, 9872264, 'UAT', 'Testing success page.', '2016-03-30 03:50:36', 9101344),
+(9, 9101344, 9872264, 'testing success page 01', 'testing success page for messages', '2016-03-30 03:54:33', 9101344),
+(10, 9872264, 9872264, 'lkasdjflkajsdf', 'lk;sdjflkjalkjsdflk;jasdlkjflkjsdlk;fl;jkasdfasdf', '2016-03-30 04:00:23', 9872264);
 
 -- --------------------------------------------------------
 
@@ -517,7 +521,7 @@ ALTER TABLE `invite`
 -- AUTO_INCREMENT for table `dir_mess`
 --
 ALTER TABLE `dir_mess`
-  MODIFY `DM_ID` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `DM_ID` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `invite`
 --
