@@ -1,5 +1,6 @@
 <?php
-  session_start(); ?><!-- required for all php files within the application -->
+  session_start(); // required for all php files within the application
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,28 +37,113 @@
           ?>
         </div>
         <div>
-          <center><?php include("dm.html"); ?></center>
+          <center>
+            <?php include("dm.html"); ?>
+          </center>
         </div>
         <br/>
         <div class="btn-group btn-group-justified ">
-          <a href="#" class="btn btn-primary data-toggle collapsed"
-          data-toggle="collapse" data-target="#invite">Invitations</a>
-          <a href="#" class="btn btn-primary data-toggle collapsed"
-          data-toggle="collapse" data-target="#message">Messages</a>
+          <?php
+            $sql0 = "SELECT count(in_id)
+                     FROM `invite`
+                     WHERE in_invitee = 9872264";
+            $result0 = $conn->query($sql0);
+            if ($result0->num_rows > 0) {
+              // output data of each row
+              while($row0 = $result0->fetch_assoc()) {
+                $count0 = $row0["count(in_id)"];
+                echo "<a href=\"#\" class=\"btn btn-primary data-toggle collapsed\"
+                data-toggle=\"collapse\" data-target=\"#invite\">Invitations
+                <span class=\"badge\">".
+                $count0.
+                "</span></a>";
+              }
+            } else { echo "0";
+            }
+          ?>
+          <?php
+            $sql1 = "SELECT count(dm_id)
+                     FROM `dir_mess`
+                     WHERE dm_to_id = 9872264";
+            $result1 = $conn->query($sql1);
+            if ($result1->num_rows > 0) {
+              // output data of each row
+              while($row1 = $result1->fetch_assoc()) {
+                $count1 = $row1["count(dm_id)"];
+                echo "<a href=\"#\" class=\"btn btn-primary data-toggle collapsed\"
+                data-toggle=\"collapse\" data-target=\"#message\">Messages
+                <span class=\"badge\">".
+                $count1.
+                "</span></a>";
+              }
+            } else { echo "0";
+            }
+          ?>
         </div>
         <br style="line-height:10px">
+        <?php
+          $sql2 = "SELECT e.e_id,
+                          e.e_title,
+                          i.in_id,
+                          i.in_event,
+                          i.in_invitee,
+                          date_format(i.inv_time, '%m/%d/%Y')
+                   FROM event e, invite i
+                   WHERE e.e_id=i.in_event
+                   AND i.in_invitee = 9872264
+                   ORDER BY inv_time DESC;";
+          $result2 = $conn->query($sql2);
+        ?>
         <div id="invite" class="panel-collapse collapse">
           <ul class="list-group">
-            <li class="list-group-item">Invite One</li>
-            <li class="list-group-item">Invite Two</li>
-            <li class="list-group-item">Invite Three</li>
+            <?php
+                if ($result2->num_rows > 0) {
+                // output data of each row
+                while($row2 = $result2->fetch_assoc()) {
+                  $invID = $row2["in_id"];
+                  echo "<a href=\"inv.php?invID=$invID\"
+                  class=\"list-group-item\">".
+                  $row2["e_title"].
+                  "<span class=\"pull-right\">".
+                  $row2["date_format(i.inv_time, '%m/%d/%Y')"].
+                  "</span></a>";
+                }
+              } else {
+                echo "You don't have any messages... Yet.";
+              }
+            ?>
           </ul>
         </div>
+        <?php
+          $sql3 = "SELECT dm_id,
+                          dm_from_id,
+                          dm_to_id,
+                          dm_subject,
+                          dm_message,
+                          date_format(dm_date_time, '%m/%d/%Y')
+                   FROM `dir_mess`
+                   WHERE dm_to_id = 9872264
+                   ORDER BY dm_date_time DESC";
+          $result3 = $conn->query($sql3);
+        ?>
         <div id="message" class="panel-collapse collapse">
           <ul class="list-group">
-            <li class="list-group-item">Message One</li>
-            <li class="list-group-item">Message Two</li>
-            <li class="list-group-item">Message Three</li>
+            <?php
+                if ($result3->num_rows > 0) {
+                // output data of each row
+                while($row3 = $result3->fetch_assoc()) {
+                  $dmid = $row3["dm_id"];// store E_ID as a variable to pass
+                  echo "<a href=\"msg.php?dmid=$dmid\"
+                  class=\"list-group-item\">".
+                  $row3["dm_subject"].
+                  "<span class=\"pull-right\">".
+                  $row3["date_format(dm_date_time, '%m/%d/%Y')"].
+                  "</span></a>";
+                }
+              } else {
+                echo "You don't have any messages... Yet.";
+              }
+            ?>
           </ul>
         </div>
       </div>
