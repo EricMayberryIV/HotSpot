@@ -28,6 +28,13 @@
   				die("Connection failed: " . $conn->connect_error);
   			}
         $uName = $_SESSION["login_user"];
+        $login = $_SESSION["login_user"];
+  			$query = mysqli_query($conn, "SELECT u_username,
+                                             u_id
+                                      FROM USER
+                                      WHERE U_USERNAME = '$login'");
+  			$result= mysqli_fetch_assoc($query);
+  			$uid = $result['u_id'];
       ?>
       <br style="line-height:55px;" />
       <div>
@@ -46,7 +53,7 @@
           <?php
             $sql0 = "SELECT count(in_id)
                      FROM `invite`
-                     WHERE in_invitee = 9872264";
+                     WHERE in_invitee = $uid";
             $result0 = $conn->query($sql0);
             if ($result0->num_rows > 0) {
               // output data of each row
@@ -64,7 +71,7 @@
           <?php
             $sql1 = "SELECT count(dm_id)
                      FROM `dir_mess`
-                     WHERE dm_to_id = 9872264";
+                     WHERE dm_to_id = $uid";
             $result1 = $conn->query($sql1);
             if ($result1->num_rows > 0) {
               // output data of each row
@@ -90,7 +97,7 @@
                           date_format(i.inv_time, '%m/%d/%Y')
                    FROM event e, invite i
                    WHERE e.e_id=i.in_event
-                   AND i.in_invitee = 9872264
+                   AND i.in_invitee = $uid
                    ORDER BY inv_time DESC;";
           $result2 = $conn->query($sql2);
         ?>
@@ -109,7 +116,8 @@
                   "</span></a>";
                 }
               } else {
-                echo "You don't have any messages... Yet.";
+                echo "<li class=\"list-group-item\">You don't have any
+                invitations... Yet.</li>";
               }
             ?>
           </ul>
@@ -122,7 +130,7 @@
                           dm_message,
                           date_format(dm_date_time, '%m/%d/%Y')
                    FROM `dir_mess`
-                   WHERE dm_to_id = 9872264
+                   WHERE dm_to_id = $uid
                    ORDER BY dm_date_time DESC";
           $result3 = $conn->query($sql3);
         ?>
@@ -141,7 +149,8 @@
                   "</span></a>";
                 }
               } else {
-                echo "You don't have any messages... Yet.";
+                echo "<li class=\"list-group-item\">You don't have any
+                messages... Yet.</li>";
               }
             ?>
           </ul>

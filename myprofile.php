@@ -70,6 +70,10 @@
         <br/>
         <!-- Trigger the modal with a button -->
         <?php include("dm.html"); ?>
+        <br/>
+        <a href="logout.php" class="btn btn-warning btn-lg btn-block">
+          Log Out
+        </a>
 		  </center>
 	  </div>
 
