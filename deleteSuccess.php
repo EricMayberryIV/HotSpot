@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,
       shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
-    <meta http-equiv="refresh" content="3;url=<?php echo $_SERVER['HTTP_REFERER'];?>" />
+    <meta http-equiv="refresh" content="3;url=message.php" />
 
     <!-- CSS links go here -->
     <link rel="stylesheet" type="text/css" href="css/template.css">
@@ -23,16 +23,16 @@
     <!-- Special font links go here -->
     <!-- End font links -->
 
-    <title>HotSpot | Error Page</title>
+    <title>HotSpot | Delete Success</title>
   </head>
   <body>
     <?php include("header.php"); ?>
     <div class="container"><br/>
       <br/>
       <div class="jumbotron">
-        <h3 class="text-center">Oh, so satisfying....</h3>
+        <h3 class="text-center">Well, I hope you didn't want that...</h3>
         <br/>
-        <h4 class="text-center">(that feeling when the message goes through)</h4>
+        <h4 class="text-center">Either way, it's been deleted.</h4>
       </div>
     </div>
 

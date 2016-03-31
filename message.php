@@ -1,5 +1,10 @@
 <?php
   session_start(); // required for all php files within the application
+  if (!isset($_SESSION["login_user"]))
+  {
+  header("Location: index.php");
+  die();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +64,8 @@
               // output data of each row
               while($row0 = $result0->fetch_assoc()) {
                 $count0 = $row0["count(in_id)"];
-                echo "<a href=\"#\" class=\"btn btn-primary data-toggle collapsed\"
+                echo "<a href=\"#\" class=\"btn btn-primary data-toggle
+                collapsed\"
                 data-toggle=\"collapse\" data-target=\"#invite\">Invitations
                 <span class=\"badge\">".
                 $count0.

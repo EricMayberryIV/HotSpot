@@ -1,5 +1,10 @@
 <?php
   session_start();
+  if (!isset($_SESSION["login_user"]))
+  {
+  header("Location: index.php");
+  die();
+  }
   // Create connection
   include("connection.php");
 
