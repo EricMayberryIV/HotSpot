@@ -29,6 +29,11 @@
   <title>HotSpot Edit Profile</title>
 </head>
 <body>
+	<center><b>
+	<?php
+		include("editorchanges.php");
+	?>
+	</b></center>
 	<br>
 <!---------------------------------------------------------------------------- TABS ----------------------------------------------------------------------------->
   <ul class="nav nav-tabs">
@@ -46,23 +51,24 @@
 		</div>
 		
 		<div class="container">
-			<form target="_self" action="editorchanges.php" method="post">
+			<form target="_self" action="" method="post" enctype="multipart/form-data">
 	
 				<div class="form-group">
 					<!--<input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email"></br>-->
 					<b>Change Profile Picture:</b>
-					<input type="file" name="profilepic"><br>
+					<input type="file" accept="image/*" name="profilepic"><br>
 					
 					<?php
 						echo '<input type="text" name="username" class="form-control"  placeholder="Username" value="'.$toedit.'"></br>';
 						echo '<input type="text" name="firstname" class="form-control" placeholder="First Name" value="'.$fname.'"></br>';
 						echo '<input type="text" name="lastname" class="form-control"  placeholder="Last Name" value="'.$lname.'"></br>';
-						echo '<input type="tel" name="phone" class="form-control" placeholder="Phone Number: Example 8501234567" value="'.$phone.'"></br>';
-						echo '<input type="date" name="date" class="form-control" value="'.$birthdate.'"></br>';
+						echo '<input type="text" name="school" class="form-control" placeholder="Name of School" value="'.$school.'"></br>';
+						echo '<input type="tel" name="phone" class="form-control" placeholder="Phone Number: Example 5551234567" value="'.$phone.'"></br>';
+						echo '<input type="date" name="date" class="form-control" value="'.$birthdate.'">';
 					?>
 				</div>
 
-				<center><button type="submit" class="btn btn-primary btn-lg">Make Changes</button></center>
+				<center><button type="submit" class="btn btn-primary btn-lg" name="edit_form">Make Changes</button></center>
 
 			</form>
 		</div>
@@ -79,12 +85,12 @@
 	
 				<div class="form-group">
 					<!--<input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email"></br>-->
-					<input type="password" name="password" class="form-control"  placeholder="Current Password"></br>
-					<input type="password" name="password" class="form-control"  placeholder="New Password"></br>
+					<input type="password" name="current" class="form-control"  placeholder="Current Password"></br>
+					<input type="password" name="new" class="form-control"  placeholder="New Password"></br>
 					<input type="password" name="confirm" class="form-control"  placeholder="Confirm New Password"></br>
 				</div>
 
-				<center><button type="submit" class="btn btn-primary btn-lg">Change Password</button></center>
+				<center><button type="submit" class="btn btn-primary btn-lg" name="password_form">Change Password</button></center>
 
 			</form>
 		</div>
@@ -104,15 +110,16 @@
 					<input type="password" name="password" class="form-control"  placeholder="Password"></br>
 				</div>
 
-				<center><button type="submit" class="btn btn-primary btn-lg">Delete Account</button></center>
+				<center><button type="submit" class="btn btn-primary btn-lg" name="delete_form">Delete Account</button></center>
 
 			</form>
 		</div>
 		
     </div>
 	<!---------------------------------------------------------------------------- END ----------------------------------------------------------------------------->
-  
-  </div>
+
+	<a href="myprofile.php" style="position: relative; right-padding: 5%; bottom: 0px">Cancel</a>
+	</div>
 
 </body>
 </html>

@@ -14,8 +14,9 @@
 			}
 			
 			$login = $_SESSION["login_user"];
-			$query = mysqli_query($conn, "select U_ID, U_IMAGE, U_SCHOOL, U_DOB, U_F_NAME, U_L_NAME from USER where U_USERNAME = '$login'");
+			$query = mysqli_query($conn, "select U_ACCT_TYPE, U_ID, U_IMAGE, U_SCHOOL, U_DOB, U_F_NAME, U_L_NAME from USER where U_USERNAME = '$login'");
 			$result= mysqli_fetch_assoc($query);
+			$acct = $result['U_ACCT_TYPE'];
 			$fname = $result['U_F_NAME'];
 			$lname = $result['U_L_NAME'];
 			$birthdate = $result['U_DOB'];
@@ -95,7 +96,7 @@
 					<a href="#" class="list-group-item" role="button">
 					<table style="width:100%">
 						<tr>
-							<td>
+							<td style="width:90%">
 HTML;
 								$etitle = $row['E_TITLE'];
 								$edate = $row['E_DATE'];
@@ -106,7 +107,7 @@ HTML;
 							
 							echo <<< HTML
 							</td>
-							<td>
+							<td style="width:10%">
 								<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 							</td>
 						</tr>
@@ -162,6 +163,14 @@ HTML;
 		<!---------------------------------------------------------------------------- PROFILE EDIT AND LOGOUT BUTTONS ---------------------------------------------------->
 		<a class="btn btn-default btn-block" href="profile_edit.php">Edit Profile</a>
 		<br>
+		
+		<?php
+			if ($acct == 'A')
+			{
+				echo '<a class="btn btn-default btn-block" href="list.php">Admin</a>';
+				echo '<br>';
+			}
+		?>
 		
 		<a class="btn btn-default btn-block" href="logout.php">Logout</a>
 		<!---------------------------------------------------------------------------- BUTTONS END ---------------------------------------------------->
