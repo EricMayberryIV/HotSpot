@@ -4,6 +4,10 @@
   margin-bottom: 10px;
 }
 
+.jumbotron button{
+  margin-bottom: 15px !important;
+}
+
 h3{
   margin-top: 10px;
   margin-bottom: 15px;

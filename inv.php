@@ -17,7 +17,8 @@
     <!-- CSS links go here -->
     <link rel="stylesheet" type="text/css" href="css/event.css">
     <link rel="stylesheet" type="text/css" href="css/inv.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css"
+    href="css/bootstrap-theme.min.css">
     <!-- End CSS links -->
 
     <!-- Special font links go here -->
@@ -41,7 +42,8 @@
                      TIME_FORMAT(e.e_date, '%c/%e/%y'),
                      TIME_FORMAT(e.e_time_start, '%l:%i %p'),
                      e.e_desc,
-                     i.in_going
+                     i.in_going,
+                     e.e_id
               FROM invite i,
                    event e,
                    user u
@@ -61,6 +63,7 @@
           $sender=$row["u_username"];
           $subject=$row["e_title"];
           $accepted=$row["in_going"];
+          $eid=$row["e_id"];
         }
       } else {
         echo "Database Error, try reloading the invitation.";
@@ -80,6 +83,8 @@
         <br style="line-height:5px;" /><hr>
         <center><small>Event Date: <?php echo "$eDate" ?> @ <?php echo "$eTime"; ?></small></center>
         <p class="text-justify"><?php echo "$eDesc" ?></p>
+        <br style="line-height:30px;"/>
+        <a class="btn btn-block btn-primary" href="/event.php?EID=<?php echo "$eid"; ?>" role="button">View Event</a><br/>
       </div>
       <div class="btn-group btn-group-justified" role="group">
         <a class="btn btn-danger" href="delInv.php?invid=<?php echo $invid; ?>" role="button">Delete</a>
@@ -95,7 +100,7 @@
 
          }
        ?>
-        <a class="btn btn-default" href="message.php" role="button">Close</a>
+        <a class="btn btn-default" onclick="history.go(-1);" role="button">Close</a>
       </div>
     </div>
 

@@ -41,7 +41,6 @@
        TIME_FORMAT(E_TIME_END,'%h:%i %p'), E_DESC, E_AGE_GROUP, E_PRICE
        from EVENT
        where E_DATE >= CURDATE()
-       AND E_PRIVATE = 'N'
        AND E_ID = $EID
        order by E_DATE, E_TIME_START";
       $result = $conn->query($sql);
@@ -59,7 +58,8 @@
           $row["TIME_FORMAT(E_TIME_START,'%h:%i %p')"].
           " | &#36;".
           $row["E_PRICE"].
-          "</p></div></div>";
+          "</p><br><a class=\"btn btn-block btn-primary\" role=\"button\" onclick=\"history.go(-1);\">Back</a>
+          <br/></div></div>";
         }
       } else {
         echo "0 results";
