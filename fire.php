@@ -23,6 +23,9 @@
       <?php include("header.php"); ?>
       <br style="line-height:38px;" />
       [BODY CONTENT GOES HERE]
+      <?php
+        echo $test;
+      ?>
     </div>
 
     <?php include("nav.php"); ?>

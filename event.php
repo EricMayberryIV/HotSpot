@@ -40,8 +40,7 @@
        TIME_FORMAT(E_TIME_START,'%h:%i %p'),
        TIME_FORMAT(E_TIME_END,'%h:%i %p'), E_DESC, E_AGE_GROUP, E_PRICE
        from EVENT
-       where E_DATE >= CURDATE()
-       AND E_ID = $EID
+       where E_ID = $EID
        order by E_DATE, E_TIME_START";
       $result = $conn->query($sql);
       if ($result->num_rows > 0) {
