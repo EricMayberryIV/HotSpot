@@ -77,7 +77,7 @@
         <a type="button" class="btn btn-info" data-toggle="modal"
          data-target="#myModal">Reply
        </a>
-        <a class="btn btn-default" href="message.php" role="button">Close</a>
+        <a class="btn btn-default" onclick="history.go(-1);" role="button">Close</a>
       </div>
     </div>
 

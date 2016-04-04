@@ -17,19 +17,23 @@
             <h3 class="modal-title">Search</h3>
           </div>
           <div class="modal-body">
-            <div class="input-group">
-              <input type="text" class="  search-query form-control"
-              placeholder="Search HotSpot Events" />
-              <span class="input-group-btn">
-                <button class="btn btn-info" type="button">
-                  <span class=" glyphicon glyphicon-search">
-                  </span>
-                </button>
-              </span>
-            </div>
+            <form action="searchQuery.php" method="post">
+                <div class="form-group">
+                  <div class="input-group">
+                    <input type="text" name="Q" class="search-query form-control"
+                    placeholder="Search HotSpot Events" >
+                    <span class="input-group-btn">
+                      <button class="btn btn-info" type="input">
+                        <span class="glyphicon glyphicon-search">
+                        </span>
+                      </button>
+                    </span>
+                  </div>
+            	  </div>
+            </form>
             <hr/>
             <div class="form-group">
-              <select class="form-control" id="sel1">
+              <select class="form-control" id="event">
                 <option>Event Type</option>
                 <option>Club/Bar</option>
                 <option>Street Party</option>
@@ -38,7 +42,7 @@
               </select>
             </div>
             <div class="form-group">
-              <select class="form-control" id="sel2">
+              <select class="form-control" id="age">
                 <option>Age Group</option>
                 <option>Teens</option>
                 <option>College</option>
@@ -51,7 +55,7 @@
               </select>
             </div>
             <div class="form-group">
-              <select class="form-control" id="sel3">
+              <select class="form-control" id="food">
                 <option>Food</option>
                 <option>Afghan</option>
                 <option>African</option>
@@ -130,7 +134,7 @@
               </select>
             </div>
             <div class="form-group">
-              <select class="form-control" id="sel4">
+              <select class="form-control" id="drink">
                 <option>Drinks</option>
                 <option>Alcoholic Beverages</option>
                 <option>Juice</option>
@@ -140,7 +144,7 @@
               </select>
             </div>
             <div class="form-group">
-              <select class="form-control" id="sel5">
+              <select class="form-control" id="attire">
                 <option>Attire</option>
                 <option>Black Tie Event</option>
                 <option>All Black</option>
