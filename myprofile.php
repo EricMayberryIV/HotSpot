@@ -23,7 +23,7 @@
 			$user = $login;
 			$image = $result['U_IMAGE'];
 			$school = $result['U_SCHOOL'];
-			$_SESSION["edit_user"] = "$login";
+			$_SESSION["edit_user"] = "$login"; 
 			// Gives user a blank profile picture if they do not already have one set
 			if ($image == NULL)
 				$image = "img/profile/blank_profile.jpg";
@@ -78,29 +78,31 @@
 		</center>
 		
 		<!---------------------------------------------------------------------------- MY EVENTS DROPDOWN ---------------------------------------------------->
-		<a class="btn btn-default btn-block" href="#" class="btn btn-info data-toggle collapsed"
+		<a class="btn btn-primary btn-block" href="#" class="btn btn-info data-toggle collapsed"
           data-toggle="collapse" data-target="#events">My Events</a>
 		
         <div id="events" class="panel-collapse collapse">
           <ul class="list-group">
-            <a href="#" class="list-group-item" role="button">Create New Event</a>
+            <a href="event_edit.php?EID=new" class="list-group-item" role="button">Create New Event</a>
 			<?php
-				$query = "select E_TITLE, E_DATE, SUBSTRING(E_DESC, 1, 100) from EVENT, USER where U_USERNAME = '$login' and E_CREATOR = U_ID order by E_DATE";
+				$query = "select E_ID, E_TITLE, E_DATE, SUBSTRING(E_DESC, 1, 100) from EVENT, USER where U_USERNAME = '$login' and E_CREATOR = U_ID order by E_DATE";
 				$result = $conn->query($query);
 				//$rows = mysqli_num_rows($query);
 				$result = $conn->query($query);
 				if ($result->num_rows > 0) {
 				// output data of each row
 				while($row = $result->fetch_assoc()) {
+					$e_id = $row['E_ID'];
+					$etitle = $row['E_TITLE'];
+					$edate = $row['E_DATE'];
+					$edesc = $row['SUBSTRING(E_DESC, 1, 100)'];
+					
+					echo '<a href="event_edit.php?EID='.$e_id.'" class="list-group-item" role="button">';
 					echo <<< HTML
-					<a href="#" class="list-group-item" role="button">
 					<table style="width:100%">
 						<tr>
 							<td style="width:90%">
 HTML;
-								$etitle = $row['E_TITLE'];
-								$edate = $row['E_DATE'];
-								$edesc = $row['SUBSTRING(E_DESC, 1, 100)'];
 								echo '<b>'.$etitle.'</b><br>';
 								echo '<i>'.$edate.'</i><br>';
 								echo '<p>'.$edesc.'</p>';
@@ -137,7 +139,7 @@ HTML;
 		<br>
 		
 		<!---------------------------------------------------------------------------- MY GROUPS DROPDOWN ---------------------------------------------------->
-          <a class="btn btn-default btn-block" href="#" class="btn btn-info data-toggle collapsed"
+          <a class="btn btn-primary btn-block" href="#" class="btn btn-info data-toggle collapsed"
           data-toggle="collapse" data-target="#groups">My Groups</a>
 		
         <div id="groups" class="panel-collapse collapse">
@@ -161,18 +163,18 @@ HTML;
 		<br>
 		
 		<!---------------------------------------------------------------------------- PROFILE EDIT AND LOGOUT BUTTONS ---------------------------------------------------->
-		<a class="btn btn-default btn-block" href="profile_edit.php">Edit Profile</a>
+		<a class="btn btn-primary btn-block" href="profile_edit.php">Edit Profile</a>
 		<br>
 		
 		<?php
 			if ($acct == 'A')
 			{
-				echo '<a class="btn btn-default btn-block" href="list.php">Admin</a>';
+				echo '<a class="btn btn-primary btn-block" href="list.php">Admin</a>';
 				echo '<br>';
 			}
 		?>
 		
-		<a class="btn btn-default btn-block" href="logout.php">Logout</a>
+		<a class="btn btn-primary btn-block" href="logout.php">Logout</a>
 		<!---------------------------------------------------------------------------- BUTTONS END ---------------------------------------------------->
 		
 	</div>

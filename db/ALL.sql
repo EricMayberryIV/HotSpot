@@ -1,9 +1,9 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 27, 2016 at 01:12 AM
+-- Host: localhost
+-- Generation Time: Mar 30, 2016 at 06:04 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.3
 
@@ -69,7 +69,8 @@ INSERT INTO `auth` (`A_ID`, `A_PASSWORD`, `A_TWITTER`, `A_GOOGLE`, `A_FACEBOOK`,
 (4, '84802nlsnifb', 2147483647, 2147483647, 6628282892, 4),
 (5, ',na,sdna84HH', 2147483647, 345634673, 234522345, 5),
 (9101344, 'thotnificenth03', NULL, NULL, NULL, 9101344),
-(9365608, 'dogsbite', NULL, NULL, NULL, 9365608);
+(9365608, 'dogsbite', NULL, NULL, NULL, 9365608),
+(9872264, 'daGszZ5DZvuJWA55', NULL, NULL, NULL, 9872264);
 
 -- --------------------------------------------------------
 
@@ -84,7 +85,7 @@ CREATE TABLE `dir_mess` (
   `DM_TO_ID` int(7) NOT NULL,
   `DM_SUBJECT` varchar(255) COLLATE utf8_bin DEFAULT NULL,
   `DM_MESSAGE` longtext COLLATE utf8_bin NOT NULL,
-  `DM_DATE_TIME` datetime NOT NULL,
+  `DM_DATE_TIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `USER_U_ID1` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -93,9 +94,16 @@ CREATE TABLE `dir_mess` (
 --
 
 INSERT INTO `dir_mess` (`DM_ID`, `DM_FROM_ID`, `DM_TO_ID`, `DM_SUBJECT`, `DM_MESSAGE`, `DM_DATE_TIME`, `USER_U_ID1`) VALUES
-(0, 2, 3, 'Hello', 'Just seeing if you''re going to the party', '2012-12-22 00:00:00', 0),
-(1, 0, 2, 'ADMIN MESSAGE', 'Please update your password', '2016-02-03 05:26:30', 0),
-(2, 1, 0, 'TESTING DMS', 'Testing DM capability', '2016-02-11 04:00:22', 0);
+(1, 2, 3, 'Hello', 'Just seeing if you''re going to the party', '2016-03-29 00:37:02', 2),
+(2, 0, 2, 'ADMIN MESSAGE', 'Please update your password', '2016-03-29 00:36:53', 0),
+(3, 1, 0, 'TESTING DMS', 'Testing DM capability', '2016-03-29 00:36:44', 1),
+(4, 0, 9872264, '[ADMIN] Welcome!', 'Welcome to HotSpot!!', '2016-03-29 00:36:53', 0),
+(5, 1, 9872264, '[ADMIN] Test', 'Testing DM capability', '2016-03-29 00:36:44', 1),
+(6, 2, 9872264, 'Hello', 'Just seeing if you''re going to the party', '2016-03-29 00:37:02', 2),
+(7, 9101344, 9872264, 'Usability Testing', 'Testing messaging system...\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ', '2016-03-30 03:35:16', 9101344),
+(8, 9101344, 9872264, 'UAT', 'Testing success page.', '2016-03-30 03:50:36', 9101344),
+(9, 9101344, 9872264, 'testing success page 01', 'testing success page for messages', '2016-03-30 03:54:33', 9101344),
+(10, 9872264, 9872264, 'lkasdjflkajsdf', 'lk;sdjflkjalkjsdflk;jasdlkjflkjsdlk;fl;jkasdfasdf', '2016-03-30 04:00:23', 9872264);
 
 -- --------------------------------------------------------
 
@@ -146,7 +154,7 @@ CREATE TABLE `event` (
 INSERT INTO `event` (`E_ID`, `E_CREATOR`, `E_TITLE`, `E_LAT_DEG`, `E_LAT_MIN`, `E_LAT_SEC`, `E_LONG_DEG`, `E_LONG_MIN`, `E_LONG_SEC`, `E_DATE`, `E_TIME_START`, `E_TIME_END`, `E_TYPE`, `E_DESC`, `E_PRIVATE`, `E_AGE_GROUP`, `E_PRICE`, `E_FOOD`, `E_FOOD_TYPE`, `E_DRINK`, `E_DRINK_TYPE`, `E_BYO`, `E_ATTIRE`, `E_ATTIRE_TYPE`, `E_SPONSOR`, `E_SPONSOR_TITLE`, `USER_U_ID`, `LT_FOOD_F_FOOD_TYPE`, `LT_ATTIRE_ATT_ATTIRE_TYPE`, `LT_DRINK_D_DRINK_TYPE`, `LT_AGE_AGE_CODE`, `E_MUSIC_TYPE`) VALUES
 (0, 2, 'Party at my place', 30, 25, 14, 84, 17, 44, '2016-02-18', '20:00:00', '23:59:59', 'House Party', 'Come Party at my house. We don''t have to have a reason to party!!!', 'Y', '10', 0.00, 'Y', 'BRZ', 'Y', 'T', 'Y', 'Y', 'C', 'Y', 'PEPSI', 2, 'BRZ', 'C', 'T', 10, NULL),
 (1, 3, 'Party', 30, 25, 14, 84, 17, 44, '2016-01-14', '16:00:00', '22:00:00', 'Party', 'Come to the party', 'N', '10', 0.00, 'Y', 'BUR', 'Y', 'T', 'Y', 'Y', 'C', 'Y', 'Emily', 3, 'BUR', 'C', 'T', 10, NULL),
-(2, 2, 'Party at my place', 30, 25, 14, 84, 17, 44, '2016-04-18', '20:00:00', '23:59:00', 'House Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Y', '10', 0.00, 'Y', 'BRZ', 'Y', 'T', 'Y', 'N', NULL, 'N', NULL, 2, 'BRZ', NULL, 'T', 10, NULL),
+(2, 2, 'Party, Party, Party!!!', 30, 25, 14, 84, 17, 44, '2016-04-18', '20:00:00', '23:59:00', 'House Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Y', '10', 0.00, 'Y', 'BRZ', 'Y', 'T', 'Y', 'N', NULL, 'N', NULL, 2, 'BRZ', NULL, 'T', 10, NULL),
 (3, 3, 'Party', 30, 25, 14, 84, 17, 44, '2016-07-14', '16:00:00', '22:00:00', 'Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'N', '10', 0.00, 'Y', 'BUR', 'Y', 'T', 'Y', 'N', NULL, 'N', NULL, 3, 'BUR', NULL, 'T', 10, NULL),
 (4, 2, 'Get-Together', 30, 25, 14, 84, 17, 44, '2016-05-22', '20:00:00', NULL, 'House Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'N', '10', 0.00, 'N', NULL, 'Y', 'A', 'Y', 'N', NULL, 'N', NULL, 2, NULL, NULL, 'A', 10, NULL),
 (5, 5, 'Throw-Down', 30, 20, 22, 84, 50, 40, '2016-05-20', '21:00:00', NULL, 'House Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'N', '10', 0.00, 'N', NULL, 'Y', 'A', 'Y', 'N', NULL, 'N', NULL, 5, NULL, NULL, 'A', 10, NULL),
@@ -217,8 +225,9 @@ CREATE TABLE `invite` (
   `IN_ID` int(11) NOT NULL,
   `IN_EVENT` int(11) NOT NULL,
   `IN_INVITEE` int(7) NOT NULL,
+  `INV_TIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `IN_GOING` char(1) COLLATE utf8_bin NOT NULL,
-  `IN_ARRIVED` datetime DEFAULT NULL,
+  `IN_ARRIVED` timestamp NULL DEFAULT NULL,
   `EVENT_E_ID` int(11) NOT NULL,
   `USER_U_ID` int(7) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -227,10 +236,12 @@ CREATE TABLE `invite` (
 -- Dumping data for table `invite`
 --
 
-INSERT INTO `invite` (`IN_ID`, `IN_EVENT`, `IN_INVITEE`, `IN_GOING`, `IN_ARRIVED`, `EVENT_E_ID`, `USER_U_ID`) VALUES
-(0, 0, 3, 'Y', NULL, 0, 3),
-(1, 0, 4, 'Y', NULL, 0, 4),
-(2, 0, 5, 'Y', NULL, 0, 5);
+INSERT INTO `invite` (`IN_ID`, `IN_EVENT`, `IN_INVITEE`, `INV_TIME`, `IN_GOING`, `IN_ARRIVED`, `EVENT_E_ID`, `USER_U_ID`) VALUES
+(1, 0, 3, '2016-03-30 01:37:13', 'Y', NULL, 0, 3),
+(2, 0, 4, '2016-03-30 01:37:13', 'Y', NULL, 0, 4),
+(3, 0, 5, '2016-03-30 01:37:13', 'Y', NULL, 0, 5),
+(6, 0, 9872264, '2016-03-30 01:37:13', '', NULL, 0, 5),
+(7, 2, 9872264, '2016-03-30 01:37:13', '', NULL, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -464,7 +475,8 @@ INSERT INTO `user` (`U_ID`, `U_ACCT_TYPE`, `U_USERNAME`, `U_F_NAME`, `U_L_NAME`,
 (4, 'L', 'LizzardMan', 'Cory', 'Davis', '1996-09-29', 30, 27, 26, 84, 19, 51, 'FSU', 8505554321, NULL),
 (5, 'L', 'SouthernSweetie', 'Rebecca', 'Jones', '1997-04-03', 30, 27, 22, 84, 16, 19, 'FSU', 8505551234, NULL),
 (9101344, 'L', 'ThotM@tt1ck', 'Ratkisha', 'Mathis', '1995-12-28', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL),
-(9365608, 'L', 'Barker&Biter93', 'Trenique', 'Barker', '1993-10-11', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL);
+(9365608, 'L', 'Barker&Biter93', 'Trenique', 'Barker', '1993-10-11', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL),
+(9872264, 'L', 'Eric', 'Eric', 'Mayberry', '1977-04-14', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -487,132 +499,34 @@ ALTER TABLE `auth`
 -- Indexes for table `dir_mess`
 --
 ALTER TABLE `dir_mess`
-  ADD PRIMARY KEY (`DM_ID`),
-  ADD KEY `fk_DIR_MESS_USER1_idx1` (`USER_U_ID1`);
+  ADD PRIMARY KEY (`DM_ID`);
 
 --
 -- Indexes for table `event`
 --
 ALTER TABLE `event`
-  ADD PRIMARY KEY (`E_ID`),
-  ADD KEY `fk_EVENT_USER1_idx` (`USER_U_ID`),
-  ADD KEY `fk_EVENT_LT_FOOD1_idx` (`LT_FOOD_F_FOOD_TYPE`),
-  ADD KEY `fk_EVENT_LT_ATTIRE1_idx` (`LT_ATTIRE_ATT_ATTIRE_TYPE`),
-  ADD KEY `fk_EVENT_LT_DRINK1_idx` (`LT_DRINK_D_DRINK_TYPE`),
-  ADD KEY `fk_EVENT_LT_AGE1_idx` (`LT_AGE_AGE_CODE`);
-
---
--- Indexes for table `feedback`
---
-ALTER TABLE `feedback`
-  ADD PRIMARY KEY (`FB_ID`),
-  ADD KEY `fk_FEEDBACK_USER1_idx` (`USER_U_ID`),
-  ADD KEY `fk_FEEDBACK_EVENT1_idx` (`EVENT_E_ID`);
-
---
--- Indexes for table `group`
---
-ALTER TABLE `group`
-  ADD PRIMARY KEY (`GR_ID`),
-  ADD KEY `fk_GROUP_USER1_idx` (`USER_U_ID`);
+  ADD PRIMARY KEY (`E_ID`);
 
 --
 -- Indexes for table `invite`
 --
 ALTER TABLE `invite`
-  ADD PRIMARY KEY (`IN_ID`),
-  ADD KEY `fk_INVITE_EVENT1_idx` (`EVENT_E_ID`),
-  ADD KEY `fk_INVITE_USER1_idx` (`USER_U_ID`);
+  ADD PRIMARY KEY (`IN_ID`);
 
 --
--- Indexes for table `lt_age`
---
-ALTER TABLE `lt_age`
-  ADD PRIMARY KEY (`AGE_CODE`);
-
---
--- Indexes for table `lt_attire`
---
-ALTER TABLE `lt_attire`
-  ADD PRIMARY KEY (`ATT_ATTIRE_TYPE`);
-
---
--- Indexes for table `lt_drink`
---
-ALTER TABLE `lt_drink`
-  ADD PRIMARY KEY (`D_DRINK_TYPE`);
-
---
--- Indexes for table `lt_food`
---
-ALTER TABLE `lt_food`
-  ADD PRIMARY KEY (`F_FOOD_TYPE`);
-
---
--- Indexes for table `rt_event`
---
-ALTER TABLE `rt_event`
-  ADD PRIMARY KEY (`RT_ID`),
-  ADD KEY `fk_RT_EVENT_EVENT1_idx` (`EVENT_E_ID`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`U_ID`);
-
---
--- Constraints for dumped tables
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Constraints for table `auth`
---
-ALTER TABLE `auth`
-  ADD CONSTRAINT `fk_AUTH_USER1` FOREIGN KEY (`USER_U_ID`) REFERENCES `user` (`U_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `dir_mess`
+-- AUTO_INCREMENT for table `dir_mess`
 --
 ALTER TABLE `dir_mess`
-  ADD CONSTRAINT `fk_DIR_MESS_USER1` FOREIGN KEY (`USER_U_ID1`) REFERENCES `user` (`U_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
+  MODIFY `DM_ID` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
--- Constraints for table `event`
---
-ALTER TABLE `event`
-  ADD CONSTRAINT `fk_EVENT_LT_AGE1` FOREIGN KEY (`LT_AGE_AGE_CODE`) REFERENCES `lt_age` (`AGE_CODE`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_EVENT_LT_ATTIRE1` FOREIGN KEY (`LT_ATTIRE_ATT_ATTIRE_TYPE`) REFERENCES `lt_attire` (`ATT_ATTIRE_TYPE`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_EVENT_LT_DRINK1` FOREIGN KEY (`LT_DRINK_D_DRINK_TYPE`) REFERENCES `lt_drink` (`D_DRINK_TYPE`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_EVENT_LT_FOOD1` FOREIGN KEY (`LT_FOOD_F_FOOD_TYPE`) REFERENCES `lt_food` (`F_FOOD_TYPE`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_EVENT_USER1` FOREIGN KEY (`USER_U_ID`) REFERENCES `user` (`U_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `feedback`
---
-ALTER TABLE `feedback`
-  ADD CONSTRAINT `fk_FEEDBACK_EVENT1` FOREIGN KEY (`EVENT_E_ID`) REFERENCES `event` (`E_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_FEEDBACK_USER1` FOREIGN KEY (`USER_U_ID`) REFERENCES `user` (`U_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `group`
---
-ALTER TABLE `group`
-  ADD CONSTRAINT `fk_GROUP_USER1` FOREIGN KEY (`USER_U_ID`) REFERENCES `user` (`U_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `invite`
+-- AUTO_INCREMENT for table `invite`
 --
 ALTER TABLE `invite`
-  ADD CONSTRAINT `fk_INVITE_EVENT1` FOREIGN KEY (`EVENT_E_ID`) REFERENCES `event` (`E_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_INVITE_USER1` FOREIGN KEY (`USER_U_ID`) REFERENCES `user` (`U_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `rt_event`
---
-ALTER TABLE `rt_event`
-  ADD CONSTRAINT `fk_RT_EVENT_EVENT1` FOREIGN KEY (`EVENT_E_ID`) REFERENCES `event` (`E_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
+  MODIFY `IN_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

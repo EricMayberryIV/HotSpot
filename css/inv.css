@@ -1,0 +1,25 @@
+.jumbotron {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+h3{
+  margin-top: 10px;
+  margin-bottom: 15px;
+  color: #F78181;
+}
+
+h6{
+  margin-bottom: 0;
+}
+
+hr{
+  margin-top: 5px;
+  margin-bottom: 8px;
+}
+
+p{
+  margin-top: 5px;
+  margin-bottom: 0px !important;
+}

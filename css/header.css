@@ -1,0 +1,12 @@
+.breadcrumb > li > a {
+  display: inline-block;
+  font-size: 25px !important;
+  font-family: 'Dancing Script', cursive !important;
+  text-decoration: none;
+  color: #F78181;
+}
+
+.breadcrumb {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}

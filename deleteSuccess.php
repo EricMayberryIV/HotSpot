@@ -1,43 +1,42 @@
 <?php
-  session_start();
-?>
-
+  session_start(); // required for all php files within the application
+  if (!isset($_SESSION["login_user"]))
+  {
+  header("Location: index.php");
+  die();
+  }
+  ?>
 <!DOCTYPE html>
-
 <html lang="en">
-
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,
       shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta http-equiv="refresh" content="3;url=message.php" />
 
     <!-- CSS links go here -->
-    <link rel="stylesheet" type="text/css" href="css/index.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/template.css">
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
     <!-- End CSS links -->
 
     <!-- Special font links go here -->
-    <link href='https://fonts.googleapis.com/css?family=Dancing+Script:700'
-      rel='stylesheet' type='text/css'>
     <!-- End font links -->
 
-    <title>HotSpot</title>
+    <title>HotSpot | Delete Success</title>
   </head>
-
   <body>
-    <div class="container">
-
+    <?php include("header.php"); ?>
+    <div class="container"><br/>
+      <br/>
       <div class="jumbotron">
-        <h1 class="text-center">HotSpot</h1>
+        <h3 class="text-center">Well, I hope you didn't want that...</h3>
+        <br/>
+        <h4 class="text-center">Either way, it's been deleted.</h4>
       </div>
-
-      <a class="btn btn-primary btn-lg btn-block" href="login_page.php" role="button">Sign In</a>
-      <a class="btn btn-success btn-lg btn-block" href="register_page.php" role="button">Register</a>
-      <a class="btn btn-info btn-lg btn-block" href="about.php" role="button">About HotSpot</a>
-
     </div>
+
+    <?php include("nav.php"); ?>
 
     <!-- The body of the page goes above this line, only scripts should
          go below this line. -->
@@ -46,7 +45,5 @@
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <!-- End JS -->
-
   </body>
-
 </html>
