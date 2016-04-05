@@ -65,6 +65,21 @@
 						echo '<input type="text" name="school" class="form-control" placeholder="Name of School" value="'.$school.'"></br>';
 						echo '<input type="tel" name="phone" class="form-control" placeholder="Phone Number: Example 5551234567" value="'.$phone.'"></br>';
 						echo '<input type="date" name="date" class="form-control" value="'.$birthdate.'">';
+						
+						$login = $_SESSION['login_user'];
+						$query = mysqli_query($conn, "select U_ACCT_TYPE from USER where U_USERNAME = '$login'");
+						$result= mysqli_fetch_assoc($query);
+						if ($result['U_ACCT_TYPE'] == 'A')
+						{
+							echo <<<HTML
+							<br>
+							<select class="form-control" name="account">
+							  <option value="ignored">Account Type</option>
+							  <option value="socialyte">Socialyte</option>
+							  <option value="administrator">Administrator</option>
+							</select>
+HTML;
+						}	
 					?>
 				</div>
 

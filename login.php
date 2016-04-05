@@ -29,7 +29,7 @@
             }
 
           else if ($result['U_ACCT_TYPE'] == 'A') {
-			header("location: list.php"); 			// Redirecting To Parent Profile
+			header("location: myprofile.php"); 			// Redirecting To Parent Profile
             }
 
 

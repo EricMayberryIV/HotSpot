@@ -118,14 +118,15 @@ HTML;
 HTML;
 				}
 				}
-				$query = mysqli_query($conn, "select E_TITLE, E_DATE, E_DESC from EVENT, INVITE, USER where U_USERNAME = '$login' and E_ID = IN_EVENT and INVITE.USER_U_ID = U_ID and IN_GOING = 'Y'");
+				$query = mysqli_query($conn, "select E_ID, E_TITLE, E_DATE, E_DESC from EVENT, INVITE, USER where U_USERNAME = '$login' and E_ID = IN_EVENT and INVITE.USER_U_ID = U_ID and IN_GOING = 'Y'");
 				$rows = mysqli_num_rows($query);
 				$result= mysqli_fetch_assoc($query);
 				for ($x = 1; $x <= $rows; $x++) {
+					$e_id = $result['E_ID'];
 					$etitle = $result['E_TITLE'];
 					$edate = $result['E_DATE'];
 					$edesc = $result['E_DESC'];
-					echo '<a href="#" class="list-group-item" role="button">
+					echo '<a href="event.php?EID='.$e_id.'" class="list-group-item" role="button">
 						<b>'.$etitle.'</b><br>
 						<i>'.$edate.'</i><br>
 						<p>'.$edesc.'</p>

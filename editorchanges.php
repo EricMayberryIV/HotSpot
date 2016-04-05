@@ -14,9 +14,10 @@
 		$problem = false;
 		
 		$toedit = $_SESSION["edit_user"];
-		$query = mysqli_query($conn, "select U_ID, U_PHONE, U_IMAGE, U_SCHOOL, U_DOB, U_F_NAME, U_L_NAME from USER where U_USERNAME = '$toedit'");
+		$query = mysqli_query($conn, "select U_ID, U_ACCT_TYPE, U_PHONE, U_IMAGE, U_SCHOOL, U_DOB, U_F_NAME, U_L_NAME from USER where U_USERNAME = '$toedit'");
 		$result= mysqli_fetch_assoc($query);
 		$id = $result['U_ID'];
+		$acct = $result['U_ACCT_TYPE'];
 		$fname = $result['U_F_NAME'];
 		$lname = $result['U_L_NAME'];
 		$birthdate = $result['U_DOB'];
@@ -98,6 +99,14 @@
 		{
 			$new = $_POST['date'];
 			mysqli_query($conn, "update USER set U_DOB='$new' WHERE U_ID='$id'");
+		}
+		
+		if (isset($_POST['account']) && $_POST['account'] != "ignored")
+		{
+			if ($_POST['account'] == "administrator")
+				mysqli_query($conn, "update USER set U_ACCT_TYPE='A' WHERE U_ID='$id'");
+			else
+				mysqli_query($conn, "update USER set U_ACCT_TYPE='L' WHERE U_ID='$id'");
 		}
 	}
 	
