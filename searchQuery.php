@@ -18,7 +18,7 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
 
         <!-- CSS links go here -->
-        <link rel="stylesheet" type="text/css" href="css/template.css">
+        <link rel="stylesheet" type="text/css" href="css/list.css">
         <link rel="stylesheet" type="text/css"
         href="css/bootstrap-theme.min.css">
         <!-- End CSS links -->
