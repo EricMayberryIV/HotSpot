@@ -22,7 +22,7 @@
 
       if ($enum > 0)
       {
-        header("location: event_edit.php?EID='.$admin_e_id.'");
+        header("location: event_edit.php/?EID=$admin_e_id");
       }
       // Alerts user that their desired username is already taken
       else if($enum == 0)
