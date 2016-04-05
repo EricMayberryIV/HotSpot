@@ -2,24 +2,27 @@
 <html>
 <body>
 <head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/template.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <title>Administrator Reports</title>
 </head>
-<ol class="breadcrumb navbar-fixed-top text-center">
-  <li><a href="list.php">HotSpot Administrator</a></li>
-</ol>
+<?php
+include("header.php");
+?>
 <br>
 <br>
-<h4 align="center"><u>Reports</u></h4>
+<br>
+<h4 align="center"><b>Reports</b></h4>
+<br>
 <p>What would you like the report to be done on?</p>
 <form action="form_action.asp">
   <input type="radio" name="choice" value="users">Users<br>
   <input type="radio" name="choice" value="events">Events<br>
   <br>
-  <input type="button" onclick="myFunction()" value="Submit">
+  <input type="button" class="btn btn-primary"onclick="myFunction()" value="Submit">
   <br>
 </form>
 <script>
@@ -33,6 +36,7 @@ function myFunction() {
   }
 </script>
 <div class="dropdown" id="topics" hidden>
+  <br>
   <h5><u>Criteria</u></h5>
  <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">Choose Topic
  <span class="caret"></span></button>
@@ -109,5 +113,8 @@ function FilterFunction() {
    </ul>
    </div>
 </div>
+<?php
+include("nav.php");
+?>
 </body>
 </html>

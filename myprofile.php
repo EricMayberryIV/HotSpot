@@ -1,18 +1,18 @@
 <?php
-  session_start(); 
+  session_start();
 ?><!-- required for all php files within the application -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
 	<?php
 		include("header.php");
-		
+
 		include("connection.php");
 			// Check connection
 			if ($conn->connect_error) {
 				die("Connection failed: " . $conn->connect_error);
 			}
-			
+
 			$login = $_SESSION["login_user"];
 			$query = mysqli_query($conn, "select U_ACCT_TYPE, U_ID, U_IMAGE, U_SCHOOL, U_DOB, U_F_NAME, U_L_NAME from USER where U_USERNAME = '$login'");
 			$result= mysqli_fetch_assoc($query);
@@ -23,7 +23,7 @@
 			$user = $login;
 			$image = $result['U_IMAGE'];
 			$school = $result['U_SCHOOL'];
-			$_SESSION["edit_user"] = "$login"; 
+			$_SESSION["edit_user"] = "$login";
 			// Gives user a blank profile picture if they do not already have one set
 			if ($image == NULL)
 				$image = "img/profile/blank_profile.jpg";
@@ -44,7 +44,7 @@
     <!-- End font links -->
 
     <title>
-		<?php 
+		<?php
 			echo $login." Profile";
 		?>
 	</title>
@@ -54,7 +54,7 @@
 		<?php include("header.php"); ?>
 		<br style="line-height:38px;" />
 		<center>
-		<h4>Welcome 
+		<h4>Welcome
 		<?php
 			echo " ".$login;
 		?>
@@ -76,11 +76,11 @@
 		<br>
 		</p>
 		</center>
-		
+
 		<!---------------------------------------------------------------------------- MY EVENTS DROPDOWN ---------------------------------------------------->
 		<a class="btn btn-primary btn-block" href="#" class="btn btn-info data-toggle collapsed"
           data-toggle="collapse" data-target="#events">My Events</a>
-		
+
         <div id="events" class="panel-collapse collapse">
           <ul class="list-group">
             <a href="event_edit.php?EID=new" class="list-group-item" role="button">Create New Event</a>
@@ -96,7 +96,7 @@
 					$etitle = $row['E_TITLE'];
 					$edate = $row['E_DATE'];
 					$edesc = $row['SUBSTRING(E_DESC, 1, 100)'];
-					
+
 					echo '<a href="event_edit.php?EID='.$e_id.'" class="list-group-item" role="button">';
 					echo <<< HTML
 					<table style="width:100%">
@@ -106,7 +106,7 @@ HTML;
 								echo '<b>'.$etitle.'</b><br>';
 								echo '<i>'.$edate.'</i><br>';
 								echo '<p>'.$edesc.'</p>';
-							
+
 							echo <<< HTML
 							</td>
 							<td style="width:10%">
@@ -136,13 +136,13 @@ HTML;
           </ul>
         </div>
 		<!---------------------------------------------------------------------------- MY EVENTS END ---------------------------------------------------->
-		
+
 		<br>
-		
+
 		<!---------------------------------------------------------------------------- MY GROUPS DROPDOWN ---------------------------------------------------->
           <a class="btn btn-primary btn-block" href="#" class="btn btn-info data-toggle collapsed"
           data-toggle="collapse" data-target="#groups">My Groups</a>
-		
+
         <div id="groups" class="panel-collapse collapse">
           <ul class="list-group">
 			<a href="#" class="list-group-item" role="button">Create New Group</a>
@@ -160,24 +160,24 @@ HTML;
           </ul>
         </div>
 		<!---------------------------------------------------------------------------- MY GROUPS END ---------------------------------------------------->
-		
+
 		<br>
-		
+
 		<!---------------------------------------------------------------------------- PROFILE EDIT AND LOGOUT BUTTONS ---------------------------------------------------->
 		<a class="btn btn-primary btn-block" href="profile_edit.php">Edit Profile</a>
 		<br>
-		
+
 		<?php
 			if ($acct == 'A')
 			{
-				echo '<a class="btn btn-primary btn-block" href="list.php">Admin</a>';
+				echo '<a class="btn btn-primary btn-block" href="admin.php">Admin</a>';
 				echo '<br>';
 			}
 		?>
-		
+
 		<a class="btn btn-primary btn-block" href="logout.php">Logout</a>
 		<!---------------------------------------------------------------------------- BUTTONS END ---------------------------------------------------->
-		
+
 	</div>
 
     <?php include("nav.php"); ?>

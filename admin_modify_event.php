@@ -9,24 +9,23 @@
   }
   // Stores user information in variables
     //$email = $_POST['email'];
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
-    //echo $username;
+    $title = $_POST['title'];
     // Verifies that there are no empty inputs within the form
-  	if ($username == "")
+  	if ($title == "")
   		{header("location: admin_modify_no_username.php");}
     else
     {
-      // Searches to find if username already exists
-  		$query = mysqli_query($conn, "select U_USERNAME from USER where U_USERNAME='$username'" );	// Finds rows that match the given username
-  		$users = mysqli_num_rows($query);	// Stores the number of users with that name into $users
+  		$query = mysqli_query($conn, "select E_ID from EVENT where E_TITLE='$title'" );
+      $result= mysqli_fetch_assoc($query);
+      $admin_e_id = $result['E_ID'];
+      $enum = mysqli_num_rows($query);
 
-      if ($users > 0)
+      if ($enum > 0)
       {
-      $_SESSION["edit_user"] = $username;
-        header("location: profile_edit.php");
+        header("location: event_edit.php?EID='.$admin_e_id.'");
       }
       // Alerts user that their desired username is already taken
-      else if($users == 0)
+      else if($enum == 0)
       { header("location: admin_modify_error.php"); }
    }
 ?>

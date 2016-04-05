@@ -17,11 +17,11 @@
 	include("header.php");
 	?>
 <br><br> <br>
-<h4 align="center"><b>SociaLyte Account Modification</b></h4>
+<h4 align="center"><b>Event Modification</b></h4>
 <br>
-<form action="admin_modify_account.php" method="post" size="3">
- SociaLyte Username:<br>
- <input type="text" name="username"><br><br>
+<form action="admin_modify_event.php" method="post" size="3">
+ Event Title:<br>
+ <input type="text" name="title"><br><br>
  <input type="submit" class="btn btn-primary" value="Submit">
 </form>
 </div>
