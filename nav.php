@@ -20,7 +20,8 @@
             <form action="searchQuery.php" method="post">
                 <div class="form-group">
                   <div class="input-group">
-                    <input type="text" name="Q" class="search-query form-control"
+                    <input type="text" name="Q" class="search-query
+                    form-control"
                     placeholder="Search HotSpot Events" >
                     <span class="input-group-btn">
                       <button class="btn btn-info" type="input">
@@ -32,133 +33,143 @@
             	  </div>
             </form>
             <hr/>
-            <div class="form-group">
-              <select class="form-control" id="event">
-                <option>Event Type</option>
-                <option>Club/Bar</option>
-                <option>Street Party</option>
-                <option>House Party</option>
-                <option>Fundraiser</option>
-              </select>
+            <form action="DDlogic.php" method="post">
+              <div class="form-group">
+                <select class="form-control" name="event">
+                  <option selected="selected" disabled="disabled">
+                    Event Type</option>
+                  <option value="Club">Club/Bar</option>
+                  <option value="Street">Street Party</option>
+                  <option value="House">House Party</option>
+                  <option value="Fundraiser">Fundraiser</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="age">
+                  <option selected="selected" disabled="disabled">
+                    Age Group</option>
+                  <option value="12">Teens</option>
+                  <option value="10">College</option>
+                  <option value="11">Parents</option>
+                  <option value="2">20's</option>
+                  <option value="3">30's</option>
+                  <option value="4">40's</option>
+                  <option value="5">50's</option>
+                  <option value="6">60's</option>
+                  <option value="7">70's</option>
+                  <option value="8">80's</option>
+                  <option value="9">90's</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="food">
+                  <option selected="selected" disabled="disabled">
+                    Food</option>
+                  <option value="AFG">Afghan</option>
+                  <option value="AFR">African</option>
+                  <option value="AME">American</option>
+                  <option value="ARA">Arabian</option>
+                  <option value="ARG">Argentine</option>
+                  <option value="ARM">Armenian</option>
+                  <option value="ASI">Asian</option>
+                  <option value="AU">Australian</option>
+                  <option value="AUS">Austrian</option>
+                  <option value="BAN">Bangladeshi</option>
+                  <option value="BAS">Basque</option>
+                  <option value="BBQ">Barbeque</option>
+                  <option value="BEL">Belgian</option>
+                  <option value="BRA">Brasseries</option>
+                  <option value="BRI">British</option>
+                  <option value="BRM">Burmese</option>
+                  <option value="BRZ">Brazilian</option>
+                  <option value="BUF">Buffet</option>
+                  <option value="BUR">Burgers</option>
+                  <option value="CAJ">Cajun</option>
+                  <option value="CAL">Calabrian</option>
+                  <option value="CAM">Cambodian</option>
+                  <option value="CAN">Cantonese</option>
+                  <option value="CAR">Caribbean</option>
+                  <option value="CAT">Catalan</option>
+                  <option value="CHI">Chicken</option>
+                  <option value="CHN">Chinese</option>
+                  <option value="COL">Colombian</option>
+                  <option value="COM">Comfort Food</option>
+                  <option value="CRE">Creole</option>
+                  <option value="CRP">Crepes</option>
+                  <option value="CUB">Cuban</option>
+                  <option value="CZE">Czech</option>
+                  <option value="DEL">Deli</option>
+                  <option value="DIM">Dim Sum</option>
+                  <option value="DOM">Dominican</option>
+                  <option value="EGY">Egyptian</option>
+                  <option value="FAL">Falafel</option>
+                  <option value="FIL">Filipino</option>
+                  <option value="FIS">Fish</option>
+                  <option value="FON">Fondue</option>
+                  <option value="FRE">French</option>
+                  <option value="GAS">Gastropub</option>
+                  <option value="GER">German</option>
+                  <option value="GLE">Gluten-free</option>
+                  <option value="GRE">Greek</option>
+                  <option value="HAI">Haitian</option>
+                  <option value="HAL">Halal</option>
+                  <option value="HAW">Hawaiian</option>
+                  <option value="HIM">Himalayan</option>
+                  <option value="HUN">Hungarian</option>
+                  <option value="IBE">Iberian</option>
+                  <option value="IND">Indian</option>
+                  <option value="IRA">Iranian</option>
+                  <option value="IRI">Irish</option>
+                  <option value="ITA">Italian</option>
+                  <option value="JAP">Japanese</option>
+                  <option value="KOR">Korean</option>
+                  <option value="KOS">Kosher</option>
+                  <option value="LAO">Laotian</option>
+                  <option value="LAT">Latin American</option>
+                  <option value="LEB">Lebanese</option>
+                  <option value="MAL">Malaysian</option>
+                  <option value="MED">Mediterranean</option>
+                  <option value="MEX">Mexican</option>
+                  <option value="MID">Middle East</option>
+                  <option value="MON">Mongolian</option>
+                  <option value="MOR">Moroccan</option>
+                  <option value="NEP">Nepalese</option>
+                  <option value="PAK">Pakistani</option>
+                  <option value="PER">Persian</option>
+                  <option value="PIZ">Pizza</option>
+                  <option value="POL">Polish</option>
+                  <option value="PRV">Peruvian</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="drink">
+                  <option selected="selected" disabled="disabled">
+                    Drinks</option>
+                  <option value="A">Alcoholic
+                    Beverages</option>
+                  <option value="J">Juice</option>
+                  <option value="S">Soda</option>
+                  <option value="T">Tea</option>
+                  <option value="W">Water</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <select class="form-control" name="attire">
+                  <option selected="selected" disabled="disabled">Attire</option>
+                  <option value="B">Black Tie Event</option>
+                  <option value="BL">All Black</option>
+                  <option value="WH">All White</option>
+                  <option value="BW">Beach Wear</option>
+                  <option value="C">Casual</option>
+                  <option value="Suit/Tie">Suit/Tie</option>
+                </select>
+              </div>
             </div>
-            <div class="form-group">
-              <select class="form-control" id="age">
-                <option>Age Group</option>
-                <option>Teens</option>
-                <option>College</option>
-                <option>Parents</option>
-                <option>20's</option>
-                <option>30's</option>
-                <option>40's</option>
-                <option>50's</option>
-                <option>60's +</option>
-              </select>
+            <div class="modal-footer">
+              <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
+              <button type="hidden" class="btn btn-primary">Submit</button>
             </div>
-            <div class="form-group">
-              <select class="form-control" id="food">
-                <option>Food</option>
-                <option>Afghan</option>
-                <option>African</option>
-                <option>American</option>
-                <option>Arabian</option>
-                <option>Argentine</option>
-                <option>Armenian</option>
-                <option>Asian</option>
-                <option>Australian</option>
-                <option>Austrian</option>
-                <option>Bangladeshi</option>
-                <option>Basque</option>
-                <option>Barbeque</option>
-                <option>Belgian</option>
-                <option>Brasseries</option>
-                <option>British</option>
-                <option>Burmese</option>
-                <option>Brazilian</option>
-                <option>Buffet</option>
-                <option>Burgers</option>
-                <option>Cajun</option>
-                <option>Calabrian</option>
-                <option>Cambodian</option>
-                <option>Cantonese</option>
-                <option>Caribbean</option>
-                <option>Catalan</option>
-                <option>Chicken</option>
-                <option>Chinese</option>
-                <option>Colombian</option>
-                <option>Comfort Food</option>
-                <option>Creole</option>
-                <option>Crepes</option>
-                <option>Cuban</option>
-                <option>Czech</option>
-                <option>Deli</option>
-                <option>Dim Sum</option>
-                <option>Dominican</option>
-                <option>Egyptian</option>
-                <option>Falafel</option>
-                <option>Filipino</option>
-                <option>Fish</option>
-                <option>Fondue</option>
-                <option>French</option>
-                <option>Gastropub</option>
-                <option>German</option>
-                <option>Gluten-free</option>
-                <option>Greek</option>
-                <option>Haitian</option>
-                <option>Halal</option>
-                <option>Hawaiian</option>
-                <option>Himalayan</option>
-                <option>Hungarian</option>
-                <option>Iberian</option>
-                <option>Indian</option>
-                <option>Iranian</option>
-                <option>Irish</option>
-                <option>Italian</option>
-                <option>Japanese</option>
-                <option>Korean</option>
-                <option>Kosher</option>
-                <option>Laotian</option>
-                <option>Latin American</option>
-                <option>Lebanese</option>
-                <option>Malaysian</option>
-                <option>Mediterranean</option>
-                <option>Mexican</option>
-                <option>Middle East</option>
-                <option>Mongolian</option>
-                <option>Moroccan</option>
-                <option>Nepalese</option>
-                <option>Pakistani</option>
-                <option>Persian</option>
-                <option>Pizza</option>
-                <option>Polish</option>
-                <option>Peruvian</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <select class="form-control" id="drink">
-                <option>Drinks</option>
-                <option>Alcoholic Beverages</option>
-                <option>Juice</option>
-                <option>Soda</option>
-                <option>Tea</option>
-                <option>Water</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <select class="form-control" id="attire">
-                <option>Attire</option>
-                <option>Black Tie Event</option>
-                <option>All Black</option>
-                <option>All White</option>
-                <option>Beach Wear</option>
-                <option>Casual</option>
-                <option>Suit/Tie</option>
-              </select>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
-            <a href="results.php" class="btn btn-info">Search</a>
-          </div>
+          </form>
         </div>
       </div>
     </div>

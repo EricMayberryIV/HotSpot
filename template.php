@@ -1,5 +1,11 @@
 <?php
-  session_start(); ?><!-- required for all php files within the application -->
+  session_start(); // required for all php files within the application
+  if (!isset($_SESSION["login_user"]))
+  {
+  header("Location: index.php");
+  die();
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

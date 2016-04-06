@@ -41,6 +41,7 @@
             if ($conn->connect_error) {
                 die("Connection failed: ".$conn->connect_error);
             }
+            $queryPart = $_SESSION['queryPart'];
             $sql = "SELECT e_id,
                            e_title,
                            DATE_FORMAT(e_date,'%c/%e/%y'),
@@ -49,11 +50,9 @@
                            e_desc,
                            e_price
                     FROM `event`
-                    WHERE e_private != 'Y'
-                    AND e_date >= CURDATE()
-                    AND (e_title LIKE '%$q%'
-                         OR e_desc LIKE '%$q%')
-                    ORDER BY e_date,
+                    WHERE e_private != 'Y' ".
+                    $queryPart.
+                    "ORDER BY e_date,
                              e_time_start";
             $result = $conn->query($sql);
             if ($result->num_rows > 0) {
@@ -75,16 +74,14 @@
               }
             } else {
               echo "<div class=\"jumbotron\"><h1 class=\"text-center\">
-              Well, 💩...</h1><br><h2 class=\"text-center\">We didn't find anything</h2><br style=\"line-height:20px;\" /><h4 class=\"text-center\">No worries, we'll take you back so you can try something else.</h4></div>";
-              echo "<meta http-equiv=\"refresh\" content=\"4;url=\"".$_SERVER['HTTP_REFERER']." \>";
+              Well, 💩...</h1><br><h2 class=\"text-center\">We didn't find anything</h2><br style=\"line-height:20px;\" /><h4 class=\"text-center\">Sorry about that, we'll show you all the events coming up.</h4></div>";
+              echo "<meta http-equiv=\"refresh\" content=\"4;url=list.php\"";
             }
           ?>
+          <?php include("nav.php"); ?>
         </div>
         <!-- End row -->
-      </div>
 
-      <div>
-      <?php include("nav.php"); ?>
       </div>
       <!-- The body of the page goes above this line, only scripts should
            go below this line. -->
