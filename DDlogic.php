@@ -30,12 +30,3 @@
   $_SESSION['queryPart'] = $queryPart;
   header("Location: searchChoice.php");
 ?>
-
-
-
-<!-- $type = NULL;
-$ageGr = NULL;
-$food = NULL;
-$drink = NULL;
-$attire = NULL;
-$queryPart = NULL; -->
