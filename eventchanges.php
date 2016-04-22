@@ -16,16 +16,13 @@
 			
 			do
 			{
-				$id = intval(microtime(true)) * 4;
-			
-				while($id > 99999999999)
-					$id = $id - 10000000000;
-				
+				$id = intval(microtime(true)) * 10;
 			}while(mysqli_num_rows(mysqli_query($conn, "select * from EVENT where E_ID='$id'" )) > 0);
 			
 			mysqli_query($conn, "insert into EVENT (E_ID, E_CREATOR, E_TITLE, E_DATE, E_TIME_START, E_TIME_END, E_DESC)
 						values ('$id','$creator','$title','$date','$start','$end','$desc')");
-						
+
+			header("location: myprofile.php");
 		}
 		// if editing existing event
 		else
