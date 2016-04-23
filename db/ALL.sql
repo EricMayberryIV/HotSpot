@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 30, 2016 at 06:04 AM
+-- Generation Time: Apr 24, 2016 at 01:18 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.3
 
@@ -40,6 +40,20 @@ CREATE TABLE `about` (
 
 INSERT INTO `about` (`INDEX`, `ABOUT_INFO`) VALUES
 ('0', 'Stop wasting your time chatting with flaky people on your grandma''s dating app. It''s time to get out and meet people the way nature intended... While you''re out Partying!!!!!!!!  Introducing HOTSPOT. The first mobile social network that connects you with real people who are going to the same places that you are going.');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `arrival`
+--
+
+DROP TABLE IF EXISTS `arrival`;
+CREATE TABLE `arrival` (
+  `arr_id` int(11) NOT NULL,
+  `arr_eventid` int(11) NOT NULL,
+  `arr_userid` int(7) NOT NULL,
+  `arr_arrived` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -83,7 +97,7 @@ CREATE TABLE `dir_mess` (
   `DM_ID` int(7) NOT NULL,
   `DM_FROM_ID` int(7) NOT NULL,
   `DM_TO_ID` int(7) NOT NULL,
-  `DM_SUBJECT` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  `DM_SUBJECT` varchar(5000) COLLATE utf8_bin DEFAULT NULL,
   `DM_MESSAGE` longtext COLLATE utf8_bin NOT NULL,
   `DM_DATE_TIME` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `USER_U_ID1` int(7) NOT NULL
@@ -94,16 +108,14 @@ CREATE TABLE `dir_mess` (
 --
 
 INSERT INTO `dir_mess` (`DM_ID`, `DM_FROM_ID`, `DM_TO_ID`, `DM_SUBJECT`, `DM_MESSAGE`, `DM_DATE_TIME`, `USER_U_ID1`) VALUES
-(1, 2, 3, 'Hello', 'Just seeing if you''re going to the party', '2016-03-29 00:37:02', 2),
-(2, 0, 2, 'ADMIN MESSAGE', 'Please update your password', '2016-03-29 00:36:53', 0),
-(3, 1, 0, 'TESTING DMS', 'Testing DM capability', '2016-03-29 00:36:44', 1),
-(4, 0, 9872264, '[ADMIN] Welcome!', 'Welcome to HotSpot!!', '2016-03-29 00:36:53', 0),
-(5, 1, 9872264, '[ADMIN] Test', 'Testing DM capability', '2016-03-29 00:36:44', 1),
-(6, 2, 9872264, 'Hello', 'Just seeing if you''re going to the party', '2016-03-29 00:37:02', 2),
-(7, 9101344, 9872264, 'Usability Testing', 'Testing messaging system...\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ', '2016-03-30 03:35:16', 9101344),
-(8, 9101344, 9872264, 'UAT', 'Testing success page.', '2016-03-30 03:50:36', 9101344),
-(9, 9101344, 9872264, 'testing success page 01', 'testing success page for messages', '2016-03-30 03:54:33', 9101344),
-(10, 9872264, 9872264, 'lkasdjflkajsdf', 'lk;sdjflkjalkjsdflk;jasdlkjflkjsdlk;fl;jkasdfasdf', '2016-03-30 04:00:23', 9872264);
+(1, 2, 3, 'Hello', 'Just seeing if you''re going to the party', '2016-03-29 04:37:02', 2),
+(2, 0, 2, 'ADMIN MESSAGE', 'Please update your password', '2016-03-29 04:36:53', 0),
+(3, 1, 0, 'TESTING DMS', 'Testing DM capability', '2016-03-29 04:36:44', 1),
+(4, 0, 9872264, '[ADMIN] Welcome!', 'Welcome to HotSpot!!', '2016-03-29 04:36:53', 0),
+(5, 1, 9872264, '[ADMIN] Test', 'Testing DM capability', '2016-03-29 04:36:44', 1),
+(7, 9101344, 9872264, 'Usability Testing', 'Testing messaging system...\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ', '2016-03-30 07:35:16', 9101344),
+(9, 9101344, 9872264, 'testing success page 01', 'testing success page for messages', '2016-03-30 07:54:33', 9101344),
+(11, 9872264, 0, 'FAQ?', 'Are we going to add a FAQ page? what about a site map?... Just some thoughts.', '2016-04-02 03:11:45', 9872264);
 
 -- --------------------------------------------------------
 
@@ -115,7 +127,7 @@ DROP TABLE IF EXISTS `event`;
 CREATE TABLE `event` (
   `E_ID` int(11) NOT NULL,
   `E_CREATOR` int(7) NOT NULL,
-  `E_TITLE` char(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `E_TITLE` char(255) NOT NULL,
   `E_LAT_DEG` int(2) NOT NULL,
   `E_LAT_MIN` int(2) NOT NULL,
   `E_LAT_SEC` int(2) NOT NULL,
@@ -125,18 +137,18 @@ CREATE TABLE `event` (
   `E_DATE` date NOT NULL,
   `E_TIME_START` time NOT NULL,
   `E_TIME_END` time DEFAULT NULL,
-  `E_TYPE` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `E_DESC` longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `E_TYPE` varchar(255) NOT NULL,
+  `E_DESC` longtext NOT NULL,
   `E_PRIVATE` char(1) NOT NULL,
-  `E_AGE_GROUP` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `E_AGE_GROUP` varchar(20) DEFAULT NULL,
   `E_PRICE` float(5,2) NOT NULL,
   `E_FOOD` char(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `E_FOOD_TYPE` char(3) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `E_FOOD_TYPE` char(3) DEFAULT NULL,
   `E_DRINK` char(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `E_DRINK_TYPE` char(3) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `E_DRINK_TYPE` char(3) DEFAULT NULL,
   `E_BYO` char(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `E_ATTIRE` char(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `E_ATTIRE_TYPE` char(3) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
+  `E_ATTIRE_TYPE` char(3) DEFAULT NULL,
   `E_SPONSOR` char(1) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `E_SPONSOR_TITLE` char(255) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `USER_U_ID` int(7) NOT NULL,
@@ -152,12 +164,12 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`E_ID`, `E_CREATOR`, `E_TITLE`, `E_LAT_DEG`, `E_LAT_MIN`, `E_LAT_SEC`, `E_LONG_DEG`, `E_LONG_MIN`, `E_LONG_SEC`, `E_DATE`, `E_TIME_START`, `E_TIME_END`, `E_TYPE`, `E_DESC`, `E_PRIVATE`, `E_AGE_GROUP`, `E_PRICE`, `E_FOOD`, `E_FOOD_TYPE`, `E_DRINK`, `E_DRINK_TYPE`, `E_BYO`, `E_ATTIRE`, `E_ATTIRE_TYPE`, `E_SPONSOR`, `E_SPONSOR_TITLE`, `USER_U_ID`, `LT_FOOD_F_FOOD_TYPE`, `LT_ATTIRE_ATT_ATTIRE_TYPE`, `LT_DRINK_D_DRINK_TYPE`, `LT_AGE_AGE_CODE`, `E_MUSIC_TYPE`) VALUES
-(0, 2, 'Party at my place', 30, 25, 14, 84, 17, 44, '2016-02-18', '20:00:00', '23:59:59', 'House Party', 'Come Party at my house. We don''t have to have a reason to party!!!', 'Y', '10', 0.00, 'Y', 'BRZ', 'Y', 'T', 'Y', 'Y', 'C', 'Y', 'PEPSI', 2, 'BRZ', 'C', 'T', 10, NULL),
+(0, 2, 'Party at my place', 30, 25, 14, 84, 17, 44, '2016-07-16', '20:00:00', '23:59:59', 'House Party', 'Come Party at my house. We don''t have to have a reason to party!!!', '', '10', 0.00, 'Y', 'BRZ', 'Y', 'T', 'Y', 'Y', 'C', 'Y', 'PEPSI', 2, 'BRZ', 'C', 'T', 10, NULL),
 (1, 3, 'Party', 30, 25, 14, 84, 17, 44, '2016-01-14', '16:00:00', '22:00:00', 'Party', 'Come to the party', 'N', '10', 0.00, 'Y', 'BUR', 'Y', 'T', 'Y', 'Y', 'C', 'Y', 'Emily', 3, 'BUR', 'C', 'T', 10, NULL),
 (2, 2, 'Party, Party, Party!!!', 30, 25, 14, 84, 17, 44, '2016-04-18', '20:00:00', '23:59:00', 'House Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Y', '10', 0.00, 'Y', 'BRZ', 'Y', 'T', 'Y', 'N', NULL, 'N', NULL, 2, 'BRZ', NULL, 'T', 10, NULL),
 (3, 3, 'Party', 30, 25, 14, 84, 17, 44, '2016-07-14', '16:00:00', '22:00:00', 'Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'N', '10', 0.00, 'Y', 'BUR', 'Y', 'T', 'Y', 'N', NULL, 'N', NULL, 3, 'BUR', NULL, 'T', 10, NULL),
 (4, 2, 'Get-Together', 30, 25, 14, 84, 17, 44, '2016-05-22', '20:00:00', NULL, 'House Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'N', '10', 0.00, 'N', NULL, 'Y', 'A', 'Y', 'N', NULL, 'N', NULL, 2, NULL, NULL, 'A', 10, NULL),
-(5, 5, 'Throw-Down', 30, 20, 22, 84, 50, 40, '2016-05-20', '21:00:00', NULL, 'House Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'N', '10', 0.00, 'N', NULL, 'Y', 'A', 'Y', 'N', NULL, 'N', NULL, 5, NULL, NULL, 'A', 10, NULL),
+(5, 5, 'Throw-Down', 30, 20, 22, 84, 50, 40, '2016-05-20', '21:00:00', NULL, 'House Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'N', '10', 0.00, 'Y', 'BUR', 'Y', 'A', 'Y', 'Y', 'C', 'Y', 'Omega Psi Phi', 5, 'BUR', 'C', 'A', 10, 'Hip-Hop'),
 (6, 3, 'Movie Marathon', 30, 25, 14, 84, 17, 44, '2016-06-10', '20:00:00', NULL, 'Movies', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Y', NULL, 0.00, 'N', NULL, 'Y', 'A', 'Y', 'N', NULL, 'N', NULL, 3, NULL, NULL, 'A', 10, NULL),
 (7, 4, 'Get-Together', 30, 22, 20, 84, 24, 40, '2016-04-18', '21:00:00', NULL, 'House Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'N', '10', 0.00, 'N', NULL, 'Y', 'A', 'Y', 'N', NULL, 'N', NULL, 4, NULL, NULL, 'A', 10, NULL),
 (8, 5, 'Party', 30, 20, 22, 84, 20, 40, '2016-05-24', '20:00:00', NULL, 'Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'N', '10', 0.00, 'N', NULL, 'Y', 'A', 'Y', 'N', NULL, 'N', NULL, 5, NULL, NULL, 'A', 10, NULL),
@@ -187,6 +199,24 @@ CREATE TABLE `feedback` (
 INSERT INTO `feedback` (`FB_ID`, `FB_FROM_ID`, `FB_EVENT_ID`, `FB_MESS`, `USER_U_ID`, `EVENT_E_ID`) VALUES
 (0, 3, 0, 'Loved the party!', 3, 0),
 (1, 2, 1, 'Hope you throw more parties, I had a blast.', 2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `flame`
+--
+
+DROP TABLE IF EXISTS `flame`;
+CREATE TABLE `flame` (
+  `F_ID` int(11) NOT NULL,
+  `F_EVENTID` int(11) NOT NULL,
+  `F_USERID` int(7) NOT NULL,
+  `F_FLAME` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `flame`
+--
 
 -- --------------------------------------------------------
 
@@ -237,11 +267,11 @@ CREATE TABLE `invite` (
 --
 
 INSERT INTO `invite` (`IN_ID`, `IN_EVENT`, `IN_INVITEE`, `INV_TIME`, `IN_GOING`, `IN_ARRIVED`, `EVENT_E_ID`, `USER_U_ID`) VALUES
-(1, 0, 3, '2016-03-30 01:37:13', 'Y', NULL, 0, 3),
-(2, 0, 4, '2016-03-30 01:37:13', 'Y', NULL, 0, 4),
-(3, 0, 5, '2016-03-30 01:37:13', 'Y', NULL, 0, 5),
-(6, 0, 9872264, '2016-03-30 01:37:13', '', NULL, 0, 5),
-(7, 2, 9872264, '2016-03-30 01:37:13', '', NULL, 0, 5);
+(1, 0, 3, '2016-03-30 05:37:13', 'Y', NULL, 0, 3),
+(2, 0, 4, '2016-03-30 05:37:13', 'Y', NULL, 0, 4),
+(3, 0, 5, '2016-03-30 05:37:13', 'Y', NULL, 0, 5),
+(6, 0, 9872264, '2016-03-30 05:37:13', 'Y', NULL, 0, 5),
+(7, 2, 9872264, '2016-03-30 05:37:13', '', NULL, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -473,10 +503,10 @@ INSERT INTO `user` (`U_ID`, `U_ACCT_TYPE`, `U_USERNAME`, `U_F_NAME`, `U_L_NAME`,
 (2, 'L', 'JoeyBlast', 'Joseph', 'Williams', '1997-06-22', 30, 25, 14, 84, 17, 44, 'FAMU', 8505551111, NULL),
 (3, 'L', 'RokStr', 'David', 'Simmons', '1996-12-13', 30, 25, 10, 84, 16, 59, 'FAMU', 8505552222, NULL),
 (4, 'L', 'LizzardMan', 'Cory', 'Davis', '1996-09-29', 30, 27, 26, 84, 19, 51, 'FSU', 8505554321, NULL),
-(5, 'L', 'SouthernSweetie', 'Rebecca', 'Jones', '1997-04-03', 30, 27, 22, 84, 16, 19, 'FSU', 8505551234, NULL),
+(5, 'L', 'PsiGuy', 'David', 'Humphries', '1997-04-03', 30, 27, 22, 84, 16, 19, 'FAMU', 8505551234, NULL),
 (9101344, 'L', 'ThotM@tt1ck', 'Ratkisha', 'Mathis', '1995-12-28', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL),
 (9365608, 'L', 'Barker&Biter93', 'Trenique', 'Barker', '1993-10-11', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL),
-(9872264, 'L', 'Eric', 'Eric', 'Mayberry', '1977-04-14', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL);
+(9872264, 'L', 'Eric', 'Eric A.', 'Mayberry IV', '1977-04-14', 0, 0, 0, 0, 0, 0, 'FAMU', NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -487,6 +517,12 @@ INSERT INTO `user` (`U_ID`, `U_ACCT_TYPE`, `U_USERNAME`, `U_F_NAME`, `U_L_NAME`,
 --
 ALTER TABLE `about`
   ADD PRIMARY KEY (`INDEX`);
+
+--
+-- Indexes for table `arrival`
+--
+ALTER TABLE `arrival`
+  ADD PRIMARY KEY (`arr_id`);
 
 --
 -- Indexes for table `auth`
@@ -508,20 +544,42 @@ ALTER TABLE `event`
   ADD PRIMARY KEY (`E_ID`);
 
 --
+-- Indexes for table `flame`
+--
+ALTER TABLE `flame`
+  ADD PRIMARY KEY (`F_ID`);
+
+--
 -- Indexes for table `invite`
 --
 ALTER TABLE `invite`
   ADD PRIMARY KEY (`IN_ID`);
 
 --
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`U_ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `arrival`
+--
+ALTER TABLE `arrival`
+  MODIFY `arr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+--
 -- AUTO_INCREMENT for table `dir_mess`
 --
 ALTER TABLE `dir_mess`
-  MODIFY `DM_ID` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `DM_ID` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `flame`
+--
+ALTER TABLE `flame`
+  MODIFY `F_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 --
 -- AUTO_INCREMENT for table `invite`
 --
