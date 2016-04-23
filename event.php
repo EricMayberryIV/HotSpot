@@ -36,6 +36,22 @@
           die("Connection failed: " . $conn->connect_error);
       }
       $EID = $_GET['EID'];
+      $login = $_SESSION["login_user"];
+			$query = mysqli_query($conn, "select U_ACCT_TYPE, U_ID, U_IMAGE, U_SCHOOL, U_DOB, U_F_NAME, U_L_NAME from USER where U_USERNAME = '$login'");
+			$resultU= mysqli_fetch_assoc($query);
+			$UID = $resultU['U_ID'];
+      $_SESSION["UID"]= $UID;
+      $_SESSION["EID"]=$EID;
+      $sql0 = "select f_id from flame where f_eventid = $EID and f_userid = $UID";
+      $result0 = $conn->query($sql0);
+      if ($result0->num_rows > 0) {
+        // output data of each row
+        while($row0 = $result0->fetch_assoc()) {
+          $FID = $row0["f_id"];
+        }
+      } else {
+        $FID = NULL;
+      }
       $sql = "select E_ID, E_CREATOR, E_TITLE, DATE_FORMAT(E_DATE,'%c/%e/%y'),
        TIME_FORMAT(E_TIME_START,'%h:%i %p'),
        TIME_FORMAT(E_TIME_END,'%h:%i %p'), E_DESC, E_AGE_GROUP, E_PRICE
@@ -47,9 +63,15 @@
         // output data of each row
         while($row = $result->fetch_assoc()) {
           echo "<div class=\"item\">
-          <div class=\"well\"><h2 class=\"text-center\">".
-          $row["E_TITLE"].
-          "</h2><p class=\"text-justify\">".
+          <div class=\"well\"><h2 class=\"text-left\">".
+          $row["E_TITLE"];
+          if (is_null($FID)) {
+            echo "<a class=\"btn btn-danger pull-right\" href=\"flameUp.php\" title=\"Add To The Fire!\" role=\"button\"><span class=\"glyphicon glyphicon-fire\"></span></a>";
+          } else {
+            echo "<a class=\"btn btn-default pull-right\"
+            href=\"flameDown.php\" title=\"Extinguish your flame\" role=\"button\"><span class=\"glyphicon glyphicon-fire redtext\"></span></a>";
+          }
+          echo "</h2><p class=\"text-justify\">".
           $row["E_DESC"].
           "</p><p class=\"small\"><br/>".
           $row["DATE_FORMAT(E_DATE,'%c/%e/%y')"].
@@ -61,7 +83,7 @@
           <br/></div></div>";
         }
       } else {
-        echo "0 results";
+        echo "Weird! There are no events, I suggest making one happen";
       }
       $conn->close();
       ?>

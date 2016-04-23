@@ -5,7 +5,7 @@
   header("Location: index.php");
   die();
   }
-?>
+  ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,
       shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+    <meta http-equiv="refresh" content="3;url=<?php echo $_SERVER['HTTP_REFERER'];?>" />
 
     <!-- CSS links go here -->
     <link rel="stylesheet" type="text/css" href="css/template.css">
@@ -22,13 +23,17 @@
     <!-- Special font links go here -->
     <!-- End font links -->
 
-    <title>[TITLE GOES HERE]</title>
+    <title>HotSpot | Error Page</title>
   </head>
   <body>
-    <div class="container">
-      <?php include("header.php"); ?>
-      <br style="line-height:38px;" />
-      [BODY CONTENT GOES HERE]
+    <?php include("header.php"); ?>
+    <div class="container"><br/>
+      <br/>
+      <div class="jumbotron">
+        <h1 class="text-center">🔥</h1>
+        <br/>
+        <h4 class="text-center">Thanks for adding to the fire!!</h4>
+      </div>
     </div>
 
     <?php include("nav.php"); ?>

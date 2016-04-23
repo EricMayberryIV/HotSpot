@@ -77,7 +77,7 @@
 		</p>
 		</center>
 
-		<!---------------------------------------------------------------------------- MY EVENTS DROPDOWN ---------------------------------------------------->
+		<!-- ---------------------- MY EVENTS DROPDOWN ---------------------- -->
 		<a class="btn btn-primary btn-block" href="#" class="btn btn-info data-toggle collapsed"
           data-toggle="collapse" data-target="#events">My Events</a>
 
@@ -135,17 +135,17 @@ HTML;
 			?>
           </ul>
         </div>
-		<!---------------------------------------------------------------------------- MY EVENTS END ---------------------------------------------------->
+		<!-- ---------------------- MY EVENTS END ---------------------- -->
 
 		<br>
 
-		<!---------------------------------------------------------------------------- MY GROUPS DROPDOWN ---------------------------------------------------->
+		<!-- ---------------------- MY GROUPS DROPDOWN ---------------------- -->
           <a class="btn btn-primary btn-block" href="#" class="btn btn-info data-toggle collapsed"
           data-toggle="collapse" data-target="#groups">My Groups</a>
 
         <div id="groups" class="panel-collapse collapse">
           <ul class="list-group">
-			<a href="#" class="list-group-item" role="button">Create New Group</a>
+			<a href="newGroup.php" class="list-group-item" role="button">Create New Group</a>
 			<?php
 				$query = mysqli_query($conn, "select GR_NAME from `GROUP`, USER where U_USERNAME = '$login' and GR_MEMBER =  U_ID order by GR_NAME");
 				$rows = array();
@@ -159,11 +159,11 @@ HTML;
 			?>
           </ul>
         </div>
-		<!---------------------------------------------------------------------------- MY GROUPS END ---------------------------------------------------->
+		<!-- ---------------------- MY GROUPS END ---------------------- -->
 
 		<br>
 
-		<!---------------------------------------------------------------------------- PROFILE EDIT AND LOGOUT BUTTONS ---------------------------------------------------->
+		<!-- ---------------- PROFILE EDIT AND LOGOUT BUTTONS ---------------- -->
 		<a class="btn btn-primary btn-block" href="profile_edit.php">Edit Profile</a>
 		<br>
 
@@ -176,7 +176,7 @@ HTML;
 		?>
 
 		<a class="btn btn-primary btn-block" href="logout.php">Logout</a>
-		<!---------------------------------------------------------------------------- BUTTONS END ---------------------------------------------------->
+		<!-- ---------------------- BUTTONS END ---------------------- -->
 
 	</div>
 
