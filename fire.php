@@ -16,7 +16,7 @@
     <!-- Special font links go here -->
     <!-- End font links -->
 
-    <title>[TITLE GOES HERE]</title>
+    <title>HotSpot | Fire</title>
   </head>
   <body>
     <div class="container">

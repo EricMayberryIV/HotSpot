@@ -345,11 +345,11 @@ CREATE TABLE `lt_drink` (
 --
 
 INSERT INTO `lt_drink` (`D_DRINK_TYPE`, `D_DRINK`, `D_COMMENT`) VALUES
-('A', 'ALCOHOLIC BEVERAGES', ''),
-('J', 'JUICE', ''),
-('S', 'SODA', ''),
-('T', 'TEA', ''),
-('W', 'WATER', '');
+('A', 'Alcohol', ''),
+('J', 'Juice', ''),
+('S', 'Soda', ''),
+('T', 'Tea', ''),
+('W', 'Water', '');
 
 -- --------------------------------------------------------
 

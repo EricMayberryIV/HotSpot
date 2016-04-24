@@ -32,7 +32,7 @@
       <div class="jumbotron">
         <h1 class="text-center">🌧</h1>
         <br/>
-        <h4 class="text-center">The fire has been extinguished</h4>
+        <h4 class="text-center">The flame has been extinguished</h4>
       </div>
     </div>
 
