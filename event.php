@@ -42,6 +42,13 @@
 			$UID = $resultU['U_ID'];
       $_SESSION["UID"]= $UID;
       $_SESSION["EID"]=$EID;
+      $sqlC = "select count(f_id) from flame where f_eventid = $EID";
+      $resultC = $conn->query($sqlC);
+      if ($resultC->num_rows > 0) {
+        while($rowC = $resultC->fetch_assoc()){
+          $count=$rowC["count(f_id)"];
+        }
+      }
       $sql0 = "select f_id from flame where f_eventid = $EID and f_userid = $UID";
       $result0 = $conn->query($sql0);
       if ($result0->num_rows > 0) {
@@ -66,21 +73,23 @@
           <div class=\"well\"><h2 class=\"text-left\">".
           $row["E_TITLE"];
           if (is_null($FID)) {
-            echo "<a class=\"btn btn-danger pull-right\" href=\"flameUp.php\" title=\"Add To The Fire!\" role=\"button\"><span class=\"glyphicon glyphicon-fire\"></span></a>";
+            echo "<a class=\"btn btn-default pull-right\" href=\"flameUp.php\" title=\"Add To The Fire!\" role=\"button\"><span class=\"glyphicon glyphicon-fire\"></span></a><span class=\"label label-danger pull-right\" style=\"margin-right: 4px;\">$count</span></h2>";
           } else {
-            echo "<a class=\"btn btn-default pull-right\"
-            href=\"flameDown.php\" title=\"Extinguish your flame\" role=\"button\"><span class=\"glyphicon glyphicon-fire redtext\"></span></a>";
+            echo "
+            <a class=\"btn btn-default pull-right\"
+            href=\"flameDown.php\" title=\"Extinguish your flame\" role=\"button\"><span class=\"glyphicon glyphicon-fire redtext\"></span></a><span class=\"label label-danger pull-right\" style=\"margin-right: 4px;\">$count</span></h2>";
           }
-          echo "</h2><p class=\"text-justify\">".
+          echo "<p class=\"text-justify\">".
           $row["E_DESC"].
-          "</p><p class=\"small\"><br/>".
+          "</p><p><span class=\"small\"><br/>".
           $row["DATE_FORMAT(E_DATE,'%c/%e/%y')"].
           " | ".
           $row["TIME_FORMAT(E_TIME_START,'%h:%i %p')"].
           " | &#36;".
           $row["E_PRICE"].
-          "</p><br><a class=\"btn btn-block btn-primary\" role=\"button\" onclick=\"history.go(-1);\">Back</a>
-          <br/></div></div>";
+          "</span></p>";
+          echo "<br/><a class=\"btn btn-block btn-primary\" role=\"button\" onclick=\"history.go(-1);\">Back</a>
+          </div></div>";
         }
       } else {
         echo "Weird! There are no events, I suggest making one happen";
