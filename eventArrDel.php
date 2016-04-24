@@ -8,17 +8,17 @@
   include("connection.php");
   $UID=$_SESSION["UID"];
   $EID=$_SESSION["EID"];
-  $sql0="select f_id from flame where f_userid = $UID and f_eventid = $EID";
+  $sql0="select arr_id from arrival where arr_userid = $UID and arr_eventid = $EID";
   $result0 = $conn->query($sql0);
   if ($result0->num_rows > 0) {
     while($row0 = $result0->fetch_assoc()) {
-      $FID=$row0["f_id"];
-      $sql = "DELETE FROM `flame` WHERE F_ID = $FID";
+      $ArrID=$row0["arr_id"];
+      $sql = "DELETE FROM arrival WHERE arr_id = $ArrID";
       if ($conn->query($sql) === TRUE) {
       } else {
-          header("Location: flameDownBad.php");
+          header("Location: eventArrDelBad.php");
       }
     }
   }
-  header("Location: flameDownGood.php");
+  header("Location: eventArrDelGood.php");
 ?>

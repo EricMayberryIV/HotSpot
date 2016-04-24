@@ -25,8 +25,9 @@
     <title>HotSpot | Events</title>
   </head>
   <body>
+    <?php include("header.php"); ?>
+    <?php include("nav.php"); ?>
     <div class="container">
-      <?php include("header.php"); ?>
       <br style="line-height:38px;" />
       <?php
       // Create connection
@@ -59,6 +60,18 @@
       } else {
         $FID = NULL;
       }
+
+      $sqlArr = "SELECT count(arr_id) FROM arrival WHERE arr_userid = $UID;";
+      $resultArr = $conn->query($sqlArr);
+      if ($resultArr->num_rows > 0) {
+        // output data of each row
+        while($rowArr = $resultArr->fetch_assoc()) {
+          $countArr = $rowArr["count(arr_id)"];
+        }
+      } else {
+        $countArr = 0;
+      }
+
       $sql = "select E_ID, E_CREATOR, E_TITLE, DATE_FORMAT(E_DATE,'%c/%e/%y'),
        TIME_FORMAT(E_TIME_START,'%h:%i %p'),
        TIME_FORMAT(E_TIME_END,'%h:%i %p'), E_DESC, E_AGE_GROUP, E_PRICE
@@ -88,8 +101,20 @@
           " | &#36;".
           $row["E_PRICE"].
           "</span></p>";
-          echo "<br/><a class=\"btn btn-block btn-primary\" role=\"button\" onclick=\"history.go(-1);\">Back</a>
-          </div></div>";
+          echo "<br/><div class=\"btn-group btn-group-justified\"
+          role=\"group\"><div class=\"btn-group\" role=\"group\">
+          <a class=\"btn btn-group btn-primary\" role=\"button\"
+          onclick=\"history.go(-1);\">Back</a>
+          </div>";
+          if ($countArr < 1){
+          echo "<a class=\"btn btn-group btn-success\" role=\"button\"
+          href=\"eventArr.php\">Check-in</a>
+          </div>";
+          } else {
+            echo "<a class=\"btn btn-group btn-danger\" role=\"button\"
+            href=\"eventArrDel.php\">Delete Check-in</a>
+            </div>";
+          }
         }
       } else {
         echo "Weird! There are no events, I suggest making one happen";
@@ -97,8 +122,6 @@
       $conn->close();
       ?>
     </div>
-
-    <?php include("nav.php"); ?>
 
     <!-- The body of the page goes above this line, only scripts should
          go below this line. -->
