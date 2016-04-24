@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 24, 2016 at 01:18 AM
+-- Generation Time: Apr 25, 2016 at 01:11 AM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.3
 
@@ -218,6 +218,9 @@ CREATE TABLE `flame` (
 -- Dumping data for table `flame`
 --
 
+INSERT INTO `flame` (`F_ID`, `F_EVENTID`, `F_USERID`, `F_FLAME`) VALUES
+(1, 5, 9872264, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -320,12 +323,12 @@ CREATE TABLE `lt_attire` (
 --
 
 INSERT INTO `lt_attire` (`ATT_ATTIRE_TYPE`, `ATT_ATTIRE`, `ATT_COMMENT`) VALUES
-('B', 'BLACK TIE EVENT', NULL),
-('BL', 'BLACK', NULL),
-('BW', 'BEACH WEAR', NULL),
-('C', 'CASUAL', NULL),
-('S', 'SUIT/TIE', NULL),
-('WH', 'ALL WHITE', NULL);
+('B', 'Black Tie', NULL),
+('BL', 'All Black', NULL),
+('BW', 'Beach Wear', NULL),
+('C', 'Casual', NULL),
+('S', 'Suit/Tie', NULL),
+('WH', 'All White', NULL);
 
 -- --------------------------------------------------------
 
@@ -369,80 +372,80 @@ CREATE TABLE `lt_food` (
 --
 
 INSERT INTO `lt_food` (`F_FOOD_TYPE`, `F_FOOD`, `F_COMMENT`) VALUES
-('AFG', 'AFGHAN', ''),
-('AFR', 'AFRICAN', ''),
-('AME', 'AMERICAN', ''),
-('ARA', 'ARABIAN', ''),
-('ARG', 'ARGENTINE', ''),
-('ARM', 'ARMENIAN', ''),
-('ASI', 'ASIAN', ''),
-('AU', 'AUSTRALIAN', ''),
-('AUS', 'AUSTRIAN', ''),
-('BAN', 'BANGLADESHI', ''),
-('BAS', 'BASQUE', ''),
-('BBQ', 'BARBEQUE', ''),
-('BEL', 'BELGIAN', ''),
-('BRA', 'BRASSERIES', ''),
-('BRI', 'BRITISH', ''),
-('BRM', 'BURMESE', ''),
-('BRZ', 'BRAZILIAN', ''),
-('BUF', 'BUFFET', ''),
-('BUR', 'BURGERS', ''),
-('CAJ', 'CAJUN', ''),
-('CAL', 'CALABRIAN', ''),
-('CAM', 'CAMBODIAN', ''),
-('CAN', 'CANTONESE', ''),
-('CAR', 'CARIBBEAN', ''),
-('CAT', 'CATALAN', ''),
-('CHI', 'CHICKEN', ''),
-('CHN', 'CHINESE', ''),
-('COL', 'COLOMBIAN', ''),
-('COM', 'COMFORT FOOD', ''),
-('CRE', 'CREOLE', ''),
-('CRP', 'CREPES', ''),
-('CUB', 'CUBAN', ''),
-('CZE', 'CZECH', ''),
-('DEL', 'DELI', ''),
-('DIM', 'DIM SUM', ''),
-('DOM', 'DOMINICAN', ''),
-('EGY', 'EGYPTIAN', ''),
-('FAL', 'FALAFEL', ''),
-('FIL', 'FILIPINO', ''),
-('FIS', 'FISH', ''),
-('FON', 'FONDUE', ''),
-('FRE', 'FRENCH', ''),
-('GAS', 'GASTROPUB', ''),
-('GER', 'GERMAN', ''),
-('GLU', 'GLUTEN-FREE', ''),
-('GRE', 'GREEK', ''),
-('HAI', 'HAITIAN', ''),
-('HAL', 'HALAL', ''),
-('HAW', 'HAWAIIAN', ''),
-('HIM', 'HIMALAYAN', ''),
-('HUN', 'HUNGARIAN', ''),
-('IBE', 'IBERIAN', ''),
-('IND', 'INDIAN', ''),
-('IRA', 'IRANIAN', ''),
-('IRI', 'IRISH', ''),
-('ITA', 'ITALIAN', ''),
-('JAP', 'JAPANESE', ''),
-('KOR', 'KOREAN', ''),
-('KOS', 'KOSHER', ''),
-('LAO', 'LAOTIAN', ''),
-('LAT', 'LATIN AMERICAN', ''),
-('LEB', 'LEBANESE', ''),
-('MAL', 'MALAYSIAN', ''),
-('MED', 'MEDITERRANEAN', ''),
-('MEX', 'MEXICAN', ''),
-('MID', 'MIDDLE EAST', ''),
-('MON', 'MONGOLIAN', ''),
-('MOR', 'MOROCCAN', ''),
-('NEP', 'NEPALESE', ''),
-('PAK', 'PAKISTANI', ''),
-('PER', 'PERSIAN', ''),
-('PIZ', 'PIZZA', ''),
-('POL', 'POLISH', ''),
-('PRV', 'PERUVIAN', '');
+('AFG', 'Afghan', ''),
+('AFR', 'African', ''),
+('AME', 'American', ''),
+('ARA', 'Arabian', ''),
+('ARG', 'Argentine', ''),
+('ARM', 'Armenian', ''),
+('ASI', 'Asian', ''),
+('AU', 'Australian', ''),
+('AUS', 'Austrian', ''),
+('BAN', 'Bangledeshi', ''),
+('BAS', 'Basque', ''),
+('BBQ', 'Barbeque', ''),
+('BEL', 'Belgian', ''),
+('BRA', 'Brasseries', ''),
+('BRI', 'British', ''),
+('BRM', 'Burmese', ''),
+('BRZ', 'Brazalian', ''),
+('BUF', 'Buffet', ''),
+('BUR', 'Burgers', ''),
+('CAJ', 'Cajun', ''),
+('CAL', 'Calabrian', ''),
+('CAM', 'Cambodian', ''),
+('CAN', 'Cantonese', ''),
+('CAR', 'Caribbean', ''),
+('CAT', 'Catalan', ''),
+('CHI', 'Chicken', ''),
+('CHN', 'Chinese', ''),
+('COL', 'Colombian', ''),
+('COM', 'Comfort Food', ''),
+('CRE', 'Creole', ''),
+('CRP', 'Crepes', ''),
+('CUB', 'Cuban', ''),
+('CZE', 'Czech', ''),
+('DEL', 'Deli', ''),
+('DIM', 'Dim Sum', ''),
+('DOM', 'Dominican', ''),
+('EGY', 'Egyptian', ''),
+('FAL', 'Flalfel', ''),
+('FIL', 'Filipino', ''),
+('FIS', 'Fish', ''),
+('FON', 'Fondue', ''),
+('FRE', 'French', ''),
+('GAS', 'Gastropub', ''),
+('GER', 'German', ''),
+('GLU', 'Gluten-Free', ''),
+('GRE', 'Greek', ''),
+('HAI', 'Haitian', ''),
+('HAL', 'Halal', ''),
+('HAW', 'Hawaiian', ''),
+('HIM', 'Himalayan', ''),
+('HUN', 'Hungarian', ''),
+('IBE', 'Iberian', ''),
+('IND', 'Indian', ''),
+('IRA', 'Iranian', ''),
+('IRI', 'Irish', ''),
+('ITA', 'Italian', ''),
+('JAP', 'Japenese', ''),
+('KOR', 'Korean', ''),
+('KOS', 'Kosher', ''),
+('LAO', 'Laotian', ''),
+('LAT', 'Latin Am.', ''),
+('LEB', 'Lebanese', ''),
+('MAL', 'Malaysian', ''),
+('MED', 'Mediterranean', ''),
+('MEX', 'Mexican', ''),
+('MID', 'Middle East', ''),
+('MON', 'Mongolian', ''),
+('MOR', 'Moroccan', ''),
+('NEP', 'Nepelese', ''),
+('PAK', 'Pakistani', ''),
+('PER', 'Persian', ''),
+('PIZ', 'Pizza', ''),
+('POL', 'Polish', ''),
+('PRV', 'Peruvian', '');
 
 -- --------------------------------------------------------
 
@@ -544,16 +547,58 @@ ALTER TABLE `event`
   ADD PRIMARY KEY (`E_ID`);
 
 --
+-- Indexes for table `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`FB_ID`);
+
+--
 -- Indexes for table `flame`
 --
 ALTER TABLE `flame`
   ADD PRIMARY KEY (`F_ID`);
 
 --
+-- Indexes for table `group`
+--
+ALTER TABLE `group`
+  ADD PRIMARY KEY (`GR_ID`);
+
+--
 -- Indexes for table `invite`
 --
 ALTER TABLE `invite`
   ADD PRIMARY KEY (`IN_ID`);
+
+--
+-- Indexes for table `lt_age`
+--
+ALTER TABLE `lt_age`
+  ADD PRIMARY KEY (`AGE_CODE`);
+
+--
+-- Indexes for table `lt_attire`
+--
+ALTER TABLE `lt_attire`
+  ADD PRIMARY KEY (`ATT_ATTIRE_TYPE`);
+
+--
+-- Indexes for table `lt_drink`
+--
+ALTER TABLE `lt_drink`
+  ADD PRIMARY KEY (`D_DRINK_TYPE`);
+
+--
+-- Indexes for table `lt_food`
+--
+ALTER TABLE `lt_food`
+  ADD PRIMARY KEY (`F_FOOD_TYPE`);
+
+--
+-- Indexes for table `rt_event`
+--
+ALTER TABLE `rt_event`
+  ADD PRIMARY KEY (`RT_ID`);
 
 --
 -- Indexes for table `user`
@@ -569,7 +614,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `arrival`
 --
 ALTER TABLE `arrival`
-  MODIFY `arr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `arr_id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `dir_mess`
 --
@@ -579,7 +624,7 @@ ALTER TABLE `dir_mess`
 -- AUTO_INCREMENT for table `flame`
 --
 ALTER TABLE `flame`
-  MODIFY `F_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+  MODIFY `F_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `invite`
 --

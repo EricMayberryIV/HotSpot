@@ -52,6 +52,11 @@
             <td style="width:10%;"></td>
           </tr>
         </table>
+        <br/>
+        <div class="text-center">
+          <p>Sponsored By:</p>
+          <p>
+        </div>
       </div>
 
 
