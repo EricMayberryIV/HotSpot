@@ -1,11 +1,5 @@
 <?php
-  session_start(); // required for all php files within the application
-  if (!isset($_SESSION["login_user"]))
-  {
-  header("Location: index.php");
-  die();
-  }
-  ?>
+  session_start(); ?><!-- required for all php files within the application -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1,
       shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
-    <meta http-equiv="refresh" content="3;url=<?php echo $_SERVER['HTTP_REFERER'];?>" />
+    <meta http-equiv="refresh" content="8;url=<?php echo $_SERVER['HTTP_REFERER'];?>" />
 
     <!-- CSS links go here -->
     <link rel="stylesheet" type="text/css" href="css/template.css">
@@ -23,17 +17,23 @@
     <!-- Special font links go here -->
     <!-- End font links -->
 
-    <title>HotSpot | Delete Check-In</title>
+    <title>HotSpot | Error Page</title>
   </head>
   <body>
     <?php include("header.php"); ?>
     <div class="container"><br/>
       <br/>
-      <div class="jumbotron">
-        <h1 class="text-center">👻</h1>
-        <br/>
-        <h4 class="text-center">Your check-in to the event has been deleted</h4>
-      </div>
+      <h3 class="text-center">
+        Damn, yo
+      </h3>
+      <br/>
+      <h4 class="text-center">
+        There was an error and your message didn't send.
+      </h4>
+      <br/>
+      <h5 class="text-center">Don't worry about it, I'll take you back so you
+        can try again.
+      </h5>
     </div>
 
     <?php include("nav.php"); ?>

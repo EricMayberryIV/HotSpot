@@ -278,8 +278,35 @@
     </span></a>
     <div id="comments" class="panel-collapse collapse">
       <ul class="list-group">
-        <a href="comment.php" class="list-group-item text-center"><strong>
-          Post Comment</strong></a>
+        <li class ="list-group-item" data-toggle="modal" data-target="#postComment">
+          <a href="#"><center><strong>Submit Comment</strong></center></a>
+        </li>
+
+
+        <div class="modal fade" id="postComment">
+          <!-- search modal, required for all php files -->
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;
+                </button>
+                <h3 class="modal-title">Submit Comment</h3>
+              </div>
+              <div class="modal-body">
+
+                <form action="commentPost.php" method="post">
+                  <div class="form-group">
+                    <textarea name="commentBody" class="form-control" rows="5" placeholder="Event comments"></textarea>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
+                  <button type="hidden" class="btn btn-primary">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
         <?php
           $sqlComm="SELECT F.FB_ID,
                            F.FB_FROM_ID,
@@ -290,19 +317,30 @@
                     FROM FEEDBACK F,
                          USER U
                     WHERE FB_EVENT_ID=$EID
-                    AND F.FB_FROM_ID=U.U_ID";
+                    AND F.FB_FROM_ID=U.U_ID
+                    ORDER BY FB_DATETIME DESC";
           $resultComm=$conn->query($sqlComm);
           if ($resultComm->num_rows > 0) {
             while($rowComm = $resultComm->fetch_assoc()) {
               $rowComment=$rowComm["FB_MESS"];
               $poster=$rowComm["U_USERNAME"];
+              $FUID=$rowComm["FB_FROM_ID"];
+              $FBID=$rowComm["FB_ID"];
               $postDate=$rowComm["DATE_FORMAT(FB_DATETIME,'%m/%d/%y @ %l:%i %p')"];
               echo "<li class=\"list-group-item\">".
               "<small><strong><span class=\"pull-left\">".
               $poster.
               "</span><span class=\"pull-right\">".
-              $postDate.
-              "</strong></small><br/>".
+              $postDate;
+
+              if ($UID == $FUID) {
+                echo "&nbsp;
+                <a class=\"btn btn-danger btn-xs\" role=\"button\" href=\"commentDelete.php?FBID=$FBID\">
+                <span class=\"glyphicon glyphicon-trash\"></span>
+                </a>";
+              }
+
+              echo "</strong></small><br/>".
               $rowComment.
               "</li>";
             }
@@ -312,7 +350,6 @@
         ?>
       </ul>
     </div>
-
     <!-- The body of the page goes above this line, only scripts should
          go below this line. -->
 

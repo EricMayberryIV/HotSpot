@@ -23,7 +23,7 @@
     <!-- Special font links go here -->
     <!-- End font links -->
 
-    <title>HotSpot | Error Page</title>
+    <title>HotSpot | Check-In</title>
   </head>
   <body>
     <?php include("header.php"); ?>

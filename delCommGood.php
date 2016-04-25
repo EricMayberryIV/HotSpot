@@ -23,16 +23,16 @@
     <!-- Special font links go here -->
     <!-- End font links -->
 
-    <title>HotSpot | Delete Check-In</title>
+    <title>HotSpot | Delete Success</title>
   </head>
   <body>
     <?php include("header.php"); ?>
     <div class="container"><br/>
       <br/>
       <div class="jumbotron">
-        <h1 class="text-center">👻</h1>
+        <h3 class="text-center">Well, I hope you didn't want that...</h3>
         <br/>
-        <h4 class="text-center">Your check-in to the event has been deleted</h4>
+        <h4 class="text-center">Either way, it's been deleted.</h4>
       </div>
     </div>
 

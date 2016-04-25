@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 25, 2016 at 01:11 AM
+-- Generation Time: Apr 25, 2016 at 08:29 PM
 -- Server version: 10.1.10-MariaDB
 -- PHP Version: 7.0.3
 
@@ -112,7 +112,6 @@ INSERT INTO `dir_mess` (`DM_ID`, `DM_FROM_ID`, `DM_TO_ID`, `DM_SUBJECT`, `DM_MES
 (2, 0, 2, 'ADMIN MESSAGE', 'Please update your password', '2016-03-29 04:36:53', 0),
 (3, 1, 0, 'TESTING DMS', 'Testing DM capability', '2016-03-29 04:36:44', 1),
 (4, 0, 9872264, '[ADMIN] Welcome!', 'Welcome to HotSpot!!', '2016-03-29 04:36:53', 0),
-(5, 1, 9872264, '[ADMIN] Test', 'Testing DM capability', '2016-03-29 04:36:44', 1),
 (7, 9101344, 9872264, 'Usability Testing', 'Testing messaging system...\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ', '2016-03-30 07:35:16', 9101344),
 (9, 9101344, 9872264, 'testing success page 01', 'testing success page for messages', '2016-03-30 07:54:33', 9101344),
 (11, 9872264, 0, 'FAQ?', 'Are we going to add a FAQ page? what about a site map?... Just some thoughts.', '2016-04-02 03:11:45', 9872264);
@@ -187,7 +186,8 @@ CREATE TABLE `feedback` (
   `FB_ID` int(11) NOT NULL,
   `FB_FROM_ID` int(7) NOT NULL,
   `FB_EVENT_ID` int(11) NOT NULL,
-  `FB_MESS` longtext COLLATE utf8_bin NOT NULL,
+  `FB_MESS` longtext CHARACTER SET utf8 NOT NULL,
+  `FB_DATETIME` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `USER_U_ID` int(7) NOT NULL,
   `EVENT_E_ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -196,9 +196,10 @@ CREATE TABLE `feedback` (
 -- Dumping data for table `feedback`
 --
 
-INSERT INTO `feedback` (`FB_ID`, `FB_FROM_ID`, `FB_EVENT_ID`, `FB_MESS`, `USER_U_ID`, `EVENT_E_ID`) VALUES
-(0, 3, 0, 'Loved the party!', 3, 0),
-(1, 2, 1, 'Hope you throw more parties, I had a blast.', 2, 1);
+INSERT INTO `feedback` (`FB_ID`, `FB_FROM_ID`, `FB_EVENT_ID`, `FB_MESS`, `FB_DATETIME`, `USER_U_ID`, `EVENT_E_ID`) VALUES
+(1, 5, 5, 'TESTING MESSAGE 5:5', '2016-04-25 00:46:25', 0, 0),
+(7, 9872264, 5, 'Testing Comments', '2016-04-25 01:22:39', 0, 0),
+(12, 9872264, 5, 'Testing comments from Eric/Event#5', '2016-04-25 14:27:18', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -219,7 +220,11 @@ CREATE TABLE `flame` (
 --
 
 INSERT INTO `flame` (`F_ID`, `F_EVENTID`, `F_USERID`, `F_FLAME`) VALUES
-(1, 5, 9872264, 1);
+(5, 0, 9872264, 1),
+(6, 9, 9872264, 1),
+(8, 5, 9101344, 1),
+(9, 5, 9872264, 1),
+(10, 8, 9872264, 1);
 
 -- --------------------------------------------------------
 
@@ -614,17 +619,22 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `arrival`
 --
 ALTER TABLE `arrival`
-  MODIFY `arr_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `arr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `dir_mess`
 --
 ALTER TABLE `dir_mess`
   MODIFY `DM_ID` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
+-- AUTO_INCREMENT for table `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `FB_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+--
 -- AUTO_INCREMENT for table `flame`
 --
 ALTER TABLE `flame`
-  MODIFY `F_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `F_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `invite`
 --
