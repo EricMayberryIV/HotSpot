@@ -229,9 +229,7 @@
           echo "</td>
           </tr>
           </table>";
-
           if($spon == 'N'){
-
           } else {
             echo "<br/><div class=\"text-center\">
               <p>Sponsored By:</p>
@@ -239,9 +237,6 @@
               $sponsor.
               "</p></div>";
           }
-
-
-
           echo "<br/><div class=\"btn-group btn-group-justified\"
           role=\"group\"><div class=\"btn-group\" role=\"group\">
           <a class=\"btn btn-group btn-primary\" role=\"button\"
@@ -261,18 +256,73 @@
         $EID."<br/>".
         $UID;
       }
-      $conn->close();
       ?>
     </div>
     <br/>
-    <span class="btn btn-block btn-primary">Comments</span>
+    <a href="#" class="btn btn-block btn-primary data-toggle collapsed"
+    data-toggle="collapse" data-target="#comments">Comments
+    <span class="badge">
+    <?php
+      $sqlCommCount="SELECT COUNT(FB_ID)
+                     FROM FEEDBACK
+                     WHERE FB_EVENT_ID=$EID";
+      $resultCommCount=$conn->query($sqlCommCount);
+      if ($resultCommCount->num_rows > 0) {
+        while($rowCommCount = $resultCommCount->fetch_assoc()) {
+          $commentCount=$rowCommCount["COUNT(FB_ID)"];
+          echo $commentCount;
+        }
+      } else {
+      }
+    ?>
+    </span></a>
+    <div id="comments" class="panel-collapse collapse">
+      <ul class="list-group">
+        <a href="comment.php" class="list-group-item text-center"><strong>
+          Post Comment</strong></a>
+        <?php
+          $sqlComm="SELECT F.FB_ID,
+                           F.FB_FROM_ID,
+                           F.FB_EVENT_ID,
+                           F.FB_MESS,
+                           U.U_USERNAME,
+                           DATE_FORMAT(FB_DATETIME,'%m/%d/%y @ %l:%i %p')
+                    FROM FEEDBACK F,
+                         USER U
+                    WHERE FB_EVENT_ID=$EID
+                    AND F.FB_FROM_ID=U.U_ID";
+          $resultComm=$conn->query($sqlComm);
+          if ($resultComm->num_rows > 0) {
+            while($rowComm = $resultComm->fetch_assoc()) {
+              $rowComment=$rowComm["FB_MESS"];
+              $poster=$rowComm["U_USERNAME"];
+              $postDate=$rowComm["DATE_FORMAT(FB_DATETIME,'%m/%d/%y @ %l:%i %p')"];
+              echo "<li class=\"list-group-item\">".
+              "<small><strong><span class=\"pull-left\">".
+              $poster.
+              "</span><span class=\"pull-right\">".
+              $postDate.
+              "</strong></small><br/>".
+              $rowComment.
+              "</li>";
+            }
+          } else {
+          }
+          $conn->close();
+        ?>
+      </ul>
+    </div>
 
     <!-- The body of the page goes above this line, only scripts should
          go below this line. -->
 
-    <!-- jQuery first, then Bootstrap JS. -->
-    <script src="http://code.jquery.com/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!-- End JS -->
+         <!-- jQuery first, then Bootstrap JS. -->
+         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js">
+         </script>
+             <script>window.jQuery || document.write
+             ('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+             <script src="js/vendor/bootstrap.min.js"></script>
+             <script src="js/collapse.js"></script>
+         <!-- End JS -->
   </body>
 </html>
