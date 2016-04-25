@@ -8,6 +8,7 @@ body {
 p {
   margin: 0 0 0px; /* Altered bottom margin to balance the appearance
                       of list items */
+  margin-bottom: 2px !important;
 }
 
 a {

@@ -55,7 +55,7 @@
         <br/>
         <div class="text-center">
           <p>Sponsored By:</p>
-          <p>
+          <p>Omega Psi Phi</p>
         </div>
       </div>
 

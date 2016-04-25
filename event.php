@@ -88,6 +88,7 @@
                      E.E_DRINK,
                      E.E_ATTIRE,
                      E.E_SPONSOR,
+                     E.E_SPONSOR_TITLE,
                      E.E_BYO
               FROM EVENT E,
                    LT_AGE A,
@@ -105,6 +106,8 @@
           $attire=$row["E_ATTIRE"];
           $food=["E_FOOD"];
           $drink=$row["E_DRINK"];
+          $sponsor=$row["E_SPONSOR_TITLE"];
+          $spon=$row["E_SPONSOR"];
           echo "<div class=\"item\">
           <div class=\"well\"><h2 class=\"text-left\">".
           $row["E_TITLE"];
@@ -126,7 +129,7 @@
           $row["U_USERNAME"].
           "</span><span class=\"pull-right\">".
           $row["E_TYPE"].
-          "</span><br/><center><span>".
+          "</span><br style=\"line-height: 30px;\"/><center><span>".
           $row["DATE_FORMAT(E.E_DATE,'%c/%e/%y')"].
           " &#64; ".
           $row["TIME_FORMAT(E.E_TIME_START,'%h:%i %p')"].
@@ -152,7 +155,6 @@
             echo "No";
           }
           echo "</td>
-          <td style=\"width:10%;\"></td>
           </tr>
           <tr>
           <td style=\"width:5%;\">🍞:&nbsp;</td>
@@ -195,7 +197,6 @@
             }
           }
           echo "</td>
-          <td style=\"width:10%;\"></td>
           </tr>
           <tr>
           <td style=\"width:5%;\">🍾:&nbsp;</td>
@@ -226,9 +227,21 @@
             echo "Free";
           }
           echo "</td>
-          <td style=\"width:10%;\"></td>
           </tr>
           </table>";
+
+          if($spon == 'N'){
+
+          } else {
+            echo "<br/><div class=\"text-center\">
+              <p>Sponsored By:</p>
+              <p>".
+              $sponsor.
+              "</p></div>";
+          }
+
+
+
           echo "<br/><div class=\"btn-group btn-group-justified\"
           role=\"group\"><div class=\"btn-group\" role=\"group\">
           <a class=\"btn btn-group btn-primary\" role=\"button\"
