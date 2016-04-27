@@ -19,6 +19,7 @@
 			$acct = $result['U_ACCT_TYPE'];
 			$fname = $result['U_F_NAME'];
 			$lname = $result['U_L_NAME'];
+			$loginid = $result['U_ID'];
 			$birthdate = $result['U_DOB'];
 			$user = $login;
 			$image = $result['U_IMAGE'];
@@ -29,6 +30,21 @@
 				$image = "img/profile/blank_profile.jpg";
 			if ($school == NULL)
 				$school = "";
+			
+			if (isset($_POST['groupName']))
+			{
+				$groupName = $_POST['groupName'];
+				do
+				{
+					$groupid = intval(microtime(true)) * 4;
+
+					while($groupid > 9999999)
+						$groupid = $groupid - 1000000;
+
+				}while(mysqli_num_rows(mysqli_query($conn, "select GR_ID from `GROUP` where GR_ID='$groupid'" )) > 0);
+				
+				mysqli_query($conn, "insert into `GROUP` (GR_ID, GR_CREATOR, GR_MEMBER, GR_NAME, USER_U_ID)values ('$groupid', '$loginid', '$loginid', '$groupName', '$loginid')");
+			}
 	?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1,
@@ -83,7 +99,7 @@
 
         <div id="events" class="panel-collapse collapse">
           <ul class="list-group">
-            <a href="event_edit.php?EID=new" class="list-group-item" role="button">Create New Event</a>
+            <a href="event_edit.php?EID=new" class="list-group-item" style="background-color: #E5E4E2" role="button"><center><h4>Create New Event</h4></center></a>
 			<?php
 				$query = "select E_ID, E_TITLE, E_DATE, SUBSTRING(E_DESC, 1, 100) from EVENT, USER where U_USERNAME = '$login' and E_CREATOR = U_ID order by E_DATE";
 				$result = $conn->query($query);
@@ -145,17 +161,16 @@ HTML;
 
         <div id="groups" class="panel-collapse collapse">
           <ul class="list-group">
-			<a href="newGroup.php" class="list-group-item" role="button">Create New Group</a>
+			<a data-toggle="modal" data-target="#newgroup" class="list-group-item" style="background-color: #E5E4E2" role="button"><center><h4>Create New Group</h4></center></a>
 			<?php
-				$query = mysqli_query($conn, "select GR_NAME from `GROUP`, USER where U_USERNAME = '$login' and GR_MEMBER =  U_ID order by GR_NAME");
+				$query = "SELECT gr_name, gr_id FROM `group`, user where u_username = '$login' and gr_member = u_id order by gr_name";
 				$rows = array();
-				$result= mysqli_fetch_assoc($query);
-				/*while () {
-				$group = $result['GR_NAME'];
-					echo '<a href="#" class="list-group-item" role="button">
-						<center><h4>'.$group.'</h4></center>
-					</a>';
-				}*/
+				$result= $conn->query($query);
+				if ($result->num_rows > 0) {
+					while ($row = $result->fetch_assoc()) {
+						echo '<a href="group.php?group='.$row['gr_id'].'" class="list-group-item" role="button"><center><h4>'.$row['gr_name'].'</h4></center></a>';
+					}
+				}
 			?>
           </ul>
         </div>
@@ -180,6 +195,7 @@ HTML;
 
 	</div>
 
+	<?php include("newGroup.html"); ?>
     <?php include("nav.php"); ?>
 
     <!-- The body of the page goes above this line, only scripts should
