@@ -35,6 +35,7 @@
   <ul class="nav nav-tabs">
     <li class="active"><a data-toggle="tab" href="#details"><b>Edit Event</b></a></li>
     <li><a data-toggle="tab" href="#invites"><b>Manage Invites</b></a></li>
+	<li><a data-toggle="tab" href="#coming"><b>Who's Coming</b></a></li>
   </ul>
 <!---------------------------------------------------------------------------- END ----------------------------------------------------------------------------->
 <form target="_self" action="" method="post" id="event_edit">
@@ -173,6 +174,50 @@
 					}				
 					else 
 					  echo "No one has been invited yet.";
+				}
+			?>
+			</table>
+		</div>
+		
+		<center><a class="btn btn-primary btn-lg" role="button" href="myprofile.php">Done</a></center>
+	</div>
+<!---------------------------------------------------------------------------- END ----------------------------------------------------------------------------->
+
+<!-------------------------------------------------------------------- Edit Profile Form Under the Edit Profile Tab ------------------------------------------------>
+	<div id="coming" class="tab-pane fade">
+		<div class="jumbotron">
+			<h1 class="text-center">Attendance</h1>
+		</div>
+		
+		<div class="container">
+			<table class="table table-striped">
+				<tr>
+					<td><b>#</b></td>
+					<td><b>Username</b></td>
+					<td><b>First</b></td>
+					<td><b>Last</b></td>
+				</tr>
+			<?php
+				if ($_GET['EID'] != "new")
+				{
+					$sql = "select U_USERNAME, U_F_NAME, U_L_NAME from USER, INVITE where EVENT_E_ID='$e_id' and IN_INVITEE=U_ID and IN_GOING='Y' order by U_USERNAME";
+					$result = $conn->query($sql);
+					if ($result->num_rows > 0) 
+					{
+						$count = 1;
+						// output data of each row
+						while($row = $result->fetch_assoc()) 
+						{
+							$iuser = $row['U_USERNAME'];
+							$ifname = $row['U_F_NAME'];
+							$ilname = $row['U_L_NAME'];
+							
+							echo '<tr><td>'.$count.'</td><td>'.$iuser.'</td><td>'.$ifname.'</td><td>'.$ilname.'</td></tr>';
+							$count = $count + 1;
+						}
+					}				
+					else 
+					  echo "No attendees just yet.";
 				}
 			?>
 			</table>
