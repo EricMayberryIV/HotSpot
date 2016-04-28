@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Apr 25, 2016 at 08:29 PM
+-- Host: 127.0.0.1
+-- Generation Time: Apr 28, 2016 at 02:13 AM
 -- Server version: 10.1.10-MariaDB
--- PHP Version: 7.0.3
+-- PHP Version: 7.0.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -28,7 +28,6 @@ USE `hotspot`;
 -- Table structure for table `about`
 --
 
-DROP TABLE IF EXISTS `about`;
 CREATE TABLE `about` (
   `INDEX` varchar(45) COLLATE utf8_bin NOT NULL,
   `ABOUT_INFO` longtext COLLATE utf8_bin NOT NULL
@@ -47,7 +46,6 @@ INSERT INTO `about` (`INDEX`, `ABOUT_INFO`) VALUES
 -- Table structure for table `arrival`
 --
 
-DROP TABLE IF EXISTS `arrival`;
 CREATE TABLE `arrival` (
   `arr_id` int(11) NOT NULL,
   `arr_eventid` int(11) NOT NULL,
@@ -61,7 +59,6 @@ CREATE TABLE `arrival` (
 -- Table structure for table `auth`
 --
 
-DROP TABLE IF EXISTS `auth`;
 CREATE TABLE `auth` (
   `A_ID` int(7) NOT NULL,
   `A_PASSWORD` longtext COLLATE utf8_bin,
@@ -92,7 +89,6 @@ INSERT INTO `auth` (`A_ID`, `A_PASSWORD`, `A_TWITTER`, `A_GOOGLE`, `A_FACEBOOK`,
 -- Table structure for table `dir_mess`
 --
 
-DROP TABLE IF EXISTS `dir_mess`;
 CREATE TABLE `dir_mess` (
   `DM_ID` int(7) NOT NULL,
   `DM_FROM_ID` int(7) NOT NULL,
@@ -114,7 +110,13 @@ INSERT INTO `dir_mess` (`DM_ID`, `DM_FROM_ID`, `DM_TO_ID`, `DM_SUBJECT`, `DM_MES
 (4, 0, 9872264, '[ADMIN] Welcome!', 'Welcome to HotSpot!!', '2016-03-29 04:36:53', 0),
 (7, 9101344, 9872264, 'Usability Testing', 'Testing messaging system...\r\n\r\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ', '2016-03-30 07:35:16', 9101344),
 (9, 9101344, 9872264, 'testing success page 01', 'testing success page for messages', '2016-03-30 07:54:33', 9101344),
-(11, 9872264, 0, 'FAQ?', 'Are we going to add a FAQ page? what about a site map?... Just some thoughts.', '2016-04-02 03:11:45', 9872264);
+(11, 9872264, 0, 'FAQ?', 'Are we going to add a FAQ page? what about a site map?... Just some thoughts.', '2016-04-02 03:11:45', 9872264),
+(12, 9365608, 3, 'empty', 'YOOOO', '2016-04-27 07:13:37', 9365608),
+(13, 9365608, 2, 'Testing Group Messagest', 'ttttt', '2016-04-27 07:25:25', 9365608),
+(14, 9365608, 5, 'Testing Group Messagest', 'ttttt', '2016-04-27 07:25:25', 9365608),
+(16, 3, 9365608, 'Second Test', 'Group Messages', '2016-04-27 07:35:32', 3),
+(17, 3, 2, 'Second Test', 'Group Messages', '2016-04-27 07:35:32', 3),
+(18, 3, 5, 'Second Test', 'Group Messages', '2016-04-27 07:35:32', 3);
 
 -- --------------------------------------------------------
 
@@ -122,7 +124,6 @@ INSERT INTO `dir_mess` (`DM_ID`, `DM_FROM_ID`, `DM_TO_ID`, `DM_SUBJECT`, `DM_MES
 -- Table structure for table `event`
 --
 
-DROP TABLE IF EXISTS `event`;
 CREATE TABLE `event` (
   `E_ID` int(11) NOT NULL,
   `E_CREATOR` int(7) NOT NULL,
@@ -173,7 +174,8 @@ INSERT INTO `event` (`E_ID`, `E_CREATOR`, `E_TITLE`, `E_LAT_DEG`, `E_LAT_MIN`, `
 (7, 4, 'Get-Together', 30, 22, 20, 84, 24, 40, '2016-04-18', '21:00:00', NULL, 'House Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'N', '10', 0.00, 'N', NULL, 'Y', 'A', 'Y', 'N', NULL, 'N', NULL, 4, NULL, NULL, 'A', 10, NULL),
 (8, 5, 'Party', 30, 20, 22, 84, 20, 40, '2016-05-24', '20:00:00', NULL, 'Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'N', '10', 0.00, 'N', NULL, 'Y', 'A', 'Y', 'N', NULL, 'N', NULL, 5, NULL, NULL, 'A', 10, NULL),
 (9, 4, 'Movie Marathon', 30, 22, 20, 84, 24, 40, '2016-06-22', '20:00:00', '23:59:00', 'Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'N', '10', 0.00, 'N', NULL, 'Y', 'A', 'Y', 'N', NULL, 'N', NULL, 4, NULL, NULL, 'A', 10, NULL),
-(10, 3, 'Party', 30, 25, 14, 84, 17, 44, '2016-06-11', '21:00:00', NULL, 'House Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'N', '10', 0.00, 'N', NULL, 'Y', 'A', 'Y', 'N', NULL, 'N', NULL, 3, NULL, NULL, 'A', 10, NULL);
+(10, 3, 'Party', 30, 25, 14, 84, 17, 44, '2016-06-11', '21:00:00', NULL, 'House Party', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', 'N', '10', 0.00, 'N', NULL, 'Y', 'A', 'Y', 'N', NULL, 'N', NULL, 3, NULL, NULL, 'A', 10, NULL),
+(2147483647, 9365608, 'YOOOO', 0, 0, 0, 0, 0, 0, '2016-12-30', '22:00:00', '00:00:00', '', 'Lets Partyyyyyy																				', '', NULL, 0.00, '', NULL, '', NULL, '', '', NULL, '', NULL, 0, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -181,7 +183,6 @@ INSERT INTO `event` (`E_ID`, `E_CREATOR`, `E_TITLE`, `E_LAT_DEG`, `E_LAT_MIN`, `
 -- Table structure for table `feedback`
 --
 
-DROP TABLE IF EXISTS `feedback`;
 CREATE TABLE `feedback` (
   `FB_ID` int(11) NOT NULL,
   `FB_FROM_ID` int(7) NOT NULL,
@@ -207,7 +208,6 @@ INSERT INTO `feedback` (`FB_ID`, `FB_FROM_ID`, `FB_EVENT_ID`, `FB_MESS`, `FB_DAT
 -- Table structure for table `flame`
 --
 
-DROP TABLE IF EXISTS `flame`;
 CREATE TABLE `flame` (
   `F_ID` int(11) NOT NULL,
   `F_EVENTID` int(11) NOT NULL,
@@ -232,7 +232,6 @@ INSERT INTO `flame` (`F_ID`, `F_EVENTID`, `F_USERID`, `F_FLAME`) VALUES
 -- Table structure for table `group`
 --
 
-DROP TABLE IF EXISTS `group`;
 CREATE TABLE `group` (
   `GR_ID` int(11) NOT NULL,
   `GR_CREATOR` int(7) NOT NULL,
@@ -246,11 +245,16 @@ CREATE TABLE `group` (
 --
 
 INSERT INTO `group` (`GR_ID`, `GR_CREATOR`, `GR_MEMBER`, `GR_NAME`, `USER_U_ID`) VALUES
+(0, 2, 2, 'Red', 2),
 (0, 2, 3, 'Red', 2),
-(1, 2, 4, 'Red', 2),
-(2, 2, 5, 'Red', 2),
-(3, 5, 2, 'DummyCrew', 5),
-(4, 5, 3, 'DummyCrew', 5);
+(0, 2, 4, 'Red', 2),
+(0, 2, 5, 'Red', 2),
+(1, 5, 2, 'DummyCrew', 5),
+(1, 5, 3, 'DummyCrew', 5),
+(1, 5, 5, 'DummyCrew', 5),
+(1, 5, 9365608, 'DummyCrew', 5),
+(9209148, 9365608, 3, 'RockStarz', 9365608),
+(9209148, 9365608, 9365608, 'RockStarz', 9365608);
 
 -- --------------------------------------------------------
 
@@ -258,7 +262,6 @@ INSERT INTO `group` (`GR_ID`, `GR_CREATOR`, `GR_MEMBER`, `GR_NAME`, `USER_U_ID`)
 -- Table structure for table `invite`
 --
 
-DROP TABLE IF EXISTS `invite`;
 CREATE TABLE `invite` (
   `IN_ID` int(11) NOT NULL,
   `IN_EVENT` int(11) NOT NULL,
@@ -279,7 +282,8 @@ INSERT INTO `invite` (`IN_ID`, `IN_EVENT`, `IN_INVITEE`, `INV_TIME`, `IN_GOING`,
 (2, 0, 4, '2016-03-30 05:37:13', 'Y', NULL, 0, 4),
 (3, 0, 5, '2016-03-30 05:37:13', 'Y', NULL, 0, 5),
 (6, 0, 9872264, '2016-03-30 05:37:13', 'Y', NULL, 0, 5),
-(7, 2, 9872264, '2016-03-30 05:37:13', '', NULL, 0, 5);
+(7, 2, 9872264, '2016-03-30 05:37:13', '', NULL, 0, 5),
+(8, 0, 9365608, '2016-04-26 23:24:18', '', NULL, 1, 9365608);
 
 -- --------------------------------------------------------
 
@@ -287,7 +291,6 @@ INSERT INTO `invite` (`IN_ID`, `IN_EVENT`, `IN_INVITEE`, `INV_TIME`, `IN_GOING`,
 -- Table structure for table `lt_age`
 --
 
-DROP TABLE IF EXISTS `lt_age`;
 CREATE TABLE `lt_age` (
   `AGE_CODE` int(3) NOT NULL,
   `AGE_GROUP` varchar(20) COLLATE utf8_bin NOT NULL
@@ -316,7 +319,6 @@ INSERT INTO `lt_age` (`AGE_CODE`, `AGE_GROUP`) VALUES
 -- Table structure for table `lt_attire`
 --
 
-DROP TABLE IF EXISTS `lt_attire`;
 CREATE TABLE `lt_attire` (
   `ATT_ATTIRE_TYPE` char(3) COLLATE utf8_bin NOT NULL,
   `ATT_ATTIRE` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -341,7 +343,6 @@ INSERT INTO `lt_attire` (`ATT_ATTIRE_TYPE`, `ATT_ATTIRE`, `ATT_COMMENT`) VALUES
 -- Table structure for table `lt_drink`
 --
 
-DROP TABLE IF EXISTS `lt_drink`;
 CREATE TABLE `lt_drink` (
   `D_DRINK_TYPE` char(3) COLLATE utf8_bin NOT NULL,
   `D_DRINK` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -365,7 +366,6 @@ INSERT INTO `lt_drink` (`D_DRINK_TYPE`, `D_DRINK`, `D_COMMENT`) VALUES
 -- Table structure for table `lt_food`
 --
 
-DROP TABLE IF EXISTS `lt_food`;
 CREATE TABLE `lt_food` (
   `F_FOOD_TYPE` char(3) COLLATE utf8_bin NOT NULL,
   `F_FOOD` varchar(255) COLLATE utf8_bin NOT NULL,
@@ -458,7 +458,6 @@ INSERT INTO `lt_food` (`F_FOOD_TYPE`, `F_FOOD`, `F_COMMENT`) VALUES
 -- Table structure for table `rt_event`
 --
 
-DROP TABLE IF EXISTS `rt_event`;
 CREATE TABLE `rt_event` (
   `RT_ID` int(11) NOT NULL,
   `RT_FROM_ID` int(7) NOT NULL,
@@ -482,7 +481,6 @@ INSERT INTO `rt_event` (`RT_ID`, `RT_FROM_ID`, `RT_EVENT`, `RT_MEDIA`, `RT_COMME
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `U_ID` int(7) NOT NULL,
   `U_ACCT_TYPE` char(1) NOT NULL,
@@ -513,7 +511,7 @@ INSERT INTO `user` (`U_ID`, `U_ACCT_TYPE`, `U_USERNAME`, `U_F_NAME`, `U_L_NAME`,
 (4, 'L', 'LizzardMan', 'Cory', 'Davis', '1996-09-29', 30, 27, 26, 84, 19, 51, 'FSU', 8505554321, NULL),
 (5, 'L', 'PsiGuy', 'David', 'Humphries', '1997-04-03', 30, 27, 22, 84, 16, 19, 'FAMU', 8505551234, NULL),
 (9101344, 'L', 'ThotM@tt1ck', 'Ratkisha', 'Mathis', '1995-12-28', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL),
-(9365608, 'L', 'Barker&Biter93', 'Trenique', 'Barker', '1993-10-11', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL),
+(9365608, 'A', 'Barker&Biter93', 'Trenique', 'Barker', '1993-10-11', 0, 0, 0, 0, 0, 0, NULL, NULL, NULL),
 (9872264, 'L', 'Eric', 'Eric A.', 'Mayberry IV', '1977-04-14', 0, 0, 0, 0, 0, 0, 'FAMU', NULL, NULL);
 
 --
@@ -567,7 +565,7 @@ ALTER TABLE `flame`
 -- Indexes for table `group`
 --
 ALTER TABLE `group`
-  ADD PRIMARY KEY (`GR_ID`);
+  ADD PRIMARY KEY (`GR_ID`,`GR_MEMBER`) USING BTREE;
 
 --
 -- Indexes for table `invite`
@@ -624,7 +622,7 @@ ALTER TABLE `arrival`
 -- AUTO_INCREMENT for table `dir_mess`
 --
 ALTER TABLE `dir_mess`
-  MODIFY `DM_ID` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `DM_ID` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `feedback`
 --
@@ -634,12 +632,12 @@ ALTER TABLE `feedback`
 -- AUTO_INCREMENT for table `flame`
 --
 ALTER TABLE `flame`
-  MODIFY `F_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `F_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `invite`
 --
 ALTER TABLE `invite`
-  MODIFY `IN_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `IN_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

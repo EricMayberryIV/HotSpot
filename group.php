@@ -40,7 +40,7 @@
     <!-- Special font links go here -->
     <!-- End font links -->
 
-    <title>[TITLE GOES HERE]</title>
+    <title>HotSpot Group</title>
   </head>
   <body>
     <div class="jumbotron">
