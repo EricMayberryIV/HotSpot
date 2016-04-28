@@ -19,7 +19,7 @@ include("header.php");
 <h4 align="center"><b>Administrator Home Page</b></h4>
 <br>
 <div class="list-group">
- <a href="admin_reports.php" class="list-group-item">Reports</a>
+ <a href="admin_reports_page.php" class="list-group-item">Reports</a>
  <a href="admin_modify_account_page.php" class="list-group-item">Modify Account</a>
  <a href="admin_modify_event_page.php" class="list-group-item">Modify Event</a>
 </div>
