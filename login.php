@@ -12,14 +12,14 @@
 		$password=$_POST['password'];
 
 		// SQL query to fetch information of registerd users and finds user match.
-		$query = mysqli_query($conn, "select U_USERNAME, A_PASSWORD, U_ACCT_TYPE from USER, AUTH where U_ID = A_ID AND A_PASSWORD ='$password' AND U_USERNAME ='$username'");
+		$query = mysqli_query($conn, "select U_USERNAME, A_PASSWORD, U_ACCT_TYPE from user, auth where U_ID = A_ID AND A_PASSWORD ='$password' AND U_USERNAME ='$username'");
 		$rows = mysqli_num_rows($query);
          if ($rows == true) {
             $_SESSION["login_user"]="$username"; 	// Initializing Session
 
 		  //$sql = mysqli_query($connection, "select TYPE from USER where EMAIL ='$username' "); //Check the Type of USER
           $result= mysqli_fetch_assoc($query); // Store query result
-		  
+
 		  //if ($result['Title'] == "director") {
 			//header("location: director_profile.php"); 			// Redirecting To Director Profile
             //}
