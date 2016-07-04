@@ -36,7 +36,7 @@
         $login = $_SESSION["login_user"];
   			$query = mysqli_query($conn, "SELECT u_username,
                                              u_id
-                                      FROM USER
+                                      FROM user
                                       WHERE U_USERNAME = '$login'");
   			$result= mysqli_fetch_assoc($query);
   			$uid = $result['u_id'];

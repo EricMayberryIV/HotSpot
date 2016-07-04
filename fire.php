@@ -44,8 +44,8 @@
                                 TIME_FORMAT(E_TIME_START, '%h:%i %p'),
                                 SUBSTRING(E_DESC, 1, 150),
                                 E_PRICE
-                FROM EVENT E,
-                     FLAME F
+                FROM event E,
+                     flame F
                 WHERE E.E_ID = F.F_EVENTID
                 AND E_DATE >= CURDATE()
                 AND E_PRIVATE = 'N'

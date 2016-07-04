@@ -14,7 +14,7 @@
 			}
 
 			$login = $_SESSION["login_user"];
-			$query = mysqli_query($conn, "select U_ACCT_TYPE, U_ID, U_IMAGE, U_SCHOOL, U_DOB, U_F_NAME, U_L_NAME from USER where U_USERNAME = '$login'");
+			$query = mysqli_query($conn, "select U_ACCT_TYPE, U_ID, U_IMAGE, U_SCHOOL, U_DOB, U_F_NAME, U_L_NAME from user where U_USERNAME = '$login'");
 			$result= mysqli_fetch_assoc($query);
 			$acct = $result['U_ACCT_TYPE'];
 			$fname = $result['U_F_NAME'];
@@ -30,7 +30,7 @@
 				$image = "img/profile/blank_profile.jpg";
 			if ($school == NULL)
 				$school = "";
-			
+
 			if (isset($_POST['groupName']))
 			{
 				$groupName = $_POST['groupName'];
@@ -41,9 +41,9 @@
 					while($groupid > 9999999)
 						$groupid = $groupid - 1000000;
 
-				}while(mysqli_num_rows(mysqli_query($conn, "select GR_ID from `GROUP` where GR_ID='$groupid'" )) > 0);
-				
-				mysqli_query($conn, "insert into `GROUP` (GR_ID, GR_CREATOR, GR_MEMBER, GR_NAME, USER_U_ID)values ('$groupid', '$loginid', '$loginid', '$groupName', '$loginid')");
+				}while(mysqli_num_rows(mysqli_query($conn, "select GR_ID from `group` where GR_ID='$groupid'" )) > 0);
+
+				mysqli_query($conn, "insert into `group` (GR_ID, GR_CREATOR, GR_MEMBER, GR_NAME, USER_U_ID)values ('$groupid', '$loginid', '$loginid', '$groupName', '$loginid')");
 			}
 	?>
     <meta charset="utf-8">

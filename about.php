@@ -43,11 +43,15 @@
         // Tutorial found at https://youtu.be/EwuVD3Zi-GI
 
         // Connect to the database
-        $mysqli = NEW MySQLi('localhost', 'root', '', 'HOTSPOT');
+        include("connection.php");
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
         echo "<h2 class=\"text-center\">About</h2>";
 
         // Query the database
-        $resultSet = $mysqli->query("SELECT ABOUT_INFO from ABOUT");
+        $resultSet = $conn->query("SELECT ABOUT_INFO from about");
 
         // Count the returned rows
         if($resultSet->num_rows != 0){

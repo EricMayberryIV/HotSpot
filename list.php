@@ -40,7 +40,7 @@
         }
         $sql = "select E_ID, E_TITLE, DATE_FORMAT(E_DATE,'%c/%e/%y'),
         TIME_FORMAT(E_TIME_START,'%h:%i %p'), SUBSTRING(E_DESC, 1, 150),
-        E_PRICE from EVENT where E_DATE >= CURDATE() AND E_PRIVATE = 'N'
+        E_PRICE from event where E_DATE >= CURDATE() AND E_PRIVATE = 'N'
         order by E_DATE, E_TIME_START;";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
