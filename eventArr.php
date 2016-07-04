@@ -8,7 +8,7 @@
   include("connection.php");
   $UID=$_SESSION["UID"];
   $EID=$_SESSION["EID"];
-  $sql = "INSERT INTO ARRIVAL (ARR_EVENTID,ARR_USERID) VALUES ($EID,$UID)";
+  $sql = "INSERT INTO arrival (ARR_EVENTID,ARR_USERID) VALUES ($EID,$UID)";
   if(mysqli_query($conn, $sql)){
     header("Location: eventArrGood.php");
   } else {

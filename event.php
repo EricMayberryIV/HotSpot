@@ -39,7 +39,7 @@
       $EID = $_GET['EID'];
       $login = $_SESSION["login_user"];
 			$query = mysqli_query($conn, "select U_ACCT_TYPE, U_ID, U_IMAGE, U_SCHOOL,
-      U_DOB, U_F_NAME, U_L_NAME from USER where U_USERNAME = '$login'");
+      U_DOB, U_F_NAME, U_L_NAME from user where U_USERNAME = '$login'");
 			$resultU= mysqli_fetch_assoc($query);
 			$UID = $resultU['U_ID'];
       $_SESSION["UID"]= $UID;
@@ -90,9 +90,9 @@
                      E.E_SPONSOR,
                      E.E_SPONSOR_TITLE,
                      E.E_BYO
-              FROM EVENT E,
-                   LT_AGE A,
-                   USER U
+              FROM event E,
+                   lt_age A,
+                   user U
               WHERE E_ID = $EID
               AND E.E_AGE_GROUP=A.AGE_CODE
               AND E.E_CREATOR=U.U_ID";
@@ -163,8 +163,8 @@
             echo "Not Specified";
           } else {
             $sqlFood="SELECT F.F_FOOD
-                      FROM EVENT E,
-                           LT_FOOD F
+                      FROM event E,
+                           lt_food F
                       WHERE E.E_FOOD_TYPE=F.F_FOOD_TYPE
                       AND E.E_ID = $EID";
             $resultFood=$conn->query($sqlFood);
@@ -183,8 +183,8 @@
             echo "Not Specified";
           } else {
             $sqlAtt="SELECT ATT.ATT_ATTIRE
-                      FROM EVENT E,
-                           LT_ATTIRE ATT
+                      FROM event E,
+                           lt_attire ATT
                       WHERE E.E_ATTIRE_TYPE=ATT.ATT_ATTIRE_TYPE
                       AND E.E_ID = $EID";
             $resultAtt=$conn->query($sqlAtt);
@@ -205,8 +205,8 @@
             echo "Not Specified";
           } else {
             $sqlDrink="SELECT D.D_DRINK
-                       FROM EVENT E,
-                            LT_DRINK D
+                       FROM event E,
+                            lt_drink D
                        WHERE E.E_DRINK_TYPE=D.D_DRINK_TYPE
                        AND E.E_ID=$EID";
             $resultDrink=$conn->query($sqlDrink);
@@ -219,7 +219,7 @@
             }
           }
           echo "</td>
-          <td class=\"text-right\" style=\"width:25%;\">💲:&nbsp;</td>
+          <td class=\"text-right\" style=\"width:25%;\">&#36;:&nbsp;</td>
           <td class=\"pull-left\" style=\"width:40%;\">";
           if ($cost > 0){
             echo "&#36;".$cost;
@@ -264,7 +264,7 @@
     <span class="badge">
     <?php
       $sqlCommCount="SELECT COUNT(FB_ID)
-                     FROM FEEDBACK
+                     FROM feedback
                      WHERE FB_EVENT_ID=$EID";
       $resultCommCount=$conn->query($sqlCommCount);
       if ($resultCommCount->num_rows > 0) {
@@ -314,8 +314,8 @@
                            F.FB_MESS,
                            U.U_USERNAME,
                            DATE_FORMAT(FB_DATETIME,'%m/%d/%y @ %l:%i %p')
-                    FROM FEEDBACK F,
-                         USER U
+                    FROM feedback F,
+                         user U
                     WHERE FB_EVENT_ID=$EID
                     AND F.FB_FROM_ID=U.U_ID
                     ORDER BY FB_DATETIME DESC";

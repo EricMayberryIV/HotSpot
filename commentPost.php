@@ -11,7 +11,7 @@
   $commentBody = mysqli_real_escape_string($conn, $_POST['commentBody']);
 
   $UID=$_SESSION["UID"];
-  $sqlCommentPost="INSERT INTO FEEDBACK (FB_FROM_ID, FB_EVENT_ID, FB_MESS)
+  $sqlCommentPost="INSERT INTO feedback (FB_FROM_ID, FB_EVENT_ID, FB_MESS)
                    VALUES ($UID, $EID, '$commentBody')";
 
   if(mysqli_query($conn, $sqlCommentPost)){

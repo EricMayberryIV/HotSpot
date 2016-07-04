@@ -81,13 +81,17 @@
           <strong>Sent: <?php echo "$invTime" ?></strong>
         </h6>
         <br style="line-height:5px;" /><hr>
-        <center><small>Event Date: <?php echo "$eDate" ?> @ <?php echo "$eTime"; ?></small></center>
+        <center>
+          <small>Event Date: <?php echo "$eDate" ?> @ <?php echo "$eTime"; ?></small>
+        </center>
         <p class="text-justify"><?php echo "$eDesc" ?></p>
         <br style="line-height:30px;"/>
-        <a class="btn btn-block btn-primary" href="/event.php?EID=<?php echo "$eid"; ?>" role="button">View Event</a><br/>
+        <a class="btn btn-block btn-primary" href="event.php?EID=<?php echo "$eid"; ?>"
+          role="button">View Event</a><br/>
       </div>
       <div class="btn-group btn-group-justified" role="group">
-        <a class="btn btn-danger" href="delInv.php?invid=<?php echo $invid; ?>" role="button">Delete</a>
+        <a class="btn btn-danger" href="delInv.php?invid=<?php echo $invid; ?>"
+          role="button">Delete</a>
         <a type="button" class="btn btn-info" data-toggle="modal"
          data-target="#myModal">Reply
        </a>
@@ -117,9 +121,13 @@
           <form action="sendmsg.php" method="post">
             <div class="modal-body">
               <div class="form-group">
-            		<input type="text" name="recipient" value="<?php echo $sender ?>" class="form-control" placeholder="To"><br/>
-            		<input type="text" name="subject" value="RE: [Invitation] <?php echo $subject ?>" class="form-control"  placeholder="Subject"><br/>
-            		<textarea name="body" class="form-control" rows="13" placeholder="Message"></textarea>
+            		<input type="text" name="recipient" value="<?php echo $sender ?>"
+                class="form-control" placeholder="To"><br/>
+            		<input type="text" name="subject" value="RE: [Invitation]
+                <?php echo $subject ?>" class="form-control"
+                placeholder="Subject"><br/>
+            		<textarea name="body" class="form-control" rows="13"
+                placeholder="Message"></textarea>
           	   </div>
               <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
               <input type="submit" value="Send" class="btn btn-primary">

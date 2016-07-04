@@ -50,7 +50,7 @@
                 AND E_DATE >= CURDATE()
                 AND E_PRIVATE = 'N'
                 GROUP BY E.E_ID
-                ORDER BY COUNT(f.f_flame) DESC,
+                ORDER BY COUNT(F.f_flame) DESC,
                                  E_DATE,
                                  E_TIME_START;";
         $result = $conn->query($sql);
@@ -80,6 +80,7 @@
       </div>
       <!-- End row -->
     </div>
+  </div>
 
     <div>
     <?php include("nav.php"); ?>
